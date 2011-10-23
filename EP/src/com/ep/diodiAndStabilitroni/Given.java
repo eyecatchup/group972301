@@ -4,14 +4,14 @@ import java.io.Serializable;
 
 @SuppressWarnings("serial")
 public class Given implements Serializable{
-	private float tok;
-	private float naprWihodnoe;
-	private float deltaNaprWihodnoe;
+	private double tok;
+	private double naprWihodnoe;
+	private double deltaNaprWihodnoe;
 	private int var;
 	private boolean shema;
 	
 	
-	public Given(float tok, float napr, float delta, int var, boolean shema){
+	public Given(double tok, double napr, double delta, int var, boolean shema){
 		this.tok = tok;
 		this.deltaNaprWihodnoe = delta;
 		this.naprWihodnoe = napr;
@@ -19,15 +19,15 @@ public class Given implements Serializable{
 		this.setShema(shema);
 	}
 	
-	public float getTok(){
+	public double getTok(){
 		return tok;
 	}
 	
-	public float getNaprWihodnoe(){
+	public double getNaprWihodnoe(){
 		return naprWihodnoe;
 	}
 	
-	public float getDeltaNaprWihodnoe(){
+	public double getDeltaNaprWihodnoe(){
 		return deltaNaprWihodnoe;
 	}
 	

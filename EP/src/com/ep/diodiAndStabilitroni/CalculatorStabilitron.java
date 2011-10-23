@@ -1,7 +1,7 @@
 package com.ep.diodiAndStabilitroni;
 
 public class CalculatorStabilitron {
-	private StabilizatorNapr mStab;
+	private StabilizatorNapr mStab = new StabilizatorNapr();
 	private Given mGiven;
 	private Stabilitron stabilitron;
 
@@ -9,12 +9,12 @@ public class CalculatorStabilitron {
 		mGiven = given;
 		this.stabilitron = stabilitron;
 
-		mStab.setCoefStabliz(mGiven.getTok());
-		calcAmplitPuls();
-		calcSoprGosResistora();
+		mStab.setCoefStabliz(given.getTok());
+		calcAmplitPuls();//+
+		calcSoprGosResistora();//+
 		calcRabTokStabilitrona();
-		calcTokGosResistora();
-		calcSoprNagruzki();
+		calcTokGosResistora(); // +
+		calcSoprNagruzki(); //+
 		calcPostNaprNaWhodeStabilt();
 		calcTemperUhod();
 
@@ -44,8 +44,8 @@ public class CalculatorStabilitron {
 	}
 
 	private void calcRabTokStabilitrona() {
-		mStab.setRabTokStabilitrona((stabilitron.getTokMax() + stabilitron
-				.getTokMin()) / 2);
+		mStab.setRabTokStabilitrona((stabilitron.getTokMax() - stabilitron
+				.getTokMin() - mGiven.getTok()) / 2);
 
 	}
 
