@@ -10,11 +10,11 @@ public class CalculatorStabilitron {
 		this.stabilitron = stabilitron;
 
 		mStab.setCoefStabliz(given.getTok());
-		calcAmplitPuls();//+
-		calcSoprGosResistora();//+
+		calcAmplitPuls();
+		calcSoprGosResistora();
 		calcRabTokStabilitrona();
-		calcTokGosResistora(); // +
-		calcSoprNagruzki(); //+
+		calcTokGosResistora(); 
+		calcSoprNagruzki(); 
 		calcPostNaprNaWhodeStabilt();
 		calcTemperUhod();
 
