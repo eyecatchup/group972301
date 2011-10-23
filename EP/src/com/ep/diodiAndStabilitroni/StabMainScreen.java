@@ -1,6 +1,9 @@
 package com.ep.diodiAndStabilitroni;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -11,9 +14,6 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import java.awt.CardLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
 public class StabMainScreen extends JFrame {
@@ -110,13 +110,21 @@ public class StabMainScreen extends JFrame {
 				"\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C");
 		calc.setBounds(386, 289, 91, 23);
 		EnterPoint.add(calc);
-		
+
 		calc.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				cardLayout.show(contentPanel, "CalculatePoint");
-				
+
+				Given given = new Given(0.02, 6.8, 0.01, 1, true);
+				StabilizatorNapr stabilizatorNapr;
+				Stabilitron stabilitron = new Stabilitron(6.8, 0.045, 0.003, 20, 0.06);
+				CalculatorStabilitron calculatorStabilitron = new CalculatorStabilitron(
+						given, stabilitron);
+
+				stabilizatorNapr = calculatorStabilitron.getStabilitron();
+
 			}
 		});
 
@@ -158,7 +166,6 @@ public class StabMainScreen extends JFrame {
 				"\u041F\u043E\u043B\u0443\u0447\u0435\u043D\u043D\u044B\u0435 \u0434\u0430\u043D\u043D\u044B\u0435");
 		label_3.setBounds(410, 44, 145, 14);
 		CalculatePoint.add(label_3);
-	
 
 	}
 }

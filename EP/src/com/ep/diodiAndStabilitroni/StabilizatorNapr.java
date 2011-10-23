@@ -53,9 +53,9 @@ public class StabilizatorNapr {
 	}
 	
 	public void setCoefStabliz(double tokNagruzki){
-		if(tokNagruzki > 80/1000){
+		if(tokNagruzki > 0.08){
 			CoefStabiliz = 30;
-		} else if(tokNagruzki < 80/1000) {
+		} else if(tokNagruzki < 0.08) {
 			CoefStabiliz = 60;
 		}
 	}
