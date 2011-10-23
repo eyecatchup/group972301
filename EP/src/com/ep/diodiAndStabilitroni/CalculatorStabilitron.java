@@ -27,7 +27,7 @@ public class CalculatorStabilitron {
 	}
 
 	private void calcPostNaprNaWhodeStabilt() {
-		mStab.setPostNagrNaWhodeStabilitrona(mStab.getTokGosResistora()
+		mStab.setPostNagrNaWhodeStabilizatora(mStab.getTokGosResistora()
 				* mStab.getSoprotGosResis() + mGiven.getNaprWihodnoe());
 
 	}

@@ -9,7 +9,7 @@ public class StabilizatorNapr {
 	private double rabTokStabilit;
 	private double tokGosResistora;
 	private double soprNagruzki;
-	private double postNaprNaWhodeStabilitrona;
+	private double postNaprNaWhodeStabilizatora;
 	private double temperUhod;
 	
 	public void setTemperUhod(double temp){
@@ -20,12 +20,12 @@ public class StabilizatorNapr {
 		return temperUhod;
 	}
 	
-	public void setPostNagrNaWhodeStabilitrona(double post){
-		postNaprNaWhodeStabilitrona = post;
+	public void setPostNagrNaWhodeStabilizatora(double post){
+		postNaprNaWhodeStabilizatora = post;
 	}
 	
-	public double getPostNagrNaWhodeStabilitrona(){
-		return postNaprNaWhodeStabilitrona;
+	public double getPostNagrNaWhodeStabilizatora(){
+		return postNaprNaWhodeStabilizatora;
 	}
 	
 	public void setSoprNagr(double sopr){

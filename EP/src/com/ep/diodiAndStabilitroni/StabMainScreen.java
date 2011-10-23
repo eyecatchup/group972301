@@ -147,7 +147,7 @@ public class StabMainScreen extends JFrame {
 
 		JSeparator separator_4 = new JSeparator();
 		separator_4.setOrientation(SwingConstants.VERTICAL);
-		separator_4.setBounds(212, 28, 1, 400);
+		separator_4.setBounds(212, 28, 533, 400);
 		CalculatePoint.add(separator_4);
 
 		JSeparator separator_7 = new JSeparator();
