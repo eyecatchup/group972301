@@ -79,4 +79,5 @@ public class StabilizatorNapr {
 	public double getSoprotGosResis(){
 		return soprotGosResis;
 	}
+	
 }
