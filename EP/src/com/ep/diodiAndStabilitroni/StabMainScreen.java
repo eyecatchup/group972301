@@ -73,6 +73,12 @@ public class StabMainScreen extends JFrame {
 		cardLayout = new CardLayout();
 		contentPanel.setLayout(cardLayout);
 
+		enterPointView();
+		calculatedView();
+
+	}
+
+	private void enterPointView() {
 		EnterPoint = new JPanel();
 		contentPanel.add(EnterPoint, "EnterPoint");
 		EnterPoint.setLayout(null);
@@ -133,53 +139,7 @@ public class StabMainScreen extends JFrame {
 		calc.setBounds(386, 289, 91, 23);
 		EnterPoint.add(calc);
 
-		calc.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				cardLayout.show(contentPanel, "CalculatePoint");
-
-				String s = textField.getText();
-
-				Given given = new Given(0.02, 6.8, 0.01, 1, true);
-				StabilizatorNapr stabilizatorNapr;
-				Stabilitron stabilitron = new Stabilitron(6.8, 0.045, 0.003,
-						20, 0.06);
-				CalculatorStabilitron calculatorStabilitron = new CalculatorStabilitron(
-						given, stabilitron);
-
-				stabilizatorNapr = calculatorStabilitron.getStabilitron();
-
-				mData[0][0] = "Hello";
-				mData[0][1] = stabilizatorNapr
-						.getPostNagrNaWhodeStabilizatora();
-				mData[0][2] = stabilizatorNapr.getAmplitudePuls();
-				mData[0][3] = given.getNaprWihodnoe();
-				mData[0][4] = stabilizatorNapr.getTemperUhod();
-				mData[0][5] = given.getDeltaNaprWihodnoe();
-				mData[0][6] = stabilizatorNapr.getRabTokStabilitrona();
-				mData[0][7] = stabilizatorNapr.getTokGosResistora();
-				mData[0][8] = stabilizatorNapr.getCoefStabiliz();
-				mData[0][9] = stabilizatorNapr.getSoprNagruzki();
-				mData[0][10] = stabilizatorNapr.getSoprotGosResis();
-				
-				
-				Vipremitel vipr = new Vipremitel(stabilizatorNapr, true);
-				Diod diod = vipr.getDiod();
-				
-				mDataDiod [0][0] = diod.getName();
-				mDataDiod [0][1] = diod.getTok_maks();
-				mDataDiod [0][2] = diod.getTok_i_maks();
-				mDataDiod [0][3] = diod.getNapr_maks();
-				mDataDiod [0][4] = diod.getT_obr();
-				
-				mDataViprNapr [0][0] = diod.getName();
-				mDataViprNapr [0][1] = vipr.getEmkost();
-				mDataViprNapr [0][2] = vipr.getNaprObr();
-				mDataViprNapr [0][3] = vipr.getNaprVxod();
-				
-			}
-		});
+		calc.addActionListener(calcListener());
 
 		JLabel label = new JLabel("\u0412");
 		label.setBounds(487, 183, 23, 19);
@@ -192,7 +152,9 @@ public class StabMainScreen extends JFrame {
 		JLabel label_4 = new JLabel("\u043C\u0412");
 		label_4.setBounds(487, 245, 23, 19);
 		EnterPoint.add(label_4);
+	}
 
+	private void calculatedView() {
 		CalculatePoint = new JPanel();
 		contentPanel.add(CalculatePoint, "CalculatePoint");
 		CalculatePoint.setLayout(null);
@@ -263,6 +225,53 @@ public class StabMainScreen extends JFrame {
 
 		table_vipr_napr = new JTable(mDataViprNapr, VIPR_NAPR);
 		scrollPane_2.setViewportView(table_vipr_napr);
+	}
 
+	private ActionListener calcListener() {
+		return new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				cardLayout.show(contentPanel, "CalculatePoint");
+
+				Given given = new Given(0.02, 6.8, 0.01, 1, true);
+				StabilizatorNapr stabilizatorNapr;
+				Stabilitron stabilitron = new Stabilitron(6.8, 0.045, 0.003,
+						20, 0.06);
+				CalculatorStabilitron calculatorStabilitron = new CalculatorStabilitron(
+						given, stabilitron);
+
+				stabilizatorNapr = calculatorStabilitron.getStabilitron();
+
+				mData[0][0] = "Hello";
+				mData[0][1] = stabilizatorNapr
+						.getPostNagrNaWhodeStabilizatora();
+				mData[0][2] = stabilizatorNapr.getAmplitudePuls();
+				mData[0][3] = given.getNaprWihodnoe();
+				mData[0][4] = stabilizatorNapr.getTemperUhod();
+				mData[0][5] = given.getDeltaNaprWihodnoe();
+				mData[0][6] = stabilizatorNapr.getRabTokStabilitrona();
+				mData[0][7] = stabilizatorNapr.getTokGosResistora();
+				mData[0][8] = stabilizatorNapr.getCoefStabiliz();
+				mData[0][9] = stabilizatorNapr.getSoprNagruzki();
+				mData[0][10] = stabilizatorNapr.getSoprotGosResis();
+				
+				
+				Vipremitel vipr = new Vipremitel(stabilizatorNapr, true);
+				Diod diod = vipr.getDiod();
+				
+				mDataDiod [0][0] = diod.getName();
+				mDataDiod [0][1] = diod.getTok_maks();
+				mDataDiod [0][2] = diod.getTok_i_maks();
+				mDataDiod [0][3] = diod.getNapr_maks();
+				mDataDiod [0][4] = diod.getT_obr();
+				
+				mDataViprNapr [0][0] = diod.getName();
+				mDataViprNapr [0][1] = vipr.getEmkost();
+				mDataViprNapr [0][2] = vipr.getNaprObr();
+				mDataViprNapr [0][3] = vipr.getNaprVxod();
+				
+			}
+		};
 	}
 }
