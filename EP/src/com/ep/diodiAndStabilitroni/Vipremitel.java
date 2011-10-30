@@ -14,7 +14,7 @@ public class Vipremitel implements Serializable {
 
 	private boolean shema;
 	private int f = 50;
-	private String diod;
+	private Diod diod;
 
 	public Vipremitel(StabilizatorNapr stab, boolean shema) {
 		this.naprVixVipr = stab.getPostNagrNaWhodeStabilizatora();
@@ -109,11 +109,11 @@ public class Vipremitel implements Serializable {
 		this.naprVxod = naprVxod;
 	}
 
-	public String getDiod() {
+	public Diod getDiod() {
 		return diod;
 	}
 
-	public void setDiod(String diod) {
+	public void setDiod(Diod diod) {
 		this.diod = diod;
 	}
 }
