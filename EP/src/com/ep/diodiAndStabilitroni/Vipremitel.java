@@ -45,7 +45,7 @@ public class Vipremitel implements Serializable {
 			koef = 2;
 		}
 
-		emkost = tokVipr / (f * koef * tokVipr);
+		emkost = tokVipr / (f * koef * this.deltaNaprVixVipr);
 	}
 
 	private void calcAplitudVxodNaprVipr() {
