@@ -74,4 +74,16 @@ public class Diod implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public Object[][] getDiodData(){
+		Object[][] data = new Object[1][5];
+		
+		data [0][0] = getName();
+		data [0][1] = getTok_maks();
+		data [0][2] = getTok_i_maks();
+		data [0][3] = getNapr_maks();
+		data [0][4] = getT_obr();
+		
+		return data;
+	}
 }

@@ -116,4 +116,21 @@ public class Vipremitel implements Serializable {
 	public void setDiod(Diod diod) {
 		this.diod = diod;
 	}
+	
+	public Object[][] getVipyamData(){
+		Object[][] data = new Object[1][4];
+		
+		data [0][0] = diod.getName();
+		data [0][1] = getEmkost();
+		data [0][2] = getNaprObr();
+		data [0][3] = getNaprVxod();
+		
+		return data;
+	}
+	
+	
+	public Object[][] getDiodData(){
+		return diod.getDiodData();
+	}
+	
 }
