@@ -63,5 +63,22 @@ public class CalculatorStabilitron {
 	public StabilizatorNapr getStabilitron() {
 		return mStab;
 	}
+	
+	public Object[][] getData(){
+		Object[][] mData = new Object[1][11];
+		mData[0][0] = "Hello";
+		mData[0][1] = mStab.getPostNagrNaWhodeStabilizatora();
+		mData[0][2] = mStab.getAmplitudePuls();
+		mData[0][3] = mGiven.getNaprWihodnoe();
+		mData[0][4] = mStab.getTemperUhod();
+		mData[0][5] = mGiven.getDeltaNaprWihodnoe();
+		mData[0][6] = mStab.getRabTokStabilitrona();
+		mData[0][7] = mStab.getTokGosResistora();
+		mData[0][8] = mStab.getCoefStabiliz();
+		mData[0][9] = mStab.getSoprNagruzki();
+		mData[0][10] = mStab.getSoprotGosResis();
+		
+		return mData;
+	}
 
 }
