@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.ep.diodiAndStabilitroni.screen.add.AddStabNaprScreen;
 import com.ep.diodiAndStabilitroni.screen.result.ResultStabilizatorNapr;
+import com.ep.ysilitelnieKaskadi.screen.result.ResultOB;
 
 @SuppressWarnings("serial")
 public class StabMainScreen extends JFrame {
@@ -23,7 +24,7 @@ public class StabMainScreen extends JFrame {
 	private final JPanel contentPanel = new JPanel();
 	private CardLayout cardLayout;
 
-	private static final String[] THEME = { "Стабилизатор напряжения" };
+	private static final String[] THEME = { "Стабилизатор напряжения", "Усилительные каскады" };
 	private static final Integer[] VARIANT = { 1, 2, 3, 4, 5 };
 
 	private static final String CALCULATE_POINT = "CalculatePoint";
@@ -31,6 +32,15 @@ public class StabMainScreen extends JFrame {
 	private static final String MAIN_SCREEN = "Main_Screen";
 
 	private ResultStabilizatorNapr resultStabilizatorNapr = new ResultStabilizatorNapr(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			cardLayout.show(contentPanel, MAIN_SCREEN);
+			
+		}
+	});
+	
+	private ResultOB resultOB = new ResultOB(new ActionListener() {
 		
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
