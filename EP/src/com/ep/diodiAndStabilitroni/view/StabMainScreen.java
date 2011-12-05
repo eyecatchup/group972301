@@ -1,4 +1,4 @@
-package com.ep.diodiAndStabilitroni;
+package com.ep.diodiAndStabilitroni.view;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -14,6 +14,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.ep.diodiAndStabilitroni.CalculatorStabilitron;
+import com.ep.diodiAndStabilitroni.Diod;
+import com.ep.diodiAndStabilitroni.Given;
+import com.ep.diodiAndStabilitroni.Stabilitron;
+import com.ep.diodiAndStabilitroni.Vipremitel;
 import com.ep.diodiAndStabilitroni.screen.add.AddStabNaprScreen;
 import com.ep.diodiAndStabilitroni.screen.result.ResultStabilizatorNapr;
 import com.ep.ysilitelnieKaskadi.screen.result.ResultOB;
@@ -48,6 +53,7 @@ public class StabMainScreen extends JFrame {
 			
 		}
 	});
+	
 	private AddStabNaprScreen addStabNaprScreen = new AddStabNaprScreen(
 			calcListener());
 
