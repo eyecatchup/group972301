@@ -80,7 +80,9 @@ public class StabMainScreen extends JFrame {
 					.addAnnotatedClass(Student.class)
 					.addAnnotatedClass(Lab.class)
 					.addAnnotatedClass(Group.class)
-					.addAnnotatedClass(StudentLabs.class);
+					.addAnnotatedClass(StudentLabs.class)
+					.addAnnotatedClass(com.entity.Given.class)
+					.addAnnotatedClass(com.entity.Stabilitron.class);
 
 			config = aconf.configure();
 
