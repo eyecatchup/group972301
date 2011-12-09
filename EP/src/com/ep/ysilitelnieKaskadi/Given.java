@@ -1,13 +1,13 @@
-package com.ep.ysilitelnieKaskadi.screen.result;
+package com.ep.ysilitelnieKaskadi;
 
 public class Given {
     private String type;
-    private double Uka0;
-    private double Ik;
-    private double Eg;
-    private double Rg;
-    private double Rn;
-    private double Cn;
+    private double Uka0 = 6;
+    private double Ik = 0.006;
+    private double Eg = 0.005;
+    private double Rg = 2000;
+    private double Rn = 2000;
+    private double Cn = 0.0000000002;
     
     public Given(String _type,
             double _Uka0,
@@ -23,6 +23,10 @@ public class Given {
         Rg = _Rg;
         Rn = _Rn;
         Cn = _Cn;
+    }
+    
+    public Given(){
+        
     }
     
     public String getType(){
