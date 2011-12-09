@@ -15,19 +15,37 @@ import javax.swing.SwingConstants;
 
 import com.ep.diodiAndStabilitroni.screen.base.BaseScreen;
 
-public class ResultOB implements BaseScreen{
-		
-	private JTable table_param_stab_vipr_dioda;
-	private JTable table_vipr_napr;
+public class ResultOB implements BaseScreen {
+
+	
+	private JTable table_given;
+	private JTable table_transistor;
 	
 	private JPanel CalculatePoint;
-	private JTable table_param_stab_napr;
+	private JTable table_OB;
 
-	private static final Object[] OB_COLOMNS = { "Òèï ÁÒ", "Uêý0, Â", "Iê, À", "Åã, ìÂ", "Rã, ÎÌ", "Rí, Îì", "Ñí, ìÔ"};
-	private static final Object[] OB_COLUMNS_RES = { "fí1, Ãö", "fí2, Ãö", "fí3, Ãö", "fâ1, Ãö", "fâ2, Ãö", "fâ3, Ãö", "MâN", "MíN"};
+	private static final Object[] GIVEN_COLOMNS = { "Òèï ÁÒ", 
+		"Uêý0, Â", 
+		"Iê, ìÀ", 
+		"Eã, ìÂ", 
+		"Rã, Îì", 
+		"Rí, Îì", 
+		"Cí, íÔ"};
+	private static final Object[] TRANSISTOR_COLUMN = { "h21min", 
+		"h21max", 
+		"h21a", 
+		"Cê, ïÔ", 
+		"Cí, ïô" };
+	private static final Object[] OB_COLUMN = { "Ua", "Uip", "Rk", "Ra", "Ib",  
+		"Ub", "Id", "R1", "R2", "C1", 
+		"C2", "Ca", "Cb", "Rvh", "Rb", 
+		"Rvih", "Ki", "Ku", "Fn1", "Fn2", 
+		"Fn3", "Fv1", "Fv2", "Fv3", "MvN", 
+		"MnN"};
 
-	private Object[][] mOBData = new Object[1][7];
-	private Object[][] mOBData_Result = new Object[1][8];
+	private Object[][] mDataGiven = new Object[1][7];
+	private Object[][] mDataTransistor = new Object[1][5];
+	private Object[][] mDataOB = new Object[1][26];
 	
 	private ActionListener backBtnListener;
 
@@ -76,29 +94,36 @@ public class ResultOB implements BaseScreen{
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setEnabled(false);
-		scrollPane
-				.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 		scrollPane.setBounds(51, 89, 677, 41);
 		CalculatePoint.add(scrollPane);
 
-		table_param_stab_napr = new JTable(mOBData, OB_COLOMNS);
-		scrollPane.setViewportView(table_param_stab_napr);
-		table_param_stab_napr.setBackground(Color.WHITE);
-		table_param_stab_napr.setForeground(Color.GRAY);
-		table_param_stab_napr.setColumnSelectionAllowed(true);
+		table_given = new JTable(mDataGiven, GIVEN_COLOMNS);
+		scrollPane.setViewportView(table_given);
+		table_given.setBackground(Color.WHITE);
+		table_given.setForeground(Color.GRAY);
+		table_given.setColumnSelectionAllowed(true);
 
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setEnabled(false);
 		scrollPane_1.setBorder(BorderFactory.createEmptyBorder());
-		scrollPane_1
-				.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		scrollPane_1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 		scrollPane_1.setBounds(49, 202, 677, 58);
 		CalculatePoint.add(scrollPane_1);
 
-		table_param_stab_vipr_dioda = new JTable(mOBData_Result, OB_COLUMNS_RES);
-		scrollPane_1.setViewportView(table_param_stab_vipr_dioda);
-		
+		table_transistor = new JTable(mDataTransistor, TRANSISTOR_COLUMN);
+		scrollPane_1.setViewportView(table_transistor);
+
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setEnabled(false);
+		scrollPane_2.setBorder(BorderFactory.createEmptyBorder());
+		scrollPane_2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		scrollPane_2.setBounds(49, 333, 677, 41);
+		CalculatePoint.add(scrollPane_2);
+
+		table_OB = new JTable(mDataOB, OB_COLUMN);
+		scrollPane_2.setViewportView(table_OB);
 		
 		JButton back_btn = new JButton("\u0412\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u043D\u0430\u0437\u0430\u0434");
 		back_btn.setBounds(577, 440, 168, 23);
@@ -111,17 +136,23 @@ public class ResultOB implements BaseScreen{
 
 	}
 	
-	public void setOBData(Object[][] data){
+	public void setGiven(Object[][] data){
 		for (int i = 0; i < 7; i++){
-			mOBData[0][i] = data[0][i];
+			mDataGiven[0][i] = data[0][i];
 		}
 	}
 	
-	public void setOBData_Result(Object[][] data) {
-		for(int i = 0; i < 8; i++){
-			mOBData_Result[0][i] = data[0][i];
+	public void setTransistor(Object[][] vipyamData) {
+		for(int i = 0; i < 5; i++){
+			mDataTransistor[0][i] = vipyamData[0][i];
 		}
 		
+	}
+
+	public void setOB(Object[][] s) {
+		for(int i = 0; i < 26; i++){
+			mDataOB[0][i] = s[0][i];
+		}
 	}
 
 }
