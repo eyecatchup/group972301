@@ -1,6 +1,6 @@
 package com.ep.ysilitelnieKaskadi;
 
-public class Given {
+public class GivenOB {
     private String type;
     private double Uka0 = 6;
     private double Ik = 0.006;
@@ -9,7 +9,7 @@ public class Given {
     private double Rn = 2000;
     private double Cn = 0.0000000002;
     
-    public Given(String _type,
+    public GivenOB(String _type,
             double _Uka0,
             double _Ik,
             double _Eg,
@@ -25,7 +25,7 @@ public class Given {
         Cn = _Cn;
     }
     
-    public Given(){
+    public GivenOB(){
         
     }
     
@@ -55,5 +55,17 @@ public class Given {
     
     public double getCn(){
         return Cn;
+    }
+    
+    public Object[] getData(){
+    	Object[] data = new Object[7];
+    	data[0] = getType();
+    	data[1] = getUka0();
+    	data[2] = getIk();
+    	data[3] = getEg();
+    	data[4] = getRg();
+    	data[5] = getRn();
+    	data[6] = getCn();
+    	return data;
     }
 }

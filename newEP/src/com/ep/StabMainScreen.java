@@ -6,7 +6,6 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.security.auth.login.Configuration;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -15,16 +14,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.cfg.Configuration;
 
-import com.dao.SessionFactory;
 import com.entity.Group;
 import com.entity.Kravchenko_data;
 import com.entity.Lab;
-import com.entity.OB_Given;
 import com.entity.OB_Transistor;
 import com.entity.Student;
 import com.entity.StudentLabs;
+import com.entity.OB_Given;
 import com.ep.diodiAndStabilitroni.CalculatorStabilitron;
 import com.ep.diodiAndStabilitroni.Diod;
 import com.ep.diodiAndStabilitroni.Given;
@@ -33,12 +33,14 @@ import com.ep.diodiAndStabilitroni.Vipremitel;
 import com.ep.diodiAndStabilitroni.screen.add.AddStabNaprScreen;
 import com.ep.diodiAndStabilitroni.screen.result.ResultStabilizatorNapr;
 import com.ep.ysilitelnieKaskadi.screen.result.ResultOB;
+import com.ep.ysilitelnieKaskadi.*;
 
 @SuppressWarnings("serial")
 public class StabMainScreen extends JFrame {
 
 	private final JPanel contentPanel = new JPanel();
 	private CardLayout cardLayout;
+	private JComboBox theme_combobox;
 
 	private static final String[] THEME = { "Стабилизатор напряжения",
 			"Усилительные каскады" };
@@ -47,6 +49,7 @@ public class StabMainScreen extends JFrame {
 	private static final String CALCULATE_POINT = "CalculatePoint";
 	private static final String ENTER_POINT = "EnterPoint";
 	private static final String MAIN_SCREEN = "Main_Screen";
+	private static final String OB_CALCULATE_POINT = "OBCalculatePoint";
 
 	private ResultStabilizatorNapr resultStabilizatorNapr = new ResultStabilizatorNapr(
 			new ActionListener() {
@@ -58,15 +61,15 @@ public class StabMainScreen extends JFrame {
 				}
 			});
 
-	@SuppressWarnings("unused")
-	private ResultOB resultOB = new ResultOB(new ActionListener() {
+	private ResultOB resultOB = new ResultOB(
+			new ActionListener() {
 
-		@Override
-		public void actionPerformed(ActionEvent arg0) {
-			cardLayout.show(contentPanel, MAIN_SCREEN);
-
-		}
-	});
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					cardLayout.show(contentPanel, MAIN_SCREEN);
+					
+				}
+			});
 	private AddStabNaprScreen addStabNaprScreen = new AddStabNaprScreen(
 			calcListener());
 
@@ -122,7 +125,7 @@ public class StabMainScreen extends JFrame {
 		contentPanel.add(main_panel, MAIN_SCREEN);
 		main_panel.setLayout(null);
 
-		JComboBox theme_combobox = new JComboBox(THEME);
+		theme_combobox = new JComboBox(THEME);
 		theme_combobox.setBounds(346, 158, 275, 20);
 		main_panel.add(theme_combobox);
 
@@ -157,7 +160,6 @@ public class StabMainScreen extends JFrame {
 		view_data_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				calculateStabNap();
-				cardLayout.show(contentPanel, CALCULATE_POINT);
 			}
 		});
 
@@ -165,8 +167,9 @@ public class StabMainScreen extends JFrame {
 		main_panel.add(view_data_btn);
 
 		// //////////////////////////////////////////////////////////////////////////////////////
-		contentPanel.add(addStabNaprScreen.getView(), ENTER_POINT);
 		contentPanel.add(resultStabilizatorNapr.getView(), CALCULATE_POINT);
+		contentPanel.add(addStabNaprScreen.getView(), ENTER_POINT);
+		contentPanel.add(resultOB.getView(), OB_CALCULATE_POINT);
 
 	}
 
@@ -183,19 +186,31 @@ public class StabMainScreen extends JFrame {
 	}
 
 	private void calculateStabNap() {
-		cardLayout.show(contentPanel, "CalculatePoint");
+		switch (theme_combobox.getSelectedIndex()){
+		case 0:
+			Given given = new Given(0.02, 6.8, 0.01, 1, true);
+			Stabilitron stabilitron = new Stabilitron(6.8, 0.045, 0.003, 20, 0.06);
+			CalculatorStabilitron calculatorStabilitron = new CalculatorStabilitron(given, stabilitron);
 
-		Given given = new Given(0.02, 6.8, 0.01, 1, true);
-		Stabilitron stabilitron = new Stabilitron(6.8, 0.045, 0.003, 20, 0.06);
-		CalculatorStabilitron calculatorStabilitron = new CalculatorStabilitron(
-				given, stabilitron);
-
-		resultStabilizatorNapr.setStabNaprData(calculatorStabilitron.getData());
-
-		Vipremitel vipr = new Vipremitel(
-				calculatorStabilitron.getStabilitron(), true);
-		Diod diod = vipr.getDiod();
-		resultStabilizatorNapr.setVipryamData(vipr.getVipyamData());
-		resultStabilizatorNapr.setDiodData(diod.getDiodData());
+			resultStabilizatorNapr.setStabNaprData(calculatorStabilitron.getData());
+			Vipremitel vipr = new Vipremitel(calculatorStabilitron.getStabilitron(), true);
+			Diod diod = vipr.getDiod();
+			resultStabilizatorNapr.setVipryamData(vipr.getVipyamData());
+			resultStabilizatorNapr.setDiodData(diod.getDiodData());
+			
+			cardLayout.show(contentPanel, CALCULATE_POINT);
+			break;
+		case 1:
+			GivenOB giv = new GivenOB("Tran1", 6, 0.006, 0.005, 2000, 2000, 0.0000000002);
+			TransistorOB transistor = new TransistorOB(40, 100, 5); 
+			CalculatorOB calculator = new CalculatorOB(giv, transistor);
+			
+			resultOB.setGiven(giv.getData());
+			resultOB.setTransistor(transistor.getData());
+			resultOB.setOB(calculator.getData());
+			
+			cardLayout.show(contentPanel, OB_CALCULATE_POINT);
+			break;
+		}
 	}
 }
