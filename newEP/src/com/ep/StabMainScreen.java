@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.security.auth.login.Configuration;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -14,17 +15,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.cfg.Configuration;
 
+import com.dao.SessionFactory;
 import com.entity.Group;
 import com.entity.Kravchenko_data;
 import com.entity.Lab;
+import com.entity.OB_Given;
 import com.entity.OB_Transistor;
 import com.entity.Student;
 import com.entity.StudentLabs;
-import com.entity.OB_Given;
 import com.ep.diodiAndStabilitroni.CalculatorStabilitron;
 import com.ep.diodiAndStabilitroni.Diod;
 import com.ep.diodiAndStabilitroni.Given;
@@ -76,7 +76,7 @@ public class StabMainScreen extends JFrame {
 	public static void main(String[] args) {
 		try {
 
-			AnnotationConfiguration aconf;
+			/*AnnotationConfiguration aconf;
 			Configuration config;
 
 			aconf = new AnnotationConfiguration()
@@ -92,7 +92,7 @@ public class StabMainScreen extends JFrame {
 			config = aconf.configure();
 
 			SessionFactory sessionFactory = config.configure()
-					.buildSessionFactory();
+					.buildSessionFactory();*/
 
 			StabMainScreen dialog = new StabMainScreen();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
