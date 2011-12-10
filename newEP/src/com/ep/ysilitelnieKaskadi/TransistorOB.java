@@ -1,6 +1,6 @@
 package com.ep.ysilitelnieKaskadi;
 
-public class Transistor {
+public class TransistorOB {
     private double h21min = 40;
     private double h21max = 100;
     private double h21A = 0;//calc
@@ -11,7 +11,7 @@ public class Transistor {
     private double Ck = 0.000000000005;
     private double Ca = 0.000000000005;
     
-    public Transistor(double _h21min,
+    public TransistorOB(double _h21min,
             double _h21max,
             double _h21a){
         h21min = _h21min;        
@@ -20,8 +20,16 @@ public class Transistor {
         h21A = Math.sqrt(h21min * h21max);
     }
 
-    public Transistor() {
+    public TransistorOB() {
         h21A = Math.sqrt(h21min * h21max);
+    }
+    
+    public double getH21min(){
+        return h21min;
+    }
+    
+    public double getH21max(){
+        return h21max;
     }
     
     public double getH21a(){
@@ -50,5 +58,15 @@ public class Transistor {
     
     public double getCk(){
         return Ck;
+    }
+    
+    public Object[] getData(){
+    	Object[] data = new Object[5];
+    	data[0] = getH21min();
+        data[1] = getH21max();
+        data[2] = getH21a();
+        data[3] = getCa();
+        data[4] = getCk();
+    	return data;
     }
 }
