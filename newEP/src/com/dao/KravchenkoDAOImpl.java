@@ -19,7 +19,9 @@ public class KravchenkoDAOImpl extends GenericDaoIml<Kravchenko_data, Long>{
 	
 	public List<Kravchenko_data> getDataByVariant(Integer variant){
 		Session session = sessionFactory.openSession();
-		return session.createQuery("from Kravchenko_data").list();
+		List<Kravchenko_data> list = session.createQuery("from Kravchenko_data as data where data.data_variant=:variant order by data.data_u").setInteger("variant", variant).list();
+		session.close();
+		return list;
 	}
 	
 	public void addDataToVariant(List<Double> u, List<Double> i, Integer variant, Double u0,Double e ){
