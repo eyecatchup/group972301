@@ -4,9 +4,18 @@
 <hibernate-configuration>
 	<session-factory>
         <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost/ep_db</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ep_db</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">root</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLMyISAMDialect</property>
+        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <mapping class="com.entity.Kravchenko_data" />
+        <mapping class="com.entity.Given" />
+        <mapping class="com.entity.Group" />
+        <mapping class="com.entity.Lab" />
+        <mapping class="com.entity.OB_Given" />
+        <mapping class="com.entity.OB_Transistor" />
+        <mapping class="com.entity.Stabilitron" />
+        <mapping class="com.entity.Student" />
+        <mapping class="com.entity.StudentLabs" />
     </session-factory>
 </hibernate-configuration>
