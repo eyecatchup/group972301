@@ -1,0 +1,20 @@
+<!DOCTYPE hibernate-configuration PUBLIC 
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+        <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ep_db</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <mapping class="entity.Kravchenko_data" />
+        <mapping class="entity.Given" />
+        <mapping class="entity.StGroup" />
+        <mapping class="entity.Lab" />
+        <mapping class="entity.OB_Given" />
+        <mapping class="entity.OB_Transistor" />
+        <mapping class="entity.Stabilitron" />
+        <mapping class="entity.StudentLabs" />
+    </session-factory>
+</hibernate-configuration>

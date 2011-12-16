@@ -1,0 +1,59 @@
+@CHARSET "UTF-8";
+
+body {
+	margin-top: 3%;
+	background-color: #33CCCC;
+}
+
+#table {
+	position: absolute;
+	left: 50%;
+	width: 1000px;
+	margin-left: -500px;
+	margin-top: 20px;
+}
+
+ #header{
+  	height:150px;
+	min-width:800px;
+	background:#FFEF97;
+	/* text-align: center; */
+}
+
+#login {
+	background-color: #ffffff;
+	width: 400px;
+	height: 200px;
+	margin: 0 auto;
+	margin-top: 12%;
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	/* margin-top: 12% */
+}
+
+.addForm {
+	background: #ffffff;
+	width: 300px;
+	margin: 0, auto;
+	text-align: center;
+	padding: 20px;
+	border: 1px solid #000;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+
+.submit {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.loginForm {
+	margin-top: 8%;
+	height: 10px;
+	margin-bottom: 20px;
+}
+
+.errorMessage {
+	color: red;
+	text-align: center;
+}
