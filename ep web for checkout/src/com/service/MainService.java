@@ -3,7 +3,10 @@ package com.service;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 
 import org.hibernate.classic.Session;
@@ -13,6 +16,7 @@ import com.logic.AppLogic;
 import dao.GivenDAOImpl;
 import dao.OB_GivenDAOImpl;
 import entity.GivenOB;
+import entity.Lab;
 import ep.HibernateUtil;
 
 public class MainService {
@@ -106,6 +110,24 @@ public class MainService {
 
 		}
 
+	}
+	
+	public static boolean checkIfStudentHasMakr(long theme) {
+		Set<Lab> doneLabs = LoginService.student.getDoneLabs();
+
+		for (Lab i : doneLabs) {
+			if (i.getTheme() == theme) {
+				FacesContext context = FacesContext.getCurrentInstance();
+				context.addMessage(null, new FacesMessage(
+						FacesMessage.SEVERITY_INFO, "Студен "
+								+ LoginService.student.getName() + " "
+								+ LoginService.student.getSurname()
+								+ " у вас уже имеется оценка", null));
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	public String showStabData() {
