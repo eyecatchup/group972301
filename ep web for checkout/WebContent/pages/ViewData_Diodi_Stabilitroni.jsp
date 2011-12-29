@@ -42,7 +42,7 @@
 
 		<br></br>
 
-		<div>
+		<%-- <div>
 
 			<h:outputLabel value="Параметры стабилитрона"></h:outputLabel>
 			<br></br>
@@ -91,8 +91,8 @@
 				</tr>
 			</table>
 		</div>
-	
-		
+ --%>
+
 	</f:view>
 </body>
 </html>

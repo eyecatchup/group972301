@@ -16,7 +16,7 @@ import ep.HibernateUtil;
 import ep.diodiAndStabilitroni.CalculatorStabilitron;
 import ep.diodiAndStabilitroni.Vipremitel;
 
-public class DiodiAndStabilitrManager {	
+public class DiodiAndStabilitrManager {
 	private Given given;
 	private CalculatorStabilitron calculatorStabilitron;
 	private Vipremitel vipremitel;
@@ -70,11 +70,16 @@ public class DiodiAndStabilitrManager {
 
 		vipremitel = new Vipremitel(calculatorStabilitron.getStabilitron(),
 				state);
+		
+		MainService.checkIfStudentHasMakr(1);
 
 	}
 
 	public void chechResult(ActionEvent e) {
-		
+
+		if (MainService.checkIfStudentHasMakr(1) == false)
+			return;
+
 		StringDataValidator.stateShow = true;
 
 		Integer i = Integer.parseInt(Uvxst);
@@ -248,39 +253,38 @@ public class DiodiAndStabilitrManager {
 		}
 
 		resultMark = new String(new Double(z).toString());
-		
+
 		studentLab.setMark(new Long(z));
-		studentLab.setTheme(theme);
+		studentLab.setTheme(new Long(1));
 		studentLab.setVariant(new Long(MainService.getChoosedTheme_0_Var()));
 		LoginService.student.getDoneLabs().add(studentLab);
-		
+
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		LabDAOImpl daoImpl = new LabDAOImpl();
 		daoImpl.setSession(session);
 		Transaction transaction = session.beginTransaction();
 		transaction.begin();
-		
+
 		daoImpl.makePersistent(studentLab);
-		
+
 		transaction.commit();
 		session.close();
-		
-		
+
 		Session ses = HibernateUtil.getSessionFactory().openSession();
 		StudentLabsDAOImpl studentDAOImpl = new StudentLabsDAOImpl();
 		studentDAOImpl.setSession(ses);
 		Transaction transaction2 = ses.beginTransaction();
 		transaction2.begin();
-		
+
 		StudentLabs labs = new StudentLabs();
 		labs.setLab(studentLab);
 		labs.setStudent(LoginService.student);
-		
+
 		studentDAOImpl.makePersistent(labs);
-		
+
 		transaction2.commit();
 		ses.close();
-		
+
 		passed = 0;
 
 	}

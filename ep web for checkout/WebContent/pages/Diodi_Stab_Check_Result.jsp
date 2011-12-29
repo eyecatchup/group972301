@@ -27,10 +27,6 @@
 
 			<h:form>
 
-				<%-- <br></br>
-				<h:messages></h:messages>
-				<br></br> --%>
-
 				<table id="table">
 					<tr class="header">
 						<td width="400px"><h:outputLabel value="Обозначение" /></td>
@@ -164,6 +160,8 @@
 				<h:outputLabel
 					value="Студент #{loginService.student.fathersName} #{loginService.student.name } ваша оценка:"></h:outputLabel>
 				<h:outputLabel value="#{diodiAndStabilitrManager.resultMark }"></h:outputLabel>
+				
+				<h:commandButton value="Назад" ></h:commandButton>
 
 			</h:form>
 

@@ -19,8 +19,8 @@ public class Lab implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(name = "theme", length = 45)
-	private String theme;
+	@Column(name = "theme")
+	private Long theme;
 
 	@Column(name = "variant")
 	private Long variant;
@@ -34,14 +34,6 @@ public class Lab implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getTheme() {
-		return theme;
-	}
-
-	public void setTheme(String theme) {
-		this.theme = theme;
 	}
 
 	public Long getVariant() {
@@ -58,6 +50,14 @@ public class Lab implements Serializable {
 
 	public void setMark(Long mark) {
 		this.mark = mark;
+	}
+
+	public Long getTheme() {
+		return theme;
+	}
+
+	public void setTheme(Long theme) {
+		this.theme = theme;
 	}
 
 }
