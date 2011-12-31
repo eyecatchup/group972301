@@ -55,6 +55,7 @@ public class DiodiAndStabilitrManager {
 	private String resRn;
 	private String resRgen;
 
+	private String ERROR_MESSAGE = "";
 
 	public void caltulate(String theme) {
 
@@ -68,15 +69,23 @@ public class DiodiAndStabilitrManager {
 
 		vipremitel = new Vipremitel(calculatorStabilitron.getStabilitron(),
 				state);
-		
-		MainService.checkIfStudentHasMakr(1);
+
+		if (MainService.checkIfStudentHasMakr(1) == false) {
+			ERROR_MESSAGE = MainService.HAS_MARK;
+		} else {
+			ERROR_MESSAGE = "";
+		}
 
 	}
 
 	public void chechResult(ActionEvent e) {
 
-		if (MainService.checkIfStudentHasMakr(1) == false)
+		if (MainService.checkIfStudentHasMakr(1) == false) {
+			ERROR_MESSAGE = MainService.HAS_MARK;
 			return;
+		} else {
+			ERROR_MESSAGE = "";
+		}
 
 		StringDataValidator.stateShow = true;
 
@@ -518,6 +527,14 @@ public class DiodiAndStabilitrManager {
 
 	public void setResultMark(String resultMark) {
 		this.resultMark = resultMark;
+	}
+
+	public String getERROR_MESSAGE() {
+		return ERROR_MESSAGE;
+	}
+
+	public void setERROR_MESSAGE(String eRROR_MESSAGE) {
+		ERROR_MESSAGE = eRROR_MESSAGE;
 	}
 
 }

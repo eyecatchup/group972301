@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 
 import org.hibernate.classic.Session;
@@ -20,6 +18,10 @@ import entity.Lab;
 import ep.HibernateUtil;
 
 public class MainService {
+	public static String HAS_MARK = "Студент "
+			+ LoginService.student.getName() + " "
+			+ LoginService.student.getSurname() + " у вас уже имеется оценка.";
+
 	private static String theme0 = "Тема - Диоды и стабилитрны";
 	private static String theme1 = "Тема - Влада";
 	private static String theme2 = "Тема - Вити";
@@ -50,7 +52,7 @@ public class MainService {
 		List<Integer> list = daoImpl.getVariants();
 		daoImpl.getSession().close();
 
-		//System.out.println(list.size());
+		// System.out.println(list.size());
 		for (int i : list) {
 			variants1.put(i, i);
 		}
@@ -62,10 +64,10 @@ public class MainService {
 
 		return AppLogic.DIODO_STABILITRONI_CHECK;
 	}
-	
+
 	public String checkResult_1() {
-		//stabilizatorNaprManager.caltulate(theme0);
-		//obManager = new OBManager();
+		// stabilizatorNaprManager.caltulate(theme0);
+		// obManager = new OBManager();
 		obManager.calculate();
 		return AppLogic.OB_CHECK;
 	}
@@ -112,18 +114,12 @@ public class MainService {
 		}
 
 	}
-	
+
 	public static boolean checkIfStudentHasMakr(long theme) {
 		Set<Lab> doneLabs = LoginService.student.getDoneLabs();
 
 		for (Lab i : doneLabs) {
 			if (i.getTheme() == theme) {
-				FacesContext context = FacesContext.getCurrentInstance();
-				context.addMessage(null, new FacesMessage(
-						FacesMessage.SEVERITY_INFO, "Студен "
-								+ LoginService.student.getName() + " "
-								+ LoginService.student.getSurname()
-								+ " у вас уже имеется оценка", null));
 				return false;
 			}
 		}
@@ -218,6 +214,14 @@ public class MainService {
 
 	public void setObManager(OBManager obManager) {
 		this.obManager = obManager;
+	}
+
+	public String getHAS_MARK() {
+		return HAS_MARK;
+	}
+
+	public void setHAS_MARK(String hAS_MARK) {
+		HAS_MARK = hAS_MARK;
 	}
 
 }

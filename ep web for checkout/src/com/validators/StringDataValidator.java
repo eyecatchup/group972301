@@ -23,23 +23,14 @@ public class StringDataValidator implements Validator {
 		CharSequence inputStr = number;
 		Pattern pattern = Pattern.compile(expression);
 		Matcher matcher = pattern.matcher(inputStr);
+		
 		if (!matcher.matches()) {
-			FacesContext context = FacesContext.getCurrentInstance();
-			context.addMessage(null, new FacesMessage(
-					FacesMessage.SEVERITY_INFO, "Недопустимые значения полей",
-					null));
+			FacesMessage message = new FacesMessage();
+			message.setDetail("Недопустимое значение поля");
+			message.setSeverity(FacesMessage.SEVERITY_ERROR);
+			throw new ValidatorException(message);
 
-			if (stateShow) {
-				
-				stateShow = false;
-
-				FacesMessage message = new FacesMessage();
-				message.setDetail("Недопустимое пустое поле");
-				message.setSeverity(FacesMessage.SEVERITY_ERROR);
-				throw new ValidatorException(message);
-			}
 		}
-
 	}
 
 }
