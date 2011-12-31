@@ -51,21 +51,6 @@
 
 				</div>
 
-				<%-- <div id="theme1">
-					<h:outputLabel value="#{mainService.theme2 }"></h:outputLabel>
-					<!-- Drop down List with variants -->
-					<br></br>
-					<h:selectOneMenu
-						valueChangeListener="#{mainService.choosedTheme_1_Variant }">
-						<f:selectItems value="#{mainService.variants1}" />
-					</h:selectOneMenu>
-					<br></br>
-
-					<h:commandButton value="Просмотреть исходные данные"></h:commandButton>
-					<h:commandButton value="Проверить результат"></h:commandButton>
-
-				</div>
- --%>
 			</h:form>
 		</div>
 	</f:view>

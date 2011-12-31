@@ -14,7 +14,7 @@
 		<div>
 			<h:form>
 				<h1>
-					<h:messages layout="table" showSummary="true" showDetail="false"></h:messages>
+					<h:messages layout="list" showSummary="true" showDetail="true"></h:messages>
 				</h1>
 
 				<h:outputLabel value="Проверка вычислений"></h:outputLabel>
@@ -145,7 +145,7 @@
 
 					<tr>
 						<td><h:outputLabel value="Поправить владу!!!!!!!!!!!!"></h:outputLabel>
-						<td><h:inputText value="#{oBManager.c1}" required="true">
+						<td><h:inputText value="#{oBManager.mvN}" required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
 							</h:inputText></td>
 						<td><h:outputLabel value="#{oBManager.mvNStr}"></h:outputLabel></td>
@@ -233,12 +233,13 @@
 				</table>
 
 
-				<h:commandButton value="Проверить вычисления"></h:commandButton>
+				<h:commandButton value="Проверить вычисления"
+					actionListener="#{oBManager.checkResult }"></h:commandButton>
 
 				<h:outputLabel
 					value="Студент #{loginService.student.fathersName} #{loginService.student.name } ваша оценка:"></h:outputLabel>
-				<%-- <h:outputLabel value="#{diodiAndStabilitrManager.resultMark }"></h:outputLabel>
- --%>
+				<h:outputLabel value="#{oBManager.result }"></h:outputLabel>
+
 
 			</h:form>
 
