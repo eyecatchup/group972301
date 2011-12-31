@@ -2,13 +2,23 @@ package com.service;
 
 import javax.faces.event.ActionEvent;
 
+import org.hibernate.Transaction;
+import org.hibernate.classic.Session;
+
+import dao.LabDAOImpl;
+import dao.StudentLabsDAOImpl;
+
 import entity.GivenOB;
+import entity.Lab;
+import entity.StudentLabs;
+import ep.HibernateUtil;
 import ep.ysilitelnieKaskadi.CalculatorOB;
 
 public class OBManager {
 	private static final String TRUE = "Верно";
 	private static final String FALSE = "Неверно";
 
+	private Lab studentLab = new Lab();
 	private GivenOB given;
 	private CalculatorOB calculatorOB;
 	private double passed = 0.0;
@@ -22,7 +32,7 @@ public class OBManager {
 	private String Ra;// show
 	private String Ib;// show
 	private String Ub;// show
-//	private String Id;// show
+	// private String Id;// show
 	private String R1;// show
 	private String R2;// show
 
@@ -54,8 +64,9 @@ public class OBManager {
 	private String RaStr;// show
 	private String IbStr;// show
 	private String UbStr;// show
-	/*private String IdStr;// show
-*/	private String R1Str;// show
+	/*
+	 * private String IdStr;// show
+	 */private String R1Str;// show
 	private String R2Str;// show
 
 	private String RvhStr;// show
@@ -79,16 +90,27 @@ public class OBManager {
 	private String MvNStr;// show
 	private String MnNStr;// show
 
+	private String ERROR_MESSAGE = "";
+
 	public void calculate() {
 		calculatorOB = new CalculatorOB(given, given.getOb_Transistor());
 		calculatorOB.calc();
-		
-		MainService.checkIfStudentHasMakr(2);
+
+		if (MainService.checkIfStudentHasMakr(2) == false) {
+			setERROR_MESSAGE(MainService.HAS_MARK);
+		} else {
+			setERROR_MESSAGE("");
+		}
+		setToDefault();
 	}
 
 	public void checkResult(ActionEvent e) {
-		if (MainService.checkIfStudentHasMakr(2) == false)
+		if (MainService.checkIfStudentHasMakr(2) == false) {
+			setERROR_MESSAGE(MainService.HAS_MARK);
 			return;
+		} else {
+			setERROR_MESSAGE("");
+		}
 
 		Integer i = Integer.parseInt(this.C1);
 		Integer b = (int) calculatorOB.getC1();
@@ -279,22 +301,15 @@ public class OBManager {
 			IbStr = FALSE;
 		}
 
-		/*i = Integer.parseInt(this.Id);
-		b = (int) calculatorOB.getId();
-		if (i == b) {
-			IdStr = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			IdStr = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			IdStr = TRUE;
-			passed += 1;
-
-		} else {
-			IdStr = FALSE;
-		}*/
+		/*
+		 * i = Integer.parseInt(this.Id); b = (int) calculatorOB.getId(); if (i
+		 * == b) { IdStr = TRUE; passed += 1; } else if (i == (b - 1)) { IdStr =
+		 * TRUE; passed += 1;
+		 * 
+		 * } else if (i == (b + 1)) { IdStr = TRUE; passed += 1;
+		 * 
+		 * } else { IdStr = FALSE; }
+		 */
 
 		i = Integer.parseInt(this.Ki);
 		b = (int) calculatorOB.getKi();
@@ -533,15 +548,82 @@ public class OBManager {
 		} else {
 			UipStr = FALSE;
 		}
-		
+
 		double x = passed / total * 10;
 		int z = new Double(x).intValue();
 
 		if ((x - z) > 0.5) {
 			z += 1;
 		}
+		passed = 0;
+
+		studentLab.setMark(new Long(z));
+		studentLab.setTheme(new Long(2));
+		studentLab.setVariant(new Long(MainService.getChoosedTheme_1_Var()));
+		LoginService.student.getDoneLabs().add(studentLab);
+
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		LabDAOImpl daoImpl = new LabDAOImpl();
+		daoImpl.setSession(session);
+		Transaction transaction = session.beginTransaction();
+		transaction.begin();
+
+		daoImpl.makePersistent(studentLab);
+
+		transaction.commit();
+		session.close();
+
+		Session ses = HibernateUtil.getSessionFactory().openSession();
+		StudentLabsDAOImpl studentDAOImpl = new StudentLabsDAOImpl();
+		studentDAOImpl.setSession(ses);
+		Transaction transaction2 = ses.beginTransaction();
+		transaction2.begin();
+
+		StudentLabs labs = new StudentLabs();
+		labs.setLab(studentLab);
+		labs.setStudent(LoginService.student);
+
+		studentDAOImpl.makePersistent(labs);
+
+		transaction2.commit();
+		ses.close();
 
 		setResult(new String(new Double(z).toString()));
+
+	}
+
+	private void setToDefault() {
+		Ua = "";// show
+
+		Uip = "";// show
+		Rk = "";// show
+		Ra = "";// show
+		Ib = "";// show
+		Ub = "";// show
+		// Id;// show
+		R1 = "";// show
+		R2 = "";// show
+
+		Rvh = "";// show
+		Rb = "";// show
+		Rvih = "";// show
+		C1 = "";// show
+		C2 = "";// show
+		Ca = "";// show
+		Cb = "";// show
+
+		Ki = "";// show
+		Ku = "";// show
+
+		fn1 = "";// show
+		fn2 = "";// show
+		fn3 = "";// show
+		fv1 = "";// show
+		fv2 = "";// show
+		fv3 = "";// show
+
+		MvN = "";// show
+		MnN = "";// show
 
 	}
 
@@ -609,13 +691,11 @@ public class OBManager {
 		UbStr = ubStr;
 	}
 
-	/*public String getIdStr() {
-		return IdStr;
-	}
-
-	public void setIdStr(String idStr) {
-		IdStr = idStr;
-	}*/
+	/*
+	 * public String getIdStr() { return IdStr; }
+	 * 
+	 * public void setIdStr(String idStr) { IdStr = idStr; }
+	 */
 
 	public String getR1Str() {
 		return R1Str;
@@ -816,14 +896,12 @@ public class OBManager {
 	public void setUb(String ub) {
 		Ub = ub;
 	}
-/*
-	public String getId() {
-		return Id;
-	}
 
-	public void setId(String id) {
-		Id = id;
-	}*/
+	/*
+	 * public String getId() { return Id; }
+	 * 
+	 * public void setId(String id) { Id = id; }
+	 */
 
 	public String getR1() {
 		return R1;
@@ -983,6 +1061,14 @@ public class OBManager {
 
 	public void setResult(String result) {
 		this.result = result;
+	}
+
+	public String getERROR_MESSAGE() {
+		return ERROR_MESSAGE;
+	}
+
+	public void setERROR_MESSAGE(String eRROR_MESSAGE) {
+		ERROR_MESSAGE = eRROR_MESSAGE;
 	}
 
 }
