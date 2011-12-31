@@ -19,6 +19,11 @@
 			<property-class>com.service.DiodiAndStabilitrManager</property-class>
 			<value>#{diodiAndStabilitrManager}</value>
 		</managed-property>
+		<managed-property>
+			<property-name>obManager</property-name>
+			<property-class>com.service.OBManager</property-class>
+			<value>#{oBManager}</value>
+		</managed-property>
 	</managed-bean>
 	<managed-bean>
 		<managed-bean-name>diodiAndStabilitrManager</managed-bean-name>

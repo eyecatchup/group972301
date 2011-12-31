@@ -65,7 +65,8 @@ public class MainService {
 	
 	public String checkResult_1() {
 		//stabilizatorNaprManager.caltulate(theme0);
-		obManager.calculate(theme1);
+		//obManager = new OBManager();
+		obManager.calculate();
 		return AppLogic.OB_CHECK;
 	}
 

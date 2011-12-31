@@ -55,10 +55,8 @@ public class DiodiAndStabilitrManager {
 	private String resRn;
 	private String resRgen;
 
-	private String theme;
 
 	public void caltulate(String theme) {
-		this.theme = theme;
 
 		calculatorStabilitron = new CalculatorStabilitron(given,
 				given.getStabilitron());
