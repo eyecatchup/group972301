@@ -13,6 +13,7 @@
 	<f:view>
 		<h:form id="group_form">
 			<div>
+				<h:outputText value="Группы студентов" />
 				<h:selectOneListbox value="#{studentService.curGroup }"
 					onchange="submit()">
 					<f:selectItems value="#{studentService.strGroupList }" />
@@ -23,6 +24,8 @@
 			<p></p>
 
 			<div>
+				<h:outputText value="Информация о студентах группы" />
+				<p></p>
 				<h:dataTable value="#{studentService.studGroupList}" var="student">
 					<h:column>
 						<f:facet name="header">
