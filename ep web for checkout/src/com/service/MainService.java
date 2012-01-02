@@ -3,7 +3,6 @@ package com.service;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.faces.event.ValueChangeEvent;
 
@@ -22,9 +21,9 @@ public class MainService {
 			+ LoginService.student.getName() + " "
 			+ LoginService.student.getSurname() + " у вас уже имеется оценка.";
 
-	private static String theme0 = "Тема - Диоды и стабилитрны";
-	private static String theme1 = "Тема - Влада";
-	private static String theme2 = "Тема - Вити";
+	public static String theme0 = "Тема - Диоды и стабилитрны";
+	public static String theme1 = "Тема - Влада";
+	public static String theme2 = "Тема - Вити";
 
 	private static Map<Integer, Integer> variants0;
 	private static Map<Integer, Integer> variants1;
@@ -116,7 +115,7 @@ public class MainService {
 	}
 
 	public static boolean checkIfStudentHasMakr(long theme) {
-		Set<Lab> doneLabs = LoginService.student.getDoneLabs();
+		List<Lab> doneLabs = LoginService.student.getDoneLabs();
 
 		for (Lab i : doneLabs) {
 			if (i.getTheme() == theme) {

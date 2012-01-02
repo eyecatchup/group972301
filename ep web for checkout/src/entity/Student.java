@@ -1,8 +1,7 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -46,7 +45,7 @@ public class Student implements Serializable {
 
 	@OneToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "stud_labs", joinColumns = { @JoinColumn(name = "idstudent") }, inverseJoinColumns = { @JoinColumn(name = "idlab") })
-	private Set<Lab> doneLabs = new HashSet<Lab>();
+	private List<Lab> doneLabs;
 
 	public Long getId() {
 		return id;
@@ -88,11 +87,11 @@ public class Student implements Serializable {
 		this.group = group;
 	}
 
-	public Set<Lab> getDoneLabs() {
+	public List<Lab> getDoneLabs() {
 		return doneLabs;
 	}
 
-	public void setDoneLabs(Set<Lab> doneLabs) {
+	public void setDoneLabs(List<Lab> doneLabs) {
 		this.doneLabs = doneLabs;
 	}
 
