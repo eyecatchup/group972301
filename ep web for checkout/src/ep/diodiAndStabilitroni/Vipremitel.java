@@ -4,13 +4,13 @@ import java.io.Serializable;
 
 @SuppressWarnings("serial")
 public class Vipremitel implements Serializable {
-	private double naprVixVipr;
-	private double deltaNaprVixVipr;
-	private double tokVipr;
+	private float naprVixVipr;
+	private float deltaNaprVixVipr;
+	private float tokVipr;
 
-	private double emkost;
-	private double naprObr;
-	private double naprVxod;
+	private float emkost;
+	private float naprObr;
+	private float naprVxod;
 
 	private boolean shema;
 	private int f = 50;
@@ -61,51 +61,51 @@ public class Vipremitel implements Serializable {
 
 	}
 
-	public double getNaprVixVipr() {
+	public float getNaprVixVipr() {
 		return naprVixVipr;
 	}
 
-	public void setNaprVixVipr(double naprVixVipr) {
+	public void setNaprVixVipr(float naprVixVipr) {
 		this.naprVixVipr = naprVixVipr;
 	}
 
-	public double getDeltaNaprVixVipr() {
+	public float getDeltaNaprVixVipr() {
 		return deltaNaprVixVipr;
 	}
 
-	public void setDeltaNaprVixVipr(double deltaNaprVixVipr) {
+	public void setDeltaNaprVixVipr(float deltaNaprVixVipr) {
 		this.deltaNaprVixVipr = deltaNaprVixVipr;
 	}
 
-	public double getTokVipr() {
+	public float getTokVipr() {
 		return tokVipr;
 	}
 
-	public void setTokVipr(double tokVipr) {
+	public void setTokVipr(float tokVipr) {
 		this.tokVipr = tokVipr;
 	}
 
-	public double getEmkost() {
+	public float getEmkost() {
 		return emkost;
 	}
 
-	public void setEmkost(double emkost) {
+	public void setEmkost(float emkost) {
 		this.emkost = emkost;
 	}
 
-	public double getNaprObr() {
+	public float getNaprObr() {
 		return naprObr;
 	}
 
-	public void setNaprObr(double naprObr) {
+	public void setNaprObr(float naprObr) {
 		this.naprObr = naprObr;
 	}
 
-	public double getNaprVxod() {
+	public float getNaprVxod() {
 		return naprVxod;
 	}
 
-	public void setNaprVxod(double naprVxod) {
+	public void setNaprVxod(float naprVxod) {
 		this.naprVxod = naprVxod;
 	}
 

@@ -23,7 +23,7 @@ public class DiodiAndStabilitrManager {
 
 	private Lab studentLab = new Lab();
 	private double passed = 0.0;
-	private double total = 6.0;
+	private double total = 9.0;
 	private String resultMark = "введите данные для проверки и нажмите кнопку проверить.";
 
 	private static final String TRUE = "Верно";
@@ -89,171 +89,101 @@ public class DiodiAndStabilitrManager {
 
 		StringDataValidator.stateShow = true;
 
-		Integer i = Integer.parseInt(Uvxst);
-		Integer b = (int) calculatorStabilitron.getStabilitron()
+		Float i = Float.parseFloat(Uvxst);
+		Float b = (Float) calculatorStabilitron.getStabilitron()
 				.getPostNagrNaWhodeStabilizatora();
 
-		if (i == b) {
+		if (checkIfValid(i, b)) {
 			resUvxst = TRUE;
 			passed += 1;
-		} else if (i == (b - 1)) {
-			resUvxst = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			resUvxst = TRUE;
-			passed += 1;
-
 		} else {
 			resUvxst = FALSE;
 		}
 
-		i = Integer.parseInt(deltaUvxSt);
-		b = (int) calculatorStabilitron.getStabilitron().getAmplitudePuls();
-		if (i == b) {
+		i = Float.parseFloat(deltaUvxSt);
+		b = (Float) calculatorStabilitron.getStabilitron().getAmplitudePuls();
+		if (checkIfValid(i, b)) {
 			resdeltaUvxSt = TRUE;
 			passed += 1;
-		} else if (i == (b - 1)) {
-			resdeltaUvxSt = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			resdeltaUvxSt = TRUE;
-			passed += 1;
-
 		} else {
 			resdeltaUvxSt = FALSE;
 		}
 
-		i = Integer.parseInt(deltaUtemper);
-		b = (int) calculatorStabilitron.getStabilitron().getTemperUhod();
+		i = Float.parseFloat(deltaUtemper);
+		b = (Float) calculatorStabilitron.getStabilitron().getTemperUhod();
 
-		if (i == b) {
+		if (checkIfValid(i, b)) {
 			resdeltaUtemper = TRUE;
 			passed += 1;
-		} else if (i == (b - 1)) {
-			resdeltaUtemper = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			resdeltaUtemper = TRUE;
-			passed += 1;
-
 		} else {
 			resdeltaUtemper = FALSE;
 		}
 
-		i = Integer.parseInt(Ir);
-		b = (int) calculatorStabilitron.getStabilitron().getTemperUhod();
+		i = Float.parseFloat(Ir);
+		b = (Float) calculatorStabilitron.getStabilitron().getTokGosResistora();
 
-		if (i == b) {
+		if (checkIfValid(i, b)) {
 			resIr = TRUE;
 			passed += 1;
-		} else if (i == (b - 1)) {
-			resIr = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			resIr = TRUE;
-			passed += 1;
-
 		} else {
 			resIr = FALSE;
 		}
 
-		i = Integer.parseInt(Ist);
-		b = (int) calculatorStabilitron.getStabilitron()
+		i = Float.parseFloat(Ist);
+		b = (Float) calculatorStabilitron.getStabilitron()
 				.getRabTokStabilitrona();
 
-		if (i == b) {
+		if (checkIfValid(i, b)) {
 			resIst = TRUE;
 			passed += 1;
-		} else if (i == (b - 1)) {
-			resIst = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			resIst = TRUE;
-			passed += 1;
-
 		} else {
 			resIst = FALSE;
 		}
 
-		i = Integer.parseInt(C);
-		b = (int) vipremitel.getEmkost();
+		i = Float.parseFloat(C);
+		b = (Float) vipremitel.getEmkost();
 
-		if (i == b) {
+		if (checkIfValid(i, b)) {
 			resC = TRUE;
 			passed += 1;
-		} else if (i == (b - 1)) {
-			resC = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			resC = TRUE;
-			passed += 1;
-
 		} else {
 			resC = FALSE;
 		}
 
-		i = Integer.parseInt(Kst);
-		b = calculatorStabilitron.getStabilitron().getCoefStabiliz();
+		i = Float.parseFloat(Kst);
+		b = (float) calculatorStabilitron.getStabilitron().getCoefStabiliz();
 
-		if (i == b) {
+		if (checkIfValid(i, b)) {
 			resKst = TRUE;
 			passed += 1;
-		} else if (i == (b - 1)) {
-			resKst = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			resKst = TRUE;
-			passed += 1;
-
 		} else {
 			resKst = FALSE;
 		}
 
-		i = Integer.parseInt(Rn);
-		b = (int) calculatorStabilitron.getStabilitron().getSoprNagruzki();
+		i = Float.parseFloat(Rn);
+		b = (Float) calculatorStabilitron.getStabilitron().getSoprNagruzki();
 
-		if (i == b) {
+		if (checkIfValid(i, b)) {
 			resRn = TRUE;
 			passed += 1;
-		} else if (i == (b - 1)) {
-			resRn = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			resRn = TRUE;
-			passed += 1;
-
 		} else {
 			resRn = FALSE;
 		}
 
-		i = Integer.parseInt(Rgen);
-		b = (int) calculatorStabilitron.getStabilitron().getSoprotGosResis();
+		i = Float.parseFloat(Rgen);
+		b = (Float) calculatorStabilitron.getStabilitron().getSoprotGosResis();
 
-		if (i == b) {
+		if (checkIfValid(i, b)) {
 			resRgen = TRUE;
 			passed += 1;
-		} else if (i == (b - 1)) {
-			resRgen = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			resRgen = TRUE;
-			passed += 1;
-
 		} else {
 			resRgen = FALSE;
 		}
 
 		double x = passed / total * 10;
 		int z = new Double(x).intValue();
+		System.out.println("Passed: " + passed);
+		System.out.println("Result" + x);
 
 		if ((x - z) > 0.5) {
 			z += 1;
@@ -294,6 +224,10 @@ public class DiodiAndStabilitrManager {
 
 		passed = 0;
 
+	}
+
+	private boolean checkIfValid(Float i, Float b) {
+		return (b * 1.1) > i && (b * 0.9) < b;
 	}
 
 	public Given getGiven() {
