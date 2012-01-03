@@ -7,11 +7,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Проверка результатов</title>
+
+<LINK href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/print.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/reset.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/typography.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/ie.css" rel="stylesheet"
+	type="text/css">
 </head>
 <body>
 	<f:view>
 
-		<div>
+		<div class="dataReceive">
 			<h:form>
 
 				<h1>
@@ -20,8 +31,8 @@
 
 				<h:outputLabel value="Проверка вычислений"></h:outputLabel>
 				<br></br>
-				<h:outputLabel
-					value="Вариант:  #{diodiAndStabilitrManager.given.var }"></h:outputLabel>
+				<b><h:outputLabel
+					value="Вариант:  #{diodiAndStabilitrManager.given.var }"></h:outputLabel></b>
 				<br></br>
 			</h:form>
 
@@ -29,10 +40,10 @@
 
 				<table id="table">
 					<tr class="header">
-						<td width="400px"><h:outputLabel value="Обозначение" /></td>
-						<td width="200px"><h:outputLabel value="Значение" /></td>
-						<td></td>
-						<td width="400px"><h:outputLabel value="Результат" /></td>
+						<th width="400px"><h:outputLabel value="Обозначение" /></th>
+						<th width="200px"><h:outputLabel value="Значение" /></th>
+						<th></th>
+						<th width="400px"><h:outputLabel value="Результат" /></th>
 					</tr>
 
 					<%-- 		<tr>
@@ -43,7 +54,7 @@
 								value="#{diodiAndStabilitrManager.resUvx }"></h:outputLabel></td>
 					</tr> --%>
 
-					<tr>
+					<tr class="even">
 						<td><h:outputLabel value="U вх ст, В"></h:outputLabel>
 						<td><h:inputText id="u"
 								value="#{diodiAndStabilitrManager.uvxst}" required="true">
@@ -81,7 +92,7 @@
 								value="#{diodiAndStabilitrManager.resdeltaUvix }"></h:outputLabel></td>
 					</tr> --%>
 
-					<tr>
+					<tr class="even">
 						<td><h:outputLabel value="ΔU выхТ, В"></h:outputLabel>
 						<td><h:inputText id="delta_u"
 								value="#{diodiAndStabilitrManager.deltaUtemper}" required="true">
@@ -100,7 +111,7 @@
 						<td><h:outputLabel value="#{diodiAndStabilitrManager.resIr }"></h:outputLabel></td>
 					</tr>
 
-					<tr>
+					<tr class="even">
 						<td><h:outputLabel value="I ст, мА"></h:outputLabel>
 						<td><h:inputText id="ist"
 								value="#{diodiAndStabilitrManager.ist}" required="true">
@@ -129,7 +140,7 @@
 						<td><h:outputLabel value="#{diodiAndStabilitrManager.resC }"></h:outputLabel></td>
 					</tr>
 
-					<tr>
+					<tr class="even">
 						<td><h:outputLabel value="К ст"></h:outputLabel>
 						<td><h:inputText id="kst"
 								value="#{diodiAndStabilitrManager.kst}" required="true">
@@ -150,7 +161,7 @@
 						<td><h:outputLabel value="#{diodiAndStabilitrManager.resRn }"></h:outputLabel></td>
 					</tr>
 
-					<tr>
+					<tr class="even">
 						<td><h:outputLabel value="R г, Ом"></h:outputLabel>
 						<td><h:inputText id="r"
 								value="#{diodiAndStabilitrManager.rgen}" required="true">
@@ -164,13 +175,14 @@
 
 				</table>
 
-				<h:commandButton value="Проверить вычисления"
-					actionListener="#{diodiAndStabilitrManager.chechResult }"></h:commandButton>
+				
 
 				<h:outputLabel
 					value="Студент #{loginService.student.fathersName} #{loginService.student.name } ваша оценка:"></h:outputLabel>
-				<h:outputLabel value="#{diodiAndStabilitrManager.resultMark }"></h:outputLabel>
+				<h:outputLabel value="#{diodiAndStabilitrManager.resultMark }"></h:outputLabel><br>
 
+				<h:commandButton value="Проверить вычисления"
+					actionListener="#{diodiAndStabilitrManager.chechResult }"></h:commandButton>
 				<h:commandButton value="Назад"></h:commandButton>
 
 			</h:form>

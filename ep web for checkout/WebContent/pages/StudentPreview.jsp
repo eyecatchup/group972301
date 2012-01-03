@@ -7,13 +7,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Просмотр успеваемости студентов</title>
+<LINK href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/print.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/reset.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/typography.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/ie.css" rel="stylesheet"
+	type="text/css">
 </head>
 
 <body>
 	<f:view>
+	<div class="dataGiven">
 		<h:form id="group_form">
 			<div>
-				<h:outputText value="Группы студентов" />
+				<h:outputText value="Группы студентов: " />
 				<h:selectOneListbox value="#{studentService.curGroup }"
 					onchange="submit()">
 					<f:selectItems value="#{studentService.strGroupList }" />
@@ -24,9 +35,9 @@
 			<p></p>
 
 			<div>
-				<h:outputText value="Информация о студентах группы" />
+				<h:outputLabel value="Информация о студентах группы" styleClass="header"></h:outputLabel>
 				<p></p>
-				<h:dataTable value="#{studentService.studGroupList}" var="student">
+				<h:dataTable value="#{studentService.studGroupList}" var="student" styleClass="tmpTab">
 					<h:column>
 						<f:facet name="header">
 							<h:column>
@@ -85,6 +96,7 @@
 			</div>
 
 		</h:form>
+		</div>
 	</f:view>
 </body>
 </html>

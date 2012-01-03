@@ -22,8 +22,8 @@ public class MainService {
 			+ LoginService.student.getSurname() + " у вас уже имеется оценка.";
 
 	public static String theme0 = "Тема - Диоды и стабилитрны";
-	public static String theme1 = "Тема - Влада";
-	public static String theme2 = "Тема - Вити";
+	public static String theme1 = "Тема - Усилительные каскады на БТ";
+	public static String theme2 = "Тема - Исследование ключевых схем на БТ";
 
 	private static Map<Integer, Integer> variants0 = new LinkedHashMap<Integer, Integer>();;
 	private static Map<Integer, Integer> variants1 = new LinkedHashMap<Integer, Integer>();;
