@@ -40,6 +40,11 @@
 		<managed-bean-class>com.service.StudentService</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>addDiodiandStab</managed-bean-name>
+		<managed-bean-class>com.service.AddDiodiandStab</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 		<display-name>pages/MainLogin</display-name>
 		<from-view-id>/pages/MainLogin.jsp</from-view-id>

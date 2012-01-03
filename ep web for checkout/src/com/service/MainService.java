@@ -25,8 +25,8 @@ public class MainService {
 	public static String theme1 = "Тема - Влада";
 	public static String theme2 = "Тема - Вити";
 
-	private static Map<Integer, Integer> variants0;
-	private static Map<Integer, Integer> variants1;
+	private static Map<Integer, Integer> variants0 = new LinkedHashMap<Integer, Integer>();;
+	private static Map<Integer, Integer> variants1 = new LinkedHashMap<Integer, Integer>();;
 	private static int choosedTheme_0_Var;
 	private static int choosedTheme_1_Var;
 
@@ -38,12 +38,6 @@ public class MainService {
 
 	private String choosenTheme;
 
-	static {
-		variants0 = new LinkedHashMap<Integer, Integer>();
-		variants1 = new LinkedHashMap<Integer, Integer>();
-		getStabilitronVariants();
-		getObVariants();
-	}
 
 	private static void getObVariants() {
 		OB_GivenDAOImpl daoImpl = new OB_GivenDAOImpl();
@@ -143,6 +137,7 @@ public class MainService {
 	}
 
 	public Map<Integer, Integer> getVariants0() {
+		getStabilitronVariants();
 		return variants0;
 	}
 
@@ -151,6 +146,7 @@ public class MainService {
 	}
 
 	public Map<Integer, Integer> getVariants1() {
+		getObVariants();
 		return variants1;
 	}
 
