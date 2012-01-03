@@ -4,55 +4,55 @@ package ep.diodiAndStabilitroni;
 //POJO for stabilitron
 public class StabilizatorNapr {
 	private int CoefStabiliz;
-	private double amplitudaPuls;
-	private double soprotGosResis;
-	private double rabTokStabilit;
-	private double tokGosResistora;
-	private double soprNagruzki;
-	private double postNaprNaWhodeStabilizatora;
-	private double temperUhod;
+	private float amplitudaPuls;
+	private float soprotGosResis;
+	private float rabTokStabilit;
+	private float tokGosResistora;
+	private float soprNagruzki;
+	private float postNaprNaWhodeStabilizatora;
+	private float temperUhod;
 	
-	public void setTemperUhod(double temp){
+	public void setTemperUhod(float temp){
 		temperUhod = temp;
 	}
 	
-	public double getTemperUhod(){
+	public float getTemperUhod(){
 		return temperUhod;
 	}
 	
-	public void setPostNagrNaWhodeStabilizatora(double post){
+	public void setPostNagrNaWhodeStabilizatora(float post){
 		postNaprNaWhodeStabilizatora = post;
 	}
 	
-	public double getPostNagrNaWhodeStabilizatora(){
+	public float getPostNagrNaWhodeStabilizatora(){
 		return postNaprNaWhodeStabilizatora;
 	}
 	
-	public void setSoprNagr(double sopr){
+	public void setSoprNagr(float sopr){
 		soprNagruzki = sopr;
 	}
 	
-	public double getSoprNagruzki(){
+	public float getSoprNagruzki(){
 		return soprNagruzki;
 	}
 	
-	public void setTokGosResistora(double tok){
+	public void setTokGosResistora(float tok){
 		tokGosResistora = tok;
 	}
 	
-	public double getTokGosResistora(){
+	public float getTokGosResistora(){
 		return tokGosResistora;
 	}
 	
-	public void setRabTokStabilitrona(double tok){
+	public void setRabTokStabilitrona(float tok){
 		rabTokStabilit = tok;
 	}
 	
-	public double getRabTokStabilitrona(){
+	public float getRabTokStabilitrona(){
 		return rabTokStabilit;
 	}
 	
-	public void setCoefStabliz(double tokNagruzki){
+	public void setCoefStabliz(float tokNagruzki){
 		if(tokNagruzki > 0.08){
 			CoefStabiliz = 30;
 		} else if(tokNagruzki < 0.08) {
@@ -64,19 +64,19 @@ public class StabilizatorNapr {
 		return CoefStabiliz;
 	}
 	
-	public void setAmplitudePuls(double amplPuls){
+	public void setAmplitudePuls(float amplPuls){
 		this.amplitudaPuls = amplPuls;
 	}
 	
-	public double getAmplitudePuls(){
+	public float getAmplitudePuls(){
 		return amplitudaPuls;
 	}
 	
-	public void setSoprotGosResis(double sopr){
+	public void setSoprotGosResis(float sopr){
 		this.soprotGosResis = sopr;
 	}
 	
-	public double getSoprotGosResis(){
+	public float getSoprotGosResis(){
 		return soprotGosResis;
 	}
 	

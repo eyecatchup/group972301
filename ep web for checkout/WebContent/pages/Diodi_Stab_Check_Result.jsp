@@ -10,18 +10,39 @@
 
 <LINK href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet"
 	type="text/css">
-<LINK href="<%=request.getContextPath()%>/css/print.css" rel="stylesheet"
-	type="text/css">
-<LINK href="<%=request.getContextPath()%>/css/reset.css" rel="stylesheet"
-	type="text/css">
-<LINK href="<%=request.getContextPath()%>/css/typography.css" rel="stylesheet"
-	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/print.css"
+	rel="stylesheet" type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/reset.css"
+	rel="stylesheet" type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/typography.css"
+	rel="stylesheet" type="text/css">
 <LINK href="<%=request.getContextPath()%>/css/ie.css" rel="stylesheet"
 	type="text/css">
+
+
+
 </head>
 <body>
-	<f:view>
 
+		<script type="text/javascript"
+					src="<%=request.getContextPath()%>/js/backfix.min.js"></script>
+				<script type="text/javascript">
+		/* bajb_backdetect.OnBack = function() {
+			alert(window.location.protocol + "//" + window.location.host
+					+ "/EP_web/faces/pages/PreviewAvailableThemes.jsp"); */
+			/* window.location = window.location.protocol + "://"
+					+ window.location.host
+					+ "/EP_web/faces/pages/PreviewAvailableThemes.jsp"; */
+		/* 	location.replace(window.location.protocol + "://"
+					+ window.location.host
+					+ "/EP_web/faces/pages/PreviewAvailableThemes.jsp"); */
+<%-- 	<%System.out.println(request.getContextPath());
+			response.sendRedirect(request.getContextPath()
+					+ "/faces/pages/PreviewAvailableThemes.jsp");%> --%>
+		
+	</script>
+
+	<f:view>
 		<div class="dataReceive">
 			<h:form>
 
@@ -32,7 +53,7 @@
 				<h:outputLabel value="Проверка вычислений"></h:outputLabel>
 				<br></br>
 				<b><h:outputLabel
-					value="Вариант:  #{diodiAndStabilitrManager.given.var }"></h:outputLabel></b>
+						value="Вариант:  #{diodiAndStabilitrManager.given.var }"></h:outputLabel></b>
 				<br></br>
 			</h:form>
 
@@ -175,11 +196,12 @@
 
 				</table>
 
-				
+
 
 				<h:outputLabel
 					value="Студент #{loginService.student.fathersName} #{loginService.student.name } ваша оценка:"></h:outputLabel>
-				<h:outputLabel value="#{diodiAndStabilitrManager.resultMark }"></h:outputLabel><br>
+				<h:outputLabel value="#{diodiAndStabilitrManager.resultMark }"></h:outputLabel>
+				<br>
 
 				<h:commandButton value="Проверить вычисления"
 					actionListener="#{diodiAndStabilitrManager.chechResult }"></h:commandButton>

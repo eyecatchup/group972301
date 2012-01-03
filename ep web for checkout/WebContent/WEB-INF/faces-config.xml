@@ -85,6 +85,30 @@
 			<to-view-id>/pages/OBcheckResult.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/Diodi_Stab_Check_Result</display-name>
+		<from-view-id>/pages/Diodi_Stab_Check_Result.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>back</from-outcome>
+			<to-view-id>/pages/PreviewAvailableThemes.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/ViewData_Diodi_Stabilitroni</display-name>
+		<from-view-id>/pages/ViewData_Diodi_Stabilitroni.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>back</from-outcome>
+			<to-view-id>/pages/PreviewAvailableThemes.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/OBcheckResult</display-name>
+		<from-view-id>/pages/OBcheckResult.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>back</from-outcome>
+			<to-view-id>/pages/PreviewAvailableThemes.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 	<validator>
 		<display-name>com.validators.StringDataValidator</display-name>
 		<validator-id>com.validators.StringDataValidator</validator-id>
