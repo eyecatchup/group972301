@@ -7,19 +7,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+<LINK href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/print.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/reset.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/typography.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/ie.css" rel="stylesheet"
+	type="text/css">
 </head>
 <body>
 	<f:view>
 
-		<div>
-			<h:outputLabel value="Параметры для расчета стабилизатора напряжения"></h:outputLabel>
-			<br></br>
-			<h:outputLabel
-				value="Вариант:  #{mainService.stabilizatorNaprManager.given.var }"></h:outputLabel>
+		<div class="dataGiven">
+			<h:outputLabel value="#{mainService.theme0 }" styleClass="header"></h:outputLabel>
 			<br></br>
 
 			<table>
 				<tr>
+				<th colspan="2"><h:outputText value="Вариант:  #{mainService.stabilizatorNaprManager.given.var }"></h:outputText></th>
+				</tr>
+				<tr class="even">
 					<td><h:outputLabel value="Ток нагрузки, мА"></h:outputLabel></td>
 					<td><h:outputLabel
 							value="#{mainService.stabilizatorNaprManager.given.tok } "></h:outputLabel></td>
@@ -31,7 +42,7 @@
 							value="#{mainService.stabilizatorNaprManager.given.naprWihodnoe } "></h:outputLabel></td>
 				</tr>
 
-				<tr>
+				<tr class="even">
 					<td><h:outputLabel
 							value="Амплитуда пульсаций выходного напряжения, мВ"></h:outputLabel></td>
 					<td><h:outputLabel

@@ -7,14 +7,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Добавление и просмотр стабилизатора напряжения</title>
+
+<LINK href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/print.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/reset.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/typography.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/ie.css" rel="stylesheet"
+	type="text/css">
 </head>
 <body>
 	<f:view>
+	<div class="dataReceive">
 		<h:form>
-			<h:outputText value="Исходные данные" />
+			
 			<table>
-
 				<tr>
+				<th colspan="3"><h:outputText value="Исходные данные" /></th>
+				</tr>
+				<tr class="even">
 					<td><h:outputText value="Номер варианта" /></td>
 					<td><h:inputText id="var" value="#{addDiodiandStab.var }"
 							required="true">
@@ -32,7 +46,7 @@
 					<td><h:message for="napr"></h:message></td>
 				</tr>
 
-				<tr>
+				<tr class="even">
 					<td><h:outputText value="Ток нагрузки" /></td>
 					<td><h:inputText id="tok" value="#{addDiodiandStab.tok }"
 							required="true">
@@ -57,11 +71,12 @@
 
 			<div>
 
-				<h:outputLabel value="Параметры стабилитрона"></h:outputLabel>
-
 
 				<table>
 					<tr>
+					<th colspan="3"><h:outputLabel value="Параметры стабилитрона"></h:outputLabel></th>
+					</tr>
+					<tr class="even">
 						<td><h:outputLabel value="Тип стабилитрона" /></td>
 						<td><h:inputText id="type" value="#{addDiodiandStab.type }"
 								required="true">
@@ -78,7 +93,7 @@
 						<td><h:message for="stNapr"></h:message></td>
 					</tr>
 
-					<tr>
+					<tr class="even">
 						<td><h:outputLabel value="Icт min, мА" /></td>
 						<td><h:inputText id="tokMin"
 								value="#{addDiodiandStab.tokMin }" required="true">
@@ -96,7 +111,7 @@
 						<td><h:message for="tokMax"></h:message></td>
 					</tr>
 
-					<tr>
+					<tr class="even">
 						<td><h:outputLabel value="r cm, Ом" /></td>
 						<td><h:inputText id="r" value="#{addDiodiandStab.r}"
 								required="true">
@@ -119,7 +134,8 @@
 			<h:commandButton actionListener="#{addDiodiandStab.add }"
 				value="Добавить"></h:commandButton>
 		</h:form>
-
+</div>
+<div class="dataReceive tp">
 		<h:form>
 			<h:dataTable value="#{addDiodiandStab.list }" var="given">
 
@@ -229,6 +245,7 @@
 				</h:column>
 			</h:dataTable>
 		</h:form>
+		</div>
 	</f:view>
 </body>
 </html>

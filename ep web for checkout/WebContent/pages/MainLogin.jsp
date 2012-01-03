@@ -8,9 +8,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Please login</title>
 
-<%-- <LINK href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet"
-	type="text/css"> --%>
-
+<LINK href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/print.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/reset.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/typography.css" rel="stylesheet"
+	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/ie.css" rel="stylesheet"
+	type="text/css">
 </head>
 <body>
 	<f:view>
@@ -29,6 +36,9 @@
 			<h:form id="login_form">
 				<table>
 					<tr>
+						<th colspan="2"><h:outputText value="Форма входа"></h:outputText></th>
+					</tr>
+					<tr class="even">
 						<td width="100px"><h:outputText value="Имя"></h:outputText></td>
 						<td><h:inputText value="#{loginService.studName }"></h:inputText></td>
 					</tr>
@@ -38,7 +48,7 @@
 						<td><h:inputText value="#{loginService.studSurName }"></h:inputText></td>
 					</tr>
 
-					<tr>
+					<tr class="even">
 						<td><h:outputText value="Номер группы"></h:outputText></td>
 						<td><h:inputText value="#{loginService.group }"></h:inputText></td>
 					</tr>
@@ -64,6 +74,9 @@
 				rendered="#{loginService.show }">
 				<table>
 					<tr>
+						<th colspan="2">Форма регистрации</th>
+					</tr>
+					<tr class="even">
 						<td width="100px"><h:outputText value="Имя"></h:outputText></td>
 						<td><h:inputText value="#{loginService.studName }">
 
@@ -77,7 +90,7 @@
 							</h:inputText></td>
 					</tr>
 
-					<tr>
+					<tr class="even">
 						<td><h:outputText value="Отчество"></h:outputText></td>
 						<td><h:inputText value="#{loginService.fathersName }">
 
@@ -91,7 +104,7 @@
 							</h:inputText></td>
 					</tr>
 
-					<tr>
+					<tr class="even">
 						<td><h:outputText value="Пароль"></h:outputText></td>
 						<td><h:inputSecret id="pswd" value="#{loginService.password}"
 								required="true">
