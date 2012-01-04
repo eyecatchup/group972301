@@ -24,7 +24,7 @@
 </head>
 <body>
 
-		<script type="text/javascript"
+		<%-- <script type="text/javascript"
 					src="<%=request.getContextPath()%>/js/backfix.min.js"></script>
 				<script type="text/javascript">
 		/* bajb_backdetect.OnBack = function() {
@@ -36,11 +36,11 @@
 		/* 	location.replace(window.location.protocol + "://"
 					+ window.location.host
 					+ "/EP_web/faces/pages/PreviewAvailableThemes.jsp"); */
-<%-- 	<%System.out.println(request.getContextPath());
+	<%System.out.println(request.getContextPath());
 			response.sendRedirect(request.getContextPath()
-					+ "/faces/pages/PreviewAvailableThemes.jsp");%> --%>
+					+ "/faces/pages/PreviewAvailableThemes.jsp");%>
 		
-	</script>
+	</script> --%>
 
 	<f:view>
 		<div class="dataReceive">

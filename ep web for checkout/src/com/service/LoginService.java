@@ -73,12 +73,16 @@ public class LoginService {
 		transaction.commit();
 		studentDAOImpl.getSession().close();
 		
+		clearFields();
+
+	}
+
+	private void clearFields() {
 		studName = "";
 		studSurName = "";
 		fathersName = "";
 		this.group = "";
 		password = "";
-
 	}
 
 	private void showErrorMessage(String message) {
@@ -88,6 +92,7 @@ public class LoginService {
 	}
 
 	public void displayAddForm(ActionEvent e) {
+		clearFields();
 		if (e.getComponent().getId().equalsIgnoreCase("show_hide")) {
 			if (show) {
 				show = false;
