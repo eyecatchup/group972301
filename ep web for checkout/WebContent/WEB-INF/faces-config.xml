@@ -114,5 +114,10 @@
 		<validator-id>com.validators.StringDataValidator</validator-id>
 		<validator-class>com.validators.StringDataValidator</validator-class>
 	</validator>
+	<validator>
+		<display-name>com.validators.DiodiStabValid</display-name>
+		<validator-id>com.validators.DiodiStabValid</validator-id>
+		<validator-class>com.validators.DiodiStabValid</validator-class>
+	</validator>
 
 </faces-config>
