@@ -44,28 +44,28 @@
 					</tr>
 					
 					<tr class="even">
-						<td><h:outputLabel value="Iк, мА"></h:outputLabel></td>
-						<td><h:outputLabel value="#{mainService.obManager.given.ik * 1000} "></h:outputLabel></td>
+						<td><h:outputLabel value="Iк, А"></h:outputLabel></td>
+						<td><h:outputLabel value="#{mainService.obManager.given.ik} "></h:outputLabel></td>
 					</tr>
 					
 					<tr>
-						<td><h:outputLabel value="Ег, мВ"></h:outputLabel></td>
-						<td><h:outputLabel value="#{mainService.obManager.given.eg * 1000} "></h:outputLabel></td>
+						<td><h:outputLabel value="Ег, В"></h:outputLabel></td>
+						<td><h:outputLabel value="#{mainService.obManager.given.eg} "></h:outputLabel></td>
 					</tr>
 					
 					<tr class="even">
-						<td><h:outputLabel value="Rг, кОм"></h:outputLabel></td>
-						<td><h:outputLabel value="#{mainService.obManager.given.rg / 1000} "></h:outputLabel></td>
+						<td><h:outputLabel value="Rг, Ом"></h:outputLabel></td>
+						<td><h:outputLabel value="#{mainService.obManager.given.rg} "></h:outputLabel></td>
 					</tr>
 
 					<tr>
-						<td><h:outputLabel value="Rн, кОм"></h:outputLabel></td>
-						<td><h:outputLabel value="#{mainService.obManager.given.rn / 1000} "></h:outputLabel></td>
+						<td><h:outputLabel value="Rн, Ом"></h:outputLabel></td>
+						<td><h:outputLabel value="#{mainService.obManager.given.rn} "></h:outputLabel></td>
 					</tr>
 					
 					<tr class="even">
-						<td><h:outputLabel value="Cн, нФ"></h:outputLabel></td>
-						<td><h:outputLabel value="#{mainService.obManager.given.cn * 1000000000} "></h:outputLabel></td>
+						<td><h:outputLabel value="Cн, Ф"></h:outputLabel></td>
+						<td><h:outputLabel value="#{mainService.obManager.given.cn} "></h:outputLabel></td>
 					</tr>
 
 				</table>
@@ -115,21 +115,21 @@
 				</tr>
 
 				<tr class="even">
-					<td><h:outputLabel value="fв, кГц"></h:outputLabel></td>
+					<td><h:outputLabel value="fв, Гц"></h:outputLabel></td>
 					<td><h:outputLabel
-							value="#{mainService.obManager.given.ob_Transistor.fv / 1000} "></h:outputLabel></td>
+							value="#{mainService.obManager.given.ob_Transistor.fv} "></h:outputLabel></td>
 				</tr>
 				
 				<tr>
-					<td><h:outputLabel value="Cк, пФ"></h:outputLabel></td>
+					<td><h:outputLabel value="Cк, Ф"></h:outputLabel></td>
 					<td><h:outputLabel
-							value="#{mainService.obManager.given.ob_Transistor.ck * 1000000000000} "></h:outputLabel></td>
+							value="#{mainService.obManager.given.ob_Transistor.ck} "></h:outputLabel></td>
 				</tr>
 				
 				<tr class="even">
-					<td><h:outputLabel value="Cэ, пФ"></h:outputLabel></td>
+					<td><h:outputLabel value="Cэ, Ф"></h:outputLabel></td>
 					<td><h:outputLabel
-							value="#{mainService.obManager.given.ob_Transistor.ca * 1000000000000} "></h:outputLabel></td>
+							value="#{mainService.obManager.given.ob_Transistor.ca} "></h:outputLabel></td>
 				</tr>				
 
 			</table>
