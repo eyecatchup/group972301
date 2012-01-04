@@ -8,4 +8,6 @@ public class AppLogic {
 	public static final String OB = "ob";
 	public static final String BACK_TO_PREVIEW = "back";
 	public static final String OB_CHECK = "ob_check";
+	public static final String DIODI_ADD = "diod_add";
+	public static final String STUDENTS_PREVIEW = "students_preview";
 }
