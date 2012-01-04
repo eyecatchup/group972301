@@ -44,6 +44,8 @@ public class AddDiodiandStab {
 	private String t_obr_vos;
 	private Long diodId;
 
+	public static boolean update = true;
+
 	public boolean checkStab(Given given) {
 		if (given.getDeltaNaprWihodnoe() != given.getStabilitron().getNapr()
 				&& given.getTok() < given.getStabilitron().getTokMax() == false) {
@@ -175,10 +177,13 @@ public class AddDiodiandStab {
 		u_obr = "";
 		t_obr_vos = "";
 		diodId = null;
+		
+		update = false;
 
 	}
 
 	public void update(ActionEvent e) {
+		update = true;
 		Iterator<UIComponent> iterator = e.getComponent().getChildren()
 				.iterator();
 		Given given = (Given) ((UIParameter) iterator.next()).getValue();
