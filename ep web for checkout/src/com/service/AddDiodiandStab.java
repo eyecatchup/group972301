@@ -81,6 +81,40 @@ public class AddDiodiandStab {
 		return true;
 	}
 
+	private Diod checkIfExistDiod(Diod diod) {
+
+		DiodDao dao = new DiodDao();
+		Session session = HibernateUtil.openSession();
+		dao.setSession(session);
+		List<Diod> list = dao.findAll();
+		session.close();
+
+		for (Diod i : list) {
+			if (i.getName().equalsIgnoreCase(diod.getName())) {
+				return i;
+			}
+		}
+
+		return null;
+	}
+
+	private Stabilitron checkIfExistStabilitron(Stabilitron stab) {
+
+		StabilitronDAOImpl dao = new StabilitronDAOImpl();
+		Session session = HibernateUtil.openSession();
+		dao.setSession(session);
+		List<Stabilitron> list = dao.findAll();
+		session.close();
+
+		for (Stabilitron i : list) {
+			if (i.getType().equalsIgnoreCase(stab.getType())) {
+				return i;
+			}
+		}
+
+		return null;
+	}
+
 	public void add(ActionEvent e) {
 		Stabilitron stabilitron = new Stabilitron();
 		stabilitron.setNapr(Float.valueOf(stNapr));
@@ -90,12 +124,22 @@ public class AddDiodiandStab {
 		stabilitron.setTokMin(Float.valueOf(tokMin));
 		stabilitron.setType(type);
 
+		Stabilitron newStab = checkIfExistStabilitron(stabilitron);
+		if (newStab != null) {
+			stabilitron = newStab;
+		}
+
 		Diod diod = new Diod();
 		diod.setName(typeDiod);
 		diod.setNapr_maks(Float.parseFloat(u_obr));
 		diod.setT_obr(Float.parseFloat(t_obr_vos));
 		diod.setTok_maks(Float.parseFloat(i_pr));
 		diod.setTok_i_maks(Float.parseFloat(i_pr_i_max));
+
+		Diod newDiod = checkIfExistDiod(diod);
+		if (newDiod != null) {
+			diod = newDiod;
+		}
 
 		Given given = new Given();
 		given.setVar(Integer.valueOf(var));
@@ -177,7 +221,7 @@ public class AddDiodiandStab {
 		u_obr = "";
 		t_obr_vos = "";
 		diodId = null;
-		
+
 		update = false;
 
 	}
@@ -215,7 +259,6 @@ public class AddDiodiandStab {
 		Iterator<UIComponent> iterator = e.getComponent().getChildren()
 				.iterator();
 		Given given = (Given) ((UIParameter) iterator.next()).getValue();
-		Diod diod = given.getDiod();
 
 		Session session = HibernateUtil.openSession();
 		StabilitronDAOImpl daoImpl = new StabilitronDAOImpl();
@@ -223,14 +266,6 @@ public class AddDiodiandStab {
 		Transaction transaction = session.beginTransaction();
 		transaction.begin();
 		daoImpl.makeTransient(given.getStabilitron());
-		transaction.commit();
-		session.close();
-
-		session = HibernateUtil.openSession();
-		DiodDao dao = new DiodDao();
-		dao.setSession(session);
-		transaction = session.beginTransaction();
-		dao.makeTransient(diod);
 		transaction.commit();
 		session.close();
 	}

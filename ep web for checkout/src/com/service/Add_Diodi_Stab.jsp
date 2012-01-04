@@ -144,7 +144,7 @@
 					<h:outputText value="Тип диода"></h:outputText>
 					<h:inputText id="diod_type" value="#{addDiodiandStab.typeDiod }"
 						required="true">
-						<f:validator validatorId="com.validators.DiodAddValidator" />
+						<%-- <f:validator validatorId="com.validators.DiodAddValidator" /> --%>
 					</h:inputText>
 					<h:message for="diod_type"></h:message>
 
