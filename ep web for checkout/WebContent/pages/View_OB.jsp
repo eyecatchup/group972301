@@ -31,41 +31,41 @@
 					<tr>
 					<th colspan="2"><h:outputText value="Вариант:  #{mainService.obManager.given.var }"></h:outputText></th>
 					</tr>
+					
 					<tr class="even">
-						<td><h:outputLabel value="Cн, нФ"></h:outputLabel></td>
-						<td><h:outputLabel value="#{mainService.obManager.given.cn} "></h:outputLabel></td>
-					</tr>
-
-					<tr>
-						<td><h:outputLabel value="Ег, мВ"></h:outputLabel></td>
-						<td><h:outputLabel value="#{mainService.obManager.given.eg} "></h:outputLabel></td>
-					</tr>
-
-					<tr class="even">
-						<td><h:outputLabel value="Iк, мА"></h:outputLabel></td>
-						<td><h:outputLabel value="#{mainService.obManager.given.ik} "></h:outputLabel></td>
-					</tr>
-
-					<tr>
-						<td><h:outputLabel value="Rг, кОм"></h:outputLabel></td>
-						<td><h:outputLabel value="#{mainService.obManager.given.rg} "></h:outputLabel></td>
-					</tr>
-
-					<tr class="even">
-						<td><h:outputLabel value="Rн, кОм"></h:outputLabel></td>
-						<td><h:outputLabel value="#{mainService.obManager.given.rn} "></h:outputLabel></td>
-					</tr>
-
-					<tr>
 						<td><h:outputLabel value="Тип"></h:outputLabel></td>
 						<td><h:outputLabel
 								value="#{mainService.obManager.given.type} "></h:outputLabel></td>
 					</tr>
-
-					<tr class="even">
+					
+					<tr>
 						<td><h:outputLabel value="Uкэ0, В"></h:outputLabel></td>
-						<td><h:outputLabel
-								value="#{mainService.obManager.given.uka0} "></h:outputLabel></td>
+						<td><h:outputLabel value="#{mainService.obManager.given.uka0} "></h:outputLabel></td>
+					</tr>
+					
+					<tr class="even">
+						<td><h:outputLabel value="Iк, мА"></h:outputLabel></td>
+						<td><h:outputLabel value="#{mainService.obManager.given.ik * 1000} "></h:outputLabel></td>
+					</tr>
+					
+					<tr>
+						<td><h:outputLabel value="Ег, мВ"></h:outputLabel></td>
+						<td><h:outputLabel value="#{mainService.obManager.given.eg * 1000} "></h:outputLabel></td>
+					</tr>
+					
+					<tr class="even">
+						<td><h:outputLabel value="Rг, кОм"></h:outputLabel></td>
+						<td><h:outputLabel value="#{mainService.obManager.given.rg / 1000} "></h:outputLabel></td>
+					</tr>
+
+					<tr>
+						<td><h:outputLabel value="Rн, кОм"></h:outputLabel></td>
+						<td><h:outputLabel value="#{mainService.obManager.given.rn / 1000} "></h:outputLabel></td>
+					</tr>
+					
+					<tr class="even">
+						<td><h:outputLabel value="Cн, нФ"></h:outputLabel></td>
+						<td><h:outputLabel value="#{mainService.obManager.given.cn * 1000000000} "></h:outputLabel></td>
 					</tr>
 
 				</table>
@@ -75,61 +75,62 @@
 		<div class="dataGiven lft">
 			<table>
 				<tr>
-				<th colspan="2"><h:outputText value="Параметры"></h:outputText></th>
+				<th colspan="2"><h:outputText value="Параметры транзистора"></h:outputText></th>
 				</tr>
-				<tr class="even">
-					<td><h:outputLabel value="Ca"></h:outputLabel></td>
-					<td><h:outputLabel
-							value="#{mainService.obManager.given.ob_Transistor.ca} "></h:outputLabel></td>
-				</tr>
-
-				<tr>
-					<td><h:outputLabel value="Ck"></h:outputLabel></td>
-					<td><h:outputLabel
-							value="#{mainService.obManager.given.ob_Transistor.ck} "></h:outputLabel></td>
-				</tr>
-
-				<tr class="even">
-					<td><h:outputLabel value="Fn"></h:outputLabel></td>
-					<td><h:outputLabel
-							value="#{mainService.obManager.given.ob_Transistor.fn} "></h:outputLabel></td>
-				</tr>
-
-				<tr>
-					<td><h:outputLabel value="Fv"></h:outputLabel></td>
-					<td><h:outputLabel
-							value="#{mainService.obManager.given.ob_Transistor.fv} "></h:outputLabel></td>
-				</tr>
-
-				<tr class="even">
-					<td><h:outputLabel value="H11a"></h:outputLabel></td>
-					<td><h:outputLabel
-							value="#{mainService.obManager.given.ob_Transistor.h11a} "></h:outputLabel></td>
-				</tr>
-
-				<tr>
-					<td><h:outputLabel value="H21a"></h:outputLabel></td>
-					<td><h:outputLabel
-							value="#{mainService.obManager.given.ob_Transistor.h21a} "></h:outputLabel></td>
-				</tr>
-
-				<tr class="even">
-					<td><h:outputLabel value="H21max"></h:outputLabel></td>
-					<td><h:outputLabel
-							value="#{mainService.obManager.given.ob_Transistor.h21max} "></h:outputLabel></td>
-				</tr>
-
-				<tr>
-					<td><h:outputLabel value="H21min"></h:outputLabel></td>
-					<td><h:outputLabel
-							value="#{mainService.obManager.given.ob_Transistor.h21min} "></h:outputLabel></td>
-				</tr>
-
+				
 				<tr class="even">
 					<td><h:outputLabel value="Тип"></h:outputLabel></td>
 					<td><h:outputLabel
 							value="#{mainService.obManager.given.ob_Transistor.type} "></h:outputLabel></td>
 				</tr>
+				
+				<tr>
+					<td><h:outputLabel value="h21мин"></h:outputLabel></td>
+					<td><h:outputLabel
+							value="#{mainService.obManager.given.ob_Transistor.h21min} "></h:outputLabel></td>
+				</tr>
+				
+				<tr class="even">
+					<td><h:outputLabel value="h21макс"></h:outputLabel></td>
+					<td><h:outputLabel
+							value="#{mainService.obManager.given.ob_Transistor.h21max} "></h:outputLabel></td>
+				</tr>
+				
+				<tr>
+					<td><h:outputLabel value="h11э"></h:outputLabel></td>
+					<td><h:outputLabel
+							value="#{mainService.obManager.given.ob_Transistor.h11a} "></h:outputLabel></td>
+				</tr>
+
+				<tr class="even">
+					<td><h:outputLabel value="h21э"></h:outputLabel></td>
+					<td><h:outputLabel
+							value="#{mainService.obManager.given.ob_Transistor.h21a} "></h:outputLabel></td>
+				</tr>
+				
+				<tr>
+					<td><h:outputLabel value="fн, Гц"></h:outputLabel></td>
+					<td><h:outputLabel
+							value="#{mainService.obManager.given.ob_Transistor.fn} "></h:outputLabel></td>
+				</tr>
+
+				<tr class="even">
+					<td><h:outputLabel value="fв, кГц"></h:outputLabel></td>
+					<td><h:outputLabel
+							value="#{mainService.obManager.given.ob_Transistor.fv / 1000} "></h:outputLabel></td>
+				</tr>
+				
+				<tr>
+					<td><h:outputLabel value="Cк, пФ"></h:outputLabel></td>
+					<td><h:outputLabel
+							value="#{mainService.obManager.given.ob_Transistor.ck * 1000000000000} "></h:outputLabel></td>
+				</tr>
+				
+				<tr class="even">
+					<td><h:outputLabel value="Cэ, пФ"></h:outputLabel></td>
+					<td><h:outputLabel
+							value="#{mainService.obManager.given.ob_Transistor.ca * 1000000000000} "></h:outputLabel></td>
+				</tr>				
 
 			</table>
 
