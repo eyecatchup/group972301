@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import ep.diodiAndStabilitroni.Diod;
+
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "stabilizator_napr_given")
@@ -38,6 +40,10 @@ public class Given implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "id_stab")
 	private Stabilitron stabilitron;
+
+	@ManyToOne
+	@JoinColumn(name = "id_diod")
+	private Diod diod;
 
 	public Long getId() {
 		return id;
@@ -93,6 +99,14 @@ public class Given implements Serializable {
 
 	public void setShema(Integer shema) {
 		this.shema = shema;
+	}
+
+	public Diod getDiod() {
+		return diod;
+	}
+
+	public void setDiod(Diod diod) {
+		this.diod = diod;
 	}
 
 }

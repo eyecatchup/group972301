@@ -14,7 +14,7 @@ public class Vipremitel implements Serializable {
 
 	private boolean shema;
 	private int f = 50;
-	private Diod diod;
+	//private Diod diod;
 
 	public Vipremitel(StabilizatorNapr stab, boolean shema) {
 		this.naprVixVipr = stab.getPostNagrNaWhodeStabilizatora();
@@ -25,7 +25,14 @@ public class Vipremitel implements Serializable {
 		calcAplitudVxodNaprVipr();
 		calcEmkostCondensatora();
 		calcAplitudObrNapr();
-		diod = Diod.getDiod(tokVipr, naprObr);
+		
+		selectSuitableDiod();
+		//diod = Diod.getDiod(tokVipr, naprObr);
+	}
+
+	private void selectSuitableDiod() {
+		
+		
 	}
 
 	private void calcAplitudObrNapr() {
@@ -109,28 +116,12 @@ public class Vipremitel implements Serializable {
 		this.naprVxod = naprVxod;
 	}
 
-	public Diod getDiod() {
+	/*public Diod getDiod() {
 		return diod;
 	}
 
 	public void setDiod(Diod diod) {
 		this.diod = diod;
-	}
-	
-	public Object[][] getVipyamData(){
-		Object[][] data = new Object[1][4];
-		
-		data [0][0] = diod.getName();
-		data [0][1] = getEmkost();
-		data [0][2] = getNaprObr();
-		data [0][3] = getNaprVxod();
-		
-		return data;
-	}
-	
-	
-	public Object[][] getDiodData(){
-		return diod.getDiodData();
-	}
-	
+	}	
+	*/
 }

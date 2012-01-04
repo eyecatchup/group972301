@@ -2,23 +2,39 @@ package ep.diodiAndStabilitroni;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 @SuppressWarnings("serial")
+@Entity
+@Table(name="diod")
 public class Diod implements Serializable{
-	private double tok_maks;
-	private double tok_i_maks;
-	private double napr_maks;
-	private double t_obr;
+	@Id
+	@Column(name="iddiod")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
+	@Column(name="tok_pr_max")
+	private Float tok_maks;
+	
+	@Column(name="tok_pr_i_max")
+	private Float tok_i_maks;
+	
+	@Column(name="napr")
+	private Float napr_maks;
+	
+	@Column(name="t_obr")
+	private Float t_obr;
+	
+	@Column(name="type")
 	private String name;
+
 	
-	Diod(String name, double tak_maks, double tok_i_maks, double napr_maks, double t_obr){
-		this.name = name;
-		this.tok_maks = tak_maks;
-		this.tok_i_maks = tok_i_maks;
-		this.napr_maks = napr_maks;
-		this.t_obr = t_obr;
-	}
-	
-	static public Diod getDiod(double tok, double napr){
+/*	static public Diod getDiod(Float tok, Float napr){
 		if(napr < 100){
 			
 			return new Diod("йд226ю", 1.7, 10 , 100, 0.25);
@@ -33,37 +49,37 @@ public class Diod implements Serializable{
 		}
 	
 		return null;
-	}
+	}*/
 
-	public double getTok_maks() {
+	public Float getTok_maks() {
 		return tok_maks;
 	}
 
-	public void setTok_maks(double tok_maks) {
+	public void setTok_maks(Float tok_maks) {
 		this.tok_maks = tok_maks;
 	}
 
-	public double getTok_i_maks() {
+	public Float getTok_i_maks() {
 		return tok_i_maks;
 	}
 
-	public void setTok_i_maks(double tok_i_maks) {
+	public void setTok_i_maks(Float tok_i_maks) {
 		this.tok_i_maks = tok_i_maks;
 	}
 
-	public double getNapr_maks() {
+	public Float getNapr_maks() {
 		return napr_maks;
 	}
 
-	public void setNapr_maks(double napr_maks) {
+	public void setNapr_maks(Float napr_maks) {
 		this.napr_maks = napr_maks;
 	}
 
-	public double getT_obr() {
+	public Float getT_obr() {
 		return t_obr;
 	}
 
-	public void setT_obr(double t_obr) {
+	public void setT_obr(Float t_obr) {
 		this.t_obr = t_obr;
 	}
 
@@ -74,16 +90,13 @@ public class Diod implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public Object[][] getDiodData(){
-		Object[][] data = new Object[1][5];
-		
-		data [0][0] = getName();
-		data [0][1] = getTok_maks();
-		data [0][2] = getTok_i_maks();
-		data [0][3] = getNapr_maks();
-		data [0][4] = getT_obr();
-		
-		return data;
+
+	public Long getId() {
+		return id;
 	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 }

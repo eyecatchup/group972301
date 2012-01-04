@@ -119,5 +119,15 @@
 		<validator-id>com.validators.DiodiStabValid</validator-id>
 		<validator-class>com.validators.DiodiStabValid</validator-class>
 	</validator>
+	<validator>
+		<display-name>com.validators.StabilizAddVariantValid</display-name>
+		<validator-id>com.validators.StabilizAddVariantValid</validator-id>
+		<validator-class>com.validators.StabilizAddVariantValid</validator-class>
+	</validator>
+	<validator>
+		<display-name>com.validators.DiodAddValidator</display-name>
+		<validator-id>com.validators.DiodAddValidator</validator-id>
+		<validator-class>com.validators.DiodAddValidator</validator-class>
+	</validator>
 
 </faces-config>

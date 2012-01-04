@@ -24,7 +24,7 @@
 </head>
 <body>
 
-		<%-- <script type="text/javascript"
+	<%-- <script type="text/javascript"
 					src="<%=request.getContextPath()%>/js/backfix.min.js"></script>
 				<script type="text/javascript">
 		/* bajb_backdetect.OnBack = function() {
@@ -67,14 +67,6 @@
 						<th width="400px"><h:outputLabel value="Результат" /></th>
 					</tr>
 
-					<%-- 		<tr>
-						<td><h:outputLabel value="U вх, В"></h:outputLabel>
-						<td><h:inputText id="uvx"
-								value="#{diodiAndStabilitrManager.uvx}" required="true"></h:inputText></td>
-						<td><h:outputLabel
-								value="#{diodiAndStabilitrManager.resUvx }"></h:outputLabel></td>
-					</tr> --%>
-
 					<tr class="even">
 						<td><h:outputLabel value="U вх ст, В"></h:outputLabel>
 						<td><h:inputText id="u"
@@ -86,14 +78,6 @@
 								value="#{diodiAndStabilitrManager.resdeltaUvxSt}"></h:outputLabel></td>
 					</tr>
 
-					<%-- <tr>
-						<td><h:outputLabel value="U вых, В"></h:outputLabel>
-						<td><h:inputText value="#{diodiAndStabilitrManager.uvix}"
-								required="true"></h:inputText></td>
-						<td><h:outputLabel
-								value="#{diodiAndStabilitrManager.resUvix }"></h:outputLabel></td>
-					</tr> --%>
-
 					<tr>
 						<td><h:outputLabel value="ΔU вх ст, В"></h:outputLabel>
 						<td><h:inputText id="delta"
@@ -104,14 +88,6 @@
 						<td><h:outputLabel
 								value="#{diodiAndStabilitrManager.resdeltaUvxSt }"></h:outputLabel></td>
 					</tr>
-
-					<%-- 	<tr>
-						<td><h:outputLabel value="ΔU вых, В"></h:outputLabel>
-						<td><h:inputText
-								value="#{diodiAndStabilitrManager.deltaUvix}" required="true"></h:inputText></td>
-						<td><h:outputLabel
-								value="#{diodiAndStabilitrManager.resdeltaUvix }"></h:outputLabel></td>
-					</tr> --%>
 
 					<tr class="even">
 						<td><h:outputLabel value="ΔU выхТ, В"></h:outputLabel>
@@ -142,14 +118,6 @@
 						<td><h:outputLabel
 								value="#{diodiAndStabilitrManager.resIst }"></h:outputLabel></td>
 					</tr>
-
-					<%-- <tr>
-						<td><h:outputLabel value="I нагр, мА"></h:outputLabel>
-						<td><h:inputText value="#{diodiAndStabilitrManager.inagr}"
-								required="true"></h:inputText></td>
-						<td><h:outputLabel
-								value="#{diodiAndStabilitrManager.resInagr }"></h:outputLabel></td>
-					</tr> --%>
 
 					<tr>
 						<td><h:outputLabel value="С, мкФ"></h:outputLabel>
@@ -193,10 +161,19 @@
 								value="#{diodiAndStabilitrManager.resRgen }"></h:outputLabel></td>
 					</tr>
 
+					<tr>
+						<td><h:outputLabel value="Тип Диода"></h:outputLabel>
+						<td><h:inputText id="diod"
+								value="#{diodiAndStabilitrManager.diodType}" required="true">
+								<f:validator validatorId="com.validators.StringDataValidator" />
+							</h:inputText></td>
+						<td><h:message for="diod"></h:message></td>
+						<td><h:outputLabel
+								value="#{diodiAndStabilitrManager.resDiod }"></h:outputLabel></td>
+					</tr>
+
 
 				</table>
-
-
 
 				<h:outputLabel
 					value="Студент #{loginService.student.fathersName} #{loginService.student.name } ваша оценка:"></h:outputLabel>
@@ -205,8 +182,11 @@
 
 				<h:commandButton value="Проверить вычисления"
 					actionListener="#{diodiAndStabilitrManager.chechResult }"></h:commandButton>
-				<h:commandButton value="Назад"></h:commandButton>
+			</h:form>
 
+			<h:form>
+				<h:commandButton value="Назад"
+					action="#{mainService.backToAvailableThemes }"></h:commandButton>
 			</h:form>
 
 		</div>
