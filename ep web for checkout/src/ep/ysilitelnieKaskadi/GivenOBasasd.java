@@ -56,16 +56,4 @@ public class GivenOBasasd {
     public double getCn(){
         return Cn;
     }
-    
-    public Object[] getData(){
-    	Object[] data = new Object[7];
-    	data[0] = getType();
-    	data[1] = getUka0();
-    	data[2] = getIk();
-    	data[3] = getEg();
-    	data[4] = getRg();
-    	data[5] = getRn();
-    	data[6] = getCn();
-    	return data;
-    }
 }
