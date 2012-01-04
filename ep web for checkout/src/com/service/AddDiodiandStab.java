@@ -3,18 +3,24 @@ package com.service;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIParameter;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
 
+import dao.DiodDao;
 import dao.GivenDAOImpl;
 import dao.StabilitronDAOImpl;
 import entity.Given;
 import entity.Stabilitron;
 import ep.HibernateUtil;
+import ep.diodiAndStabilitroni.CalculatorStabilitron;
+import ep.diodiAndStabilitroni.Diod;
+import ep.diodiAndStabilitroni.Vipremitel;
 
 public class AddDiodiandStab {
 	private String var;
@@ -31,6 +37,48 @@ public class AddDiodiandStab {
 	private String alpha;
 	private Long stId;
 
+	private String typeDiod;
+	private String i_pr;
+	private String i_pr_i_max;
+	private String u_obr;
+	private String t_obr_vos;
+	private Long diodId;
+
+	public boolean checkStab(Given given) {
+		if (given.getDeltaNaprWihodnoe() != given.getStabilitron().getNapr()
+				&& given.getTok() < given.getStabilitron().getTokMax() == false) {
+			FacesContext context = FacesContext.getCurrentInstance();
+			context.addMessage(null, new FacesMessage(
+					FacesMessage.SEVERITY_INFO,
+					"Не подходящие параметры стабилитрона", null));
+			return false;
+		}
+
+		CalculatorStabilitron calculatorStabilitron = new CalculatorStabilitron(
+				given, given.getStabilitron());
+
+		boolean state = false;
+		if (given.getShema() == 1) {
+			state = true;
+		}
+
+		Vipremitel vipremitel = new Vipremitel(
+				calculatorStabilitron.getStabilitron(), state);
+
+		if (vipremitel.getNaprObr() < given.getDiod().getNapr_maks()
+				&& calculatorStabilitron.getStabilitron().getTokGosResistora() < given
+						.getDiod().getTok_maks() == false) {
+			FacesContext context = FacesContext.getCurrentInstance();
+			context.addMessage(null, new FacesMessage(
+					FacesMessage.SEVERITY_INFO,
+					"Не подходящие параметры диода", null));
+
+			return false;
+		}
+
+		return true;
+	}
+
 	public void add(ActionEvent e) {
 		Stabilitron stabilitron = new Stabilitron();
 		stabilitron.setNapr(Float.valueOf(stNapr));
@@ -40,8 +88,32 @@ public class AddDiodiandStab {
 		stabilitron.setTokMin(Float.valueOf(tokMin));
 		stabilitron.setType(type);
 
+		Diod diod = new Diod();
+		diod.setName(typeDiod);
+		diod.setNapr_maks(Float.parseFloat(u_obr));
+		diod.setT_obr(Float.parseFloat(t_obr_vos));
+		diod.setTok_maks(Float.parseFloat(i_pr));
+		diod.setTok_i_maks(Float.parseFloat(i_pr_i_max));
+
+		Given given = new Given();
+		given.setVar(Integer.valueOf(var));
+		given.setNaprWihodnoe(Float.valueOf(napr));
+		given.setTok(Float.valueOf(tok));
+		given.setDeltaNaprWihodnoe(Float.valueOf(ampl));
+		given.setStabilitron(stabilitron);
+		given.setDiod(diod);
+
+		int i = 1;
+		if (Integer.valueOf(var) % 2 == 0) {
+			i = 0;
+		}
+		given.setShema(i);
+
+		if (checkStab(given) == false) {
+			return;
+		}
+
 		if (stId != null) {
-			stabilitron.setId(stId);
 		}
 
 		Session session = HibernateUtil.openSession();
@@ -53,22 +125,22 @@ public class AddDiodiandStab {
 		transaction.commit();
 		session.close();
 
-		Given given = new Given();
-		given.setVar(Integer.valueOf(var));
-		given.setNaprWihodnoe(Float.valueOf(napr));
-		given.setTok(Float.valueOf(tok));
-		given.setDeltaNaprWihodnoe(Float.valueOf(ampl));
-		given.setStabilitron(stabilitron);
+		if (diodId != null) {
+			diod.setId(diodId);
+		}
+
+		session = HibernateUtil.openSession();
+		DiodDao diodDao = new DiodDao();
+		diodDao.setSession(session);
+		transaction = session.beginTransaction();
+		diodDao.makePersistent(diod);
+		transaction.commit();
+		session.close();
 
 		if (id != null) {
 			given.setId(id);
 		}
 
-		int i = 1;
-		if (Integer.valueOf(var) % 2 == 0) {
-			i = 0;
-		}
-		given.setShema(i);
 		session = HibernateUtil.openSession();
 		GivenDAOImpl givenDAOImpl = new GivenDAOImpl();
 		givenDAOImpl.setSession(session);
@@ -97,6 +169,13 @@ public class AddDiodiandStab {
 		alpha = "";
 		stId = null;
 
+		typeDiod = "";
+		i_pr = "";
+		i_pr_i_max = "";
+		u_obr = "";
+		t_obr_vos = "";
+		diodId = null;
+
 	}
 
 	public void update(ActionEvent e) {
@@ -106,6 +185,7 @@ public class AddDiodiandStab {
 
 		id = given.getId();
 		stId = given.getStabilitron().getId();
+		diodId = given.getDiod().getId();
 
 		var = given.getVar().toString();
 		napr = given.getNaprWihodnoe().toString();
@@ -118,12 +198,19 @@ public class AddDiodiandStab {
 		tokMin = given.getStabilitron().getTokMin().toString();
 		r = given.getStabilitron().getSopr().toString();
 		alpha = given.getStabilitron().getTemperCoef().toString();
+
+		typeDiod = given.getDiod().getName();
+		i_pr = given.getDiod().getTok_maks().toString();
+		i_pr_i_max = given.getDiod().getTok_i_maks().toString();
+		u_obr = given.getDiod().getNapr_maks().toString();
+		t_obr_vos = given.getDiod().getT_obr().toString();
 	}
 
 	public void delete(ActionEvent e) {
 		Iterator<UIComponent> iterator = e.getComponent().getChildren()
 				.iterator();
 		Given given = (Given) ((UIParameter) iterator.next()).getValue();
+		Diod diod = given.getDiod();
 
 		Session session = HibernateUtil.openSession();
 		StabilitronDAOImpl daoImpl = new StabilitronDAOImpl();
@@ -131,6 +218,14 @@ public class AddDiodiandStab {
 		Transaction transaction = session.beginTransaction();
 		transaction.begin();
 		daoImpl.makeTransient(given.getStabilitron());
+		transaction.commit();
+		session.close();
+
+		session = HibernateUtil.openSession();
+		DiodDao dao = new DiodDao();
+		dao.setSession(session);
+		transaction = session.beginTransaction();
+		dao.makeTransient(diod);
 		transaction.commit();
 		session.close();
 	}
@@ -149,7 +244,6 @@ public class AddDiodiandStab {
 	public List<Given> getList() {
 		return getGiven();
 	}
-
 
 	public String getVar() {
 		return var;
@@ -229,6 +323,46 @@ public class AddDiodiandStab {
 
 	public void setAlpha(String alpha) {
 		this.alpha = alpha;
+	}
+
+	public String getTypeDiod() {
+		return typeDiod;
+	}
+
+	public void setTypeDiod(String typeDiod) {
+		this.typeDiod = typeDiod;
+	}
+
+	public String getI_pr() {
+		return i_pr;
+	}
+
+	public void setI_pr(String i_pr) {
+		this.i_pr = i_pr;
+	}
+
+	public String getI_pr_i_max() {
+		return i_pr_i_max;
+	}
+
+	public void setI_pr_i_max(String i_pr_i_max) {
+		this.i_pr_i_max = i_pr_i_max;
+	}
+
+	public String getU_obr() {
+		return u_obr;
+	}
+
+	public void setU_obr(String u_obr) {
+		this.u_obr = u_obr;
+	}
+
+	public String getT_obr_vos() {
+		return t_obr_vos;
+	}
+
+	public void setT_obr_vos(String t_obr_vos) {
+		this.t_obr_vos = t_obr_vos;
 	}
 
 }

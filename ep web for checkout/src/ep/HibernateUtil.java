@@ -14,6 +14,7 @@ import entity.StGroup;
 import entity.Stabilitron;
 import entity.Student;
 import entity.StudentLabs;
+import ep.diodiAndStabilitroni.Diod;
 
 public class HibernateUtil {
 	private static AnnotationConfiguration aconf;
@@ -28,7 +29,8 @@ public class HibernateUtil {
 				.addAnnotatedClass(Stabilitron.class)
 				.addAnnotatedClass(OB_Transistor.class)
 				.addAnnotatedClass(Student.class)
-				.addAnnotatedClass(StudentLabs.class);
+				.addAnnotatedClass(StudentLabs.class)
+				.addAnnotatedClass(Diod.class);
 
 		config = aconf.configure();
 		sessionFactory = config.configure().buildSessionFactory();

@@ -23,7 +23,7 @@ public class DiodiAndStabilitrManager {
 
 	private Lab studentLab = new Lab();
 	private double passed = 0.0;
-	private double total = 9.0;
+	private double total = 10.0;
 	private String resultMark = "введите данные для проверки и нажмите кнопку проверить.";
 
 	private static final String TRUE = "Верно";
@@ -54,6 +54,9 @@ public class DiodiAndStabilitrManager {
 	private String resKst;
 	private String resRn;
 	private String resRgen;
+	
+	private String diodType;
+	private String resDiod; 
 
 	private String ERROR_MESSAGE = "";
 
@@ -178,6 +181,13 @@ public class DiodiAndStabilitrManager {
 			passed += 1;
 		} else {
 			resRgen = FALSE;
+		}
+		
+		if(diodType.equalsIgnoreCase(given.getDiod().getName())) {
+			setResDiod(TRUE);
+			passed += 1;
+		} else {
+			setResDiod(FALSE);
 		}
 
 		double x = passed / total * 10;
@@ -469,6 +479,22 @@ public class DiodiAndStabilitrManager {
 
 	public void setERROR_MESSAGE(String eRROR_MESSAGE) {
 		ERROR_MESSAGE = eRROR_MESSAGE;
+	}
+
+	public String getDiodType() {
+		return diodType;
+	}
+
+	public void setDiodType(String diodType) {
+		this.diodType = diodType;
+	}
+
+	public String getResDiod() {
+		return resDiod;
+	}
+
+	public void setResDiod(String resDiod) {
+		this.resDiod = resDiod;
 	}
 
 }

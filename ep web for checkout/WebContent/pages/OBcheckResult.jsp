@@ -10,12 +10,12 @@
 
 <LINK href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet"
 	type="text/css">
-<LINK href="<%=request.getContextPath()%>/css/print.css" rel="stylesheet"
-	type="text/css">
-<LINK href="<%=request.getContextPath()%>/css/reset.css" rel="stylesheet"
-	type="text/css">
-<LINK href="<%=request.getContextPath()%>/css/typography.css" rel="stylesheet"
-	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/print.css"
+	rel="stylesheet" type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/reset.css"
+	rel="stylesheet" type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/typography.css"
+	rel="stylesheet" type="text/css">
 <LINK href="<%=request.getContextPath()%>/css/ie.css" rel="stylesheet"
 	type="text/css">
 </head>
@@ -297,10 +297,16 @@
 
 				<h:outputLabel
 					value="Студент #{loginService.student.fathersName} #{loginService.student.name } ваша оценка:"></h:outputLabel>
-				<h:outputLabel value="#{oBManager.result }"></h:outputLabel><br>
+				<h:outputLabel value="#{oBManager.result }"></h:outputLabel>
+				<br>
 
 				<h:commandButton value="Проверить вычисления"
 					actionListener="#{oBManager.checkResult }"></h:commandButton>
+
+			</h:form>
+			<h:form>
+				<h:commandButton value="Назад"
+					action="#{mainService.backToAvailableThemes }"></h:commandButton>
 			</h:form>
 
 		</div>
