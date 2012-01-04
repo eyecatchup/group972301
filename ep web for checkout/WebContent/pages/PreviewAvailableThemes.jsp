@@ -71,9 +71,17 @@
 					<h:commandButton value="Проверить результат"></h:commandButton>
 
 				</div>
-
 			</h:form>
 		</div>
+		
+		<div>
+			<h:form>
+				<h:commandButton value="Редактирование и просмотр темы"></h:commandButton>
+				<h:commandButton value="Редактирование и просмотр групп"></h:commandButton>
+				<h:commandButton value="Редактирование и просмотр групп"></h:commandButton>
+			</h:form>
+		</div>
+		
 	</f:view>
 </body>
 </html>
