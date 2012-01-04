@@ -107,36 +107,4 @@ public class CalculatorOB extends OB{
         calcF();
         calcM();
     }
-    
-    public Object[] getData(){
-    	Object[] data = new Object[26];
-    	calc();
-    	data[0] = getUa();
-    	data[1] = getUip();
-    	data[2] = getRk();
-    	data[3] = getRa();
-    	data[4] = getIb();
-    	data[5] = getUb();
-        data[6] = getId();
-        data[7] = getR1();
-        data[8] = getR2();
-        data[9] = getC1();
-        data[10] = getC2();
-        data[11] = getCa();
-        data[12] = getCb();
-        data[13] = getRvh();
-        data[14] = getRb();
-        data[15] = getRvih();
-        data[16] = getKi();
-        data[17] = getKu();
-        data[18] = getFn1();
-        data[19] = getFn2();
-        data[20] = getFn3();
-        data[21] = getFv1();
-        data[22] = getFv2();
-        data[23] = getFv3();
-        data[24] = getMvN();
-        data[25] = getMnN();
-    	return data;
-    }
 }

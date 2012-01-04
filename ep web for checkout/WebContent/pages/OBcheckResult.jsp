@@ -44,6 +44,126 @@
 					</tr>
 
 					<tr class="even">
+						<td><h:outputLabel value="Ua"></h:outputLabel>
+						<td><h:inputText id="ua" value="#{oBManager.ua}"
+								required="true">
+								<f:validator validatorId="com.validators.StringDataValidator" />
+							</h:inputText></td>
+						<td><h:message for="ua"></h:message></td>
+						<td><h:outputLabel value="#{oBManager.uaStr}"></h:outputLabel></td>
+					</tr>
+
+					<tr>
+						<td><h:outputLabel value="Uip"></h:outputLabel>
+						<td><h:inputText id="uip" value="#{oBManager.uip}"
+								required="true">
+								<f:validator validatorId="com.validators.StringDataValidator" />
+							</h:inputText></td>
+						<td><h:message for="uip"></h:message></td>
+						<td><h:outputLabel value="#{oBManager.uipStr}"></h:outputLabel></td>
+					</tr>
+					
+					<tr class="even">
+						<td><h:outputLabel value="Rk"></h:outputLabel>
+						<td><h:inputText id="rk" value="#{oBManager.rk}"
+								required="true">
+								<f:validator validatorId="com.validators.StringDataValidator" />
+							</h:inputText></td>
+						<td><h:message for="rk"></h:message></td>
+						<td><h:outputLabel value="#{oBManager.rkStr}"></h:outputLabel></td>
+					</tr>
+					
+					<tr>
+						<td><h:outputLabel value="Ra"></h:outputLabel>
+						<td><h:inputText id="ra" value="#{oBManager.ra}"
+								required="true">
+								<f:validator validatorId="com.validators.StringDataValidator" />
+							</h:inputText></td>
+						<td><h:message for="ra"></h:message></td>
+						<td><h:outputLabel value="#{oBManager.raStr}"></h:outputLabel></td>
+					</tr>
+
+					<tr class="even">
+						<td><h:outputLabel value="Ib"></h:outputLabel>
+						<td><h:inputText id="ib" value="#{oBManager.ib}"
+								required="true">
+								<f:validator validatorId="com.validators.StringDataValidator" />
+							</h:inputText></td>
+						<td><h:message for="ib"></h:message></td>
+						<td><h:outputLabel value="#{oBManager.ibStr}"></h:outputLabel></td>
+					</tr>
+					
+					<tr>
+						<td><h:outputLabel value="Ub"></h:outputLabel>
+						<td><h:inputText id="ub" value="#{oBManager.ub}"
+								required="true">
+								<f:validator validatorId="com.validators.StringDataValidator" />
+							</h:inputText></td>
+						<td><h:message for="ub"></h:message></td>
+						<td><h:outputLabel value="#{oBManager.ubStr}"></h:outputLabel></td>
+					</tr>
+					
+					<tr class="even">
+						<td><h:outputLabel value="Id"></h:outputLabel>
+						<td><h:inputText id="i_d" value="#{oBManager.id}"
+								required="true">
+								<f:validator validatorId="com.validators.StringDataValidator" />
+							</h:inputText></td>
+						<td><h:message for="i_d"></h:message></td>
+						<td><h:outputLabel value="#{oBManager.idStr}"></h:outputLabel></td>
+					</tr>
+					
+					<tr>
+						<td><h:outputLabel value="R1"></h:outputLabel>
+						<td><h:inputText id="r_1" value="#{oBManager.r1}"
+								required="true">
+								<f:validator validatorId="com.validators.StringDataValidator" />
+							</h:inputText></td>
+						<td><h:message for="r_1"></h:message></td>
+						<td><h:outputLabel value="#{oBManager.r1Str}"></h:outputLabel></td>
+					</tr>
+
+					<tr class="even">
+						<td><h:outputLabel value="R2"></h:outputLabel>
+						<td><h:inputText id="r_2" value="#{oBManager.r2}"
+								required="true">
+								<f:validator validatorId="com.validators.StringDataValidator" />
+							</h:inputText></td>
+						<td><h:message for="r_2"></h:message></td>
+						<td><h:outputLabel value="#{oBManager.r2Str}"></h:outputLabel></td>
+					</tr>
+					
+					<tr>
+						<td><h:outputLabel value="Rb"></h:outputLabel>
+						<td><h:inputText id="rb" value="#{oBManager.rb}"
+								required="true">
+								<f:validator validatorId="com.validators.StringDataValidator" />
+							</h:inputText></td>
+						<td><h:message for="rb"></h:message></td>
+						<td><h:outputLabel value="#{oBManager.rbStr}"></h:outputLabel></td>
+					</tr>
+
+					<tr class="even">
+						<td><h:outputLabel value="Rvh"></h:outputLabel>
+						<td><h:inputText id="rvh" value="#{oBManager.rvh}"
+								required="true">
+								<f:validator validatorId="com.validators.StringDataValidator" />
+							</h:inputText></td>
+						<td><h:message for="rvh"></h:message></td>
+						<td><h:outputLabel value="#{oBManager.rvhStr}"></h:outputLabel></td>
+					</tr>
+
+					<tr>
+						<td><h:outputLabel value="Rvih"></h:outputLabel>
+						<td><h:inputText id="rvih" value="#{oBManager.rvih}"
+								required="true">
+								<f:validator validatorId="com.validators.StringDataValidator" />
+							</h:inputText></td>
+						<td><h:message for="rvih"></h:message></td>
+						<td><h:outputLabel value="#{oBManager.rvihStr}"></h:outputLabel></td>
+					</tr>
+					
+					<tr class="even">
 						<td><h:outputLabel value="C1"></h:outputLabel>
 						<td><h:inputText id="c_1" value="#{oBManager.c1}"
 								required="true">
@@ -82,7 +202,27 @@
 						<td><h:message for="cb"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.cbStr}"></h:outputLabel></td>
 					</tr>
+					
+					<tr class="even">
+						<td><h:outputLabel value="Ki"></h:outputLabel>
+						<td><h:inputText id="ki" value="#{oBManager.ki}"
+								required="true">
+								<f:validator validatorId="com.validators.StringDataValidator" />
+							</h:inputText></td>
+						<td><h:message for="ki"></h:message></td>
+						<td><h:outputLabel value="#{oBManager.kiStr}"></h:outputLabel></td>
+					</tr>
 
+					<tr>
+						<td><h:outputLabel value="Ku"></h:outputLabel>
+						<td><h:inputText id="ku" value="#{oBManager.ku}"
+								required="true">
+								<f:validator validatorId="com.validators.StringDataValidator" />
+							</h:inputText></td>
+						<td><h:message for="ku"></h:message></td>
+						<td><h:outputLabel value="#{oBManager.kuStr}"></h:outputLabel></td>
+					</tr>
+					
 					<tr class="even">
 						<td><h:outputLabel value="Fn1"></h:outputLabel>
 						<td><h:inputText id="fn_1" value="#{oBManager.fn1}"
@@ -144,36 +284,6 @@
 					</tr>
 
 					<tr class="even">
-						<td><h:outputLabel value="Ib"></h:outputLabel>
-						<td><h:inputText id="ib" value="#{oBManager.ib}"
-								required="true">
-								<f:validator validatorId="com.validators.StringDataValidator" />
-							</h:inputText></td>
-						<td><h:message for="ib"></h:message></td>
-						<td><h:outputLabel value="#{oBManager.ibStr}"></h:outputLabel></td>
-					</tr>
-
-					<tr>
-						<td><h:outputLabel value="Ki"></h:outputLabel>
-						<td><h:inputText id="ki" value="#{oBManager.ki}"
-								required="true">
-								<f:validator validatorId="com.validators.StringDataValidator" />
-							</h:inputText></td>
-						<td><h:message for="ki"></h:message></td>
-						<td><h:outputLabel value="#{oBManager.kiStr}"></h:outputLabel></td>
-					</tr>
-
-					<tr class="even">
-						<td><h:outputLabel value="Ku"></h:outputLabel>
-						<td><h:inputText id="ku" value="#{oBManager.ku}"
-								required="true">
-								<f:validator validatorId="com.validators.StringDataValidator" />
-							</h:inputText></td>
-						<td><h:message for="ku"></h:message></td>
-						<td><h:outputLabel value="#{oBManager.kuStr}"></h:outputLabel></td>
-					</tr>
-
-					<tr>
 						<td><h:outputLabel value="MnN"></h:outputLabel>
 						<td><h:inputText id="mnn" value="#{oBManager.mnN}"
 								required="true">
@@ -183,7 +293,7 @@
 						<td><h:outputLabel value="#{oBManager.mnNStr}"></h:outputLabel></td>
 					</tr>
 
-					<tr class="even">
+					<tr>
 						<td><h:outputLabel value="MvN"></h:outputLabel>
 						<td><h:inputText id="mvn" value="#{oBManager.mvN}"
 								required="true">
@@ -192,111 +302,12 @@
 						<td><h:message for="mvn"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.mvNStr}"></h:outputLabel></td>
 					</tr>
-
-					<tr>
-						<td><h:outputLabel value="R1"></h:outputLabel>
-						<td><h:inputText id="r_1" value="#{oBManager.r1}"
-								required="true">
-								<f:validator validatorId="com.validators.StringDataValidator" />
-							</h:inputText></td>
-						<td><h:message for="r_1"></h:message></td>
-						<td><h:outputLabel value="#{oBManager.r1Str}"></h:outputLabel></td>
-					</tr>
-
-					<tr class="even">
-						<td><h:outputLabel value="R2"></h:outputLabel>
-						<td><h:inputText id="r_2" value="#{oBManager.r2}"
-								required="true">
-								<f:validator validatorId="com.validators.StringDataValidator" />
-							</h:inputText></td>
-						<td><h:message for="r_2"></h:message></td>
-						<td><h:outputLabel value="#{oBManager.r2Str}"></h:outputLabel></td>
-					</tr>
-
-					<tr>
-						<td><h:outputLabel value="Ra"></h:outputLabel>
-						<td><h:inputText id="ra" value="#{oBManager.ra}"
-								required="true">
-								<f:validator validatorId="com.validators.StringDataValidator" />
-							</h:inputText></td>
-						<td><h:message for="ra"></h:message></td>
-						<td><h:outputLabel value="#{oBManager.raStr}"></h:outputLabel></td>
-					</tr>
-
-					<tr class="even">
-						<td><h:outputLabel value="Rb"></h:outputLabel>
-						<td><h:inputText id="rb" value="#{oBManager.rb}"
-								required="true">
-								<f:validator validatorId="com.validators.StringDataValidator" />
-							</h:inputText></td>
-						<td><h:message for="rb"></h:message></td>
-						<td><h:outputLabel value="#{oBManager.rbStrStr}"></h:outputLabel></td>
-					</tr>
-
-					<tr>
-						<td><h:outputLabel value="Rk"></h:outputLabel>
-						<td><h:inputText id="rk" value="#{oBManager.rk}"
-								required="true">
-								<f:validator validatorId="com.validators.StringDataValidator" />
-							</h:inputText></td>
-						<td><h:message for="rk"></h:message></td>
-						<td><h:outputLabel value="#{oBManager.rkStr}"></h:outputLabel></td>
-					</tr>
-
-					<tr class="even">
-						<td><h:outputLabel value="Rvh"></h:outputLabel>
-						<td><h:inputText id="rvh" value="#{oBManager.rvh}"
-								required="true">
-								<f:validator validatorId="com.validators.StringDataValidator" />
-							</h:inputText></td>
-						<td><h:message for="rvh"></h:message></td>
-						<td><h:outputLabel value="#{oBManager.rvhStr}"></h:outputLabel></td>
-					</tr>
-
-					<tr>
-						<td><h:outputLabel value="Rvih"></h:outputLabel>
-						<td><h:inputText id="rvih" value="#{oBManager.rvih}"
-								required="true">
-								<f:validator validatorId="com.validators.StringDataValidator" />
-							</h:inputText></td>
-						<td><h:message for="rvih"></h:message></td>
-						<td><h:outputLabel value="#{oBManager.rvihStr}"></h:outputLabel></td>
-					</tr>
-
-					<tr class="even">
-						<td><h:outputLabel value="Ua"></h:outputLabel>
-						<td><h:inputText id="ua" value="#{oBManager.ua}"
-								required="true">
-								<f:validator validatorId="com.validators.StringDataValidator" />
-							</h:inputText></td>
-						<td><h:message for="ua"></h:message></td>
-						<td><h:outputLabel value="#{oBManager.uaStr}"></h:outputLabel></td>
-					</tr>
-
-					<tr>
-						<td><h:outputLabel value="Ub"></h:outputLabel>
-						<td><h:inputText id="ub" value="#{oBManager.ub}"
-								required="true">
-								<f:validator validatorId="com.validators.StringDataValidator" />
-							</h:inputText></td>
-						<td><h:message for="ub"></h:message></td>
-						<td><h:outputLabel value="#{oBManager.ubStr}"></h:outputLabel></td>
-					</tr>
-
-					<tr class="even">
-						<td><h:outputLabel value="Uip"></h:outputLabel>
-						<td><h:inputText id="uip" value="#{oBManager.uip}"
-								required="true">
-								<f:validator validatorId="com.validators.StringDataValidator" />
-							</h:inputText></td>
-						<td><h:message for="uip"></h:message></td>
-						<td><h:outputLabel value="#{oBManager.uipStr}"></h:outputLabel></td>
-					</tr>
+					
 				</table>
 
 
 				<h:outputLabel
-					value="Студент #{loginService.student.fathersName} #{loginService.student.name } ваша оценка:"></h:outputLabel>
+					value="Студент #{loginService.student.surname} #{loginService.student.name } ваша оценка:"></h:outputLabel>
 				<h:outputLabel value="#{oBManager.result }"></h:outputLabel>
 				<br>
 

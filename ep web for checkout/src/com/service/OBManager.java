@@ -22,73 +22,65 @@ public class OBManager {
 	private GivenOB given;
 	private CalculatorOB calculatorOB;
 	private double passed = 0.0;
-	private double total = 25.0;
+	private double total = 26.0;
 	private String result = "";
 
 	private String Ua;// show
-
+	private String UaStr;
 	private String Uip;// show
+	private String UipStr;
 	private String Rk;// show
+	private String RkStr;
 	private String Ra;// show
+	private String RaStr;
 	private String Ib;// show
+	private String IbStr;
 	private String Ub;// show
-	// private String Id;// show
+	private String UbStr;
+	private String Id;// show
+	private String IdStr;
 	private String R1;// show
+	private String R1Str;
 	private String R2;// show
+	private String R2Str;
 
 	private String Rvh;// show
+	private String RvhStr;
 	private String Rb;// show
+	private String RbStr;
 	private String Rvih;// show
+	private String RvihStr;
 	private String C1;// show
+	private String C1Str;
 	private String C2;// show
+	private String C2Str;
 	private String Ca;// show
+	private String CaStr;
 	private String Cb;// show
+	private String CbStr;
 
 	private String Ki;// show
+	private String KiStr;
 	private String Ku;// show
+	private String KuStr;
 
 	private String fn1;// show
+	private String fn1Str;
 	private String fn2;// show
+	private String fn2Str;
 	private String fn3;// show
+	private String fn3Str;
 	private String fv1;// show
+	private String fv1Str;
 	private String fv2;// show
+	private String fv2Str;
 	private String fv3;// show
+	private String fv3Str;
 
 	private String MvN;// show
+	private String MvNStr;
 	private String MnN;// show
-
-	private String UaStr;// show
-	private String UipStr;// show
-
-	private String RkStr;// show
-	private String RaStr;// show
-	private String IbStr;// show
-	private String UbStr;// show
-	/*
-	 * private String IdStr;// show
-	 */private String R1Str;// show
-	private String R2Str;// show
-
-	private String RvhStr;// show
-	private String RbStrStr;// show
-	private String RvihStr;// show
-	private String C1Str;// show
-	private String C2Str;// show
-	private String CaStr;// show
-	private String CbStr;// show
-
-	private String KiStr;// show
-	private String KuStr;// show
-
-	private String fn1Str;// show
-	private String fn2Str;// show
-	private String fn3Str;// show
-	private String fv1Str;// show
-	private String fv2Str;// show
-	private String fv3Str;// show
-
-	private String MvNStr;// show
-	private String MnNStr;// show
+	private String MnNStr;
 
 	private String ERROR_MESSAGE = "";
 
@@ -103,6 +95,10 @@ public class OBManager {
 		}
 		setToDefault();
 	}
+	
+	private boolean checkIfValid(Float i, Float b) {
+		return (b * 1.1) > i && (b * 0.9) < i;
+	}
 
 	public void checkResult(ActionEvent e) {
 		if (MainService.checkIfStudentHasMakr(2) == false) {
@@ -112,441 +108,264 @@ public class OBManager {
 			setERROR_MESSAGE("");
 		}
 
-		Integer i = Integer.parseInt(this.C1);
-		Integer b = (int) calculatorOB.getC1();
+		Float i = Float.parseFloat(Ua);
+		Float b = (float) calculatorOB.getUa();
 
-		if (i == b) {
-			C1Str = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			C1Str = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			C1Str = TRUE;
-			passed += 1;
-
-		} else {
-			C1Str = FALSE;
-		}
-
-		i = Integer.parseInt(this.C2);
-		b = (int) calculatorOB.getC2();
-
-		if (i == b) {
-			C2Str = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			C2Str = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			C2Str = TRUE;
-			passed += 1;
-
-		} else {
-			C2Str = FALSE;
-		}
-
-		i = Integer.parseInt(Ca);
-		b = (int) calculatorOB.getCa();
-		if (i == b) {
-			CaStr = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			CaStr = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			CaStr = TRUE;
-			passed += 1;
-
-		} else {
-			CaStr = FALSE;
-		}
-
-		i = Integer.parseInt(this.Cb);
-		b = (int) calculatorOB.getCb();
-		if (i == b) {
-			CbStr = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			CbStr = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			CbStr = TRUE;
-			passed += 1;
-
-		} else {
-			CbStr = FALSE;
-		}
-
-		i = Integer.parseInt(this.fn1);
-		b = (int) calculatorOB.getFn1();
-		if (i == b) {
-			fn1Str = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			fn1Str = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			fn1Str = TRUE;
-			passed += 1;
-
-		} else {
-			fn1Str = FALSE;
-		}
-
-		i = Integer.parseInt(this.fn2);
-		b = (int) calculatorOB.getFn2();
-		if (i == b) {
-			fn2Str = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			fn2Str = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			fn2Str = TRUE;
-			passed += 1;
-
-		} else {
-			fn2Str = FALSE;
-		}
-
-		i = Integer.parseInt(this.fn3);
-		b = (int) calculatorOB.getFn3();
-		if (i == b) {
-			fn3Str = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			fn3Str = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			fn3Str = TRUE;
-			passed += 1;
-
-		} else {
-			fn3Str = FALSE;
-		}
-
-		i = Integer.parseInt(this.fv1);
-		b = (int) calculatorOB.getFv1();
-		if (i == b) {
-			fv1Str = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			fv1Str = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			fv1Str = TRUE;
-			passed += 1;
-
-		} else {
-			fv1Str = FALSE;
-		}
-
-		i = Integer.parseInt(this.fv2);
-		b = (int) calculatorOB.getFv2();
-		if (i == b) {
-			fv2Str = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			fv2Str = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			fv2Str = TRUE;
-			passed += 1;
-
-		} else {
-			fv2Str = FALSE;
-		}
-
-		i = Integer.parseInt(this.fv3);
-		b = (int) calculatorOB.getFv3();
-		if (i == b) {
-			fv3Str = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			fv3Str = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			fv3Str = TRUE;
-			passed += 1;
-
-		} else {
-			fv3Str = FALSE;
-		}
-
-		i = Integer.parseInt(this.Ib);
-		b = (int) calculatorOB.getIb();
-		if (i == b) {
-			IbStr = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			IbStr = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			IbStr = TRUE;
-			passed += 1;
-
-		} else {
-			IbStr = FALSE;
-		}
-
-		/*
-		 * i = Integer.parseInt(this.Id); b = (int) calculatorOB.getId(); if (i
-		 * == b) { IdStr = TRUE; passed += 1; } else if (i == (b - 1)) { IdStr =
-		 * TRUE; passed += 1;
-		 * 
-		 * } else if (i == (b + 1)) { IdStr = TRUE; passed += 1;
-		 * 
-		 * } else { IdStr = FALSE; }
-		 */
-
-		i = Integer.parseInt(this.Ki);
-		b = (int) calculatorOB.getKi();
-		if (i == b) {
-			KiStr = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			KiStr = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			KiStr = TRUE;
-			passed += 1;
-
-		} else {
-			KiStr = FALSE;
-		}
-
-		i = Integer.parseInt(this.Ku);
-		b = (int) calculatorOB.getKu();
-		if (i == b) {
-			KuStr = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			KuStr = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			KuStr = TRUE;
-			passed += 1;
-
-		} else {
-			KuStr = FALSE;
-		}
-
-		i = Integer.parseInt(this.MnN);
-		b = (int) calculatorOB.getMnN();
-		if (i == b) {
-			MnNStr = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			MnNStr = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			MnNStr = TRUE;
-			passed += 1;
-
-		} else {
-			MnNStr = FALSE;
-		}
-
-		i = Integer.parseInt(this.MvN);
-		b = (int) calculatorOB.getMvN();
-		if (i == b) {
-			MvNStr = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			MvNStr = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			MvNStr = TRUE;
-			passed += 1;
-
-		} else {
-			MvNStr = FALSE;
-		}
-
-		i = Integer.parseInt(this.R1);
-		b = (int) calculatorOB.getR1();
-		if (i == b) {
-			R1Str = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			R1Str = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			R1Str = TRUE;
-			passed += 1;
-
-		} else {
-			R1Str = FALSE;
-		}
-
-		i = Integer.parseInt(this.R2);
-		b = (int) calculatorOB.getR2();
-		if (i == b) {
-			R2Str = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			R2Str = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			R2Str = TRUE;
-			passed += 1;
-
-		} else {
-			R2Str = FALSE;
-		}
-
-		i = Integer.parseInt(this.Ra);
-		b = (int) calculatorOB.getRa();
-		if (i == b) {
-			RaStr = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			RaStr = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			RaStr = TRUE;
-			passed += 1;
-
-		} else {
-			RaStr = FALSE;
-		}
-
-		i = Integer.parseInt(this.Rb);
-		b = (int) calculatorOB.getRb();
-		if (i == b) {
-			RbStrStr = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			RbStrStr = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			RbStrStr = TRUE;
-			passed += 1;
-
-		} else {
-			RbStrStr = FALSE;
-		}
-
-		i = Integer.parseInt(this.Rk);
-		b = (int) calculatorOB.getRk();
-		if (i == b) {
-			RkStr = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			RkStr = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			RkStr = TRUE;
-			passed += 1;
-
-		} else {
-			RkStr = FALSE;
-		}
-
-		i = Integer.parseInt(this.Rvh);
-		b = (int) calculatorOB.getRvh();
-		if (i == b) {
-			RvhStr = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			RvhStr = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			RvhStr = TRUE;
-			passed += 1;
-
-		} else {
-			RvhStr = FALSE;
-		}
-
-		i = Integer.parseInt(this.Rvih);
-		b = (int) calculatorOB.getRvih();
-		if (i == b) {
-			RvihStr = TRUE;
-			passed += 1;
-		} else if (i == (b - 1)) {
-			RvihStr = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			RvihStr = TRUE;
-			passed += 1;
-
-		} else {
-			RvihStr = FALSE;
-		}
-
-		i = Integer.parseInt(this.Ua);
-		b = (int) calculatorOB.getUa();
-		if (i == b) {
+		if (checkIfValid(i, b)) {
 			UaStr = TRUE;
 			passed += 1;
-		} else if (i == (b - 1)) {
-			UaStr = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			UaStr = TRUE;
-			passed += 1;
-
 		} else {
 			UaStr = FALSE;
 		}
+		
+		i = Float.parseFloat(Uip);
+		b = (float) calculatorOB.getUip();
 
-		i = Integer.parseInt(this.Ub);
-		b = (int) calculatorOB.getUb();
-		if (i == b) {
+		if (checkIfValid(i, b)) {
+			UipStr = TRUE;
+			passed += 1;
+		} else {
+			UipStr = FALSE;
+		}
+		
+		i = Float.parseFloat(Rk);
+		b = (float) calculatorOB.getRk();
+
+		if (checkIfValid(i, b)) {
+			RkStr = TRUE;
+			passed += 1;
+		} else {
+			RkStr = FALSE;
+		}
+		
+		i = Float.parseFloat(Ra);
+		b = (float) calculatorOB.getRa();
+
+		if (checkIfValid(i, b)) {
+			RaStr = TRUE;
+			passed += 1;
+		} else {
+			RaStr = FALSE;
+		}
+		
+		i = Float.parseFloat(Ib);
+		b = (float) calculatorOB.getIb();
+
+		if (checkIfValid(i, b)) {
+			IbStr = TRUE;
+			passed += 1;
+		} else {
+			IbStr = FALSE;
+		}
+		
+		i = Float.parseFloat(Ub);
+		b = (float) calculatorOB.getUb();
+
+		if (checkIfValid(i, b)) {
 			UbStr = TRUE;
 			passed += 1;
-		} else if (i == (b - 1)) {
-			UbStr = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			UbStr = TRUE;
-			passed += 1;
-
 		} else {
 			UbStr = FALSE;
 		}
+		
+		i = Float.parseFloat(Id);
+		b = (float) calculatorOB.getId();
 
-		i = Integer.parseInt(this.Uip);
-		b = (int) calculatorOB.getUip();
-		if (i == b) {
-			UipStr = TRUE;
+		if (checkIfValid(i, b)) {
+			IdStr = TRUE;
 			passed += 1;
-		} else if (i == (b - 1)) {
-			UipStr = TRUE;
-			passed += 1;
-
-		} else if (i == (b + 1)) {
-			UipStr = TRUE;
-			passed += 1;
-
 		} else {
-			UipStr = FALSE;
+			IdStr = FALSE;
+		}
+		
+		i = Float.parseFloat(R1);
+		b = (float) calculatorOB.getR1();
+
+		if (checkIfValid(i, b)) {
+			R1Str = TRUE;
+			passed += 1;
+		} else {
+			R1Str = FALSE;
+		}
+		
+		i = Float.parseFloat(R2);
+		b = (float) calculatorOB.getR2();
+
+		if (checkIfValid(i, b)) {
+			R2Str = TRUE;
+			passed += 1;
+		} else {
+			R2Str = FALSE;
+		}
+		
+		i = Float.parseFloat(Rvh);
+		b = (float) calculatorOB.getRvh();
+
+		if (checkIfValid(i, b)) {
+			RvhStr = TRUE;
+			passed += 1;
+		} else {
+			RvhStr = FALSE;
+		}
+		
+		i = Float.parseFloat(Rvih);
+		b = (float) calculatorOB.getRvih();
+
+		if (checkIfValid(i, b)) {
+			RvihStr = TRUE;
+			passed += 1;
+		} else {
+			RvihStr = FALSE;
+		}
+		
+		i = Float.parseFloat(Rb);
+		b = (float) calculatorOB.getRb();
+
+		if (checkIfValid(i, b)) {
+			RbStr = TRUE;
+			passed += 1;
+		} else {
+			RbStr = FALSE;
+		}
+		
+		i = Float.parseFloat(C1);
+		b = (float) calculatorOB.getC1();
+
+		if (checkIfValid(i, b)) {
+			C1Str = TRUE;
+			passed += 1;
+		} else {
+			C2Str = FALSE;
+		}
+		
+		i = Float.parseFloat(C2);
+		b = (float) calculatorOB.getC2();
+
+		if (checkIfValid(i, b)) {
+			C2Str = TRUE;
+			passed += 1;
+		} else {
+			C2Str = FALSE;
+		}
+		
+		i = Float.parseFloat(Ca);
+		b = (float) calculatorOB.getCa();
+
+		if (checkIfValid(i, b)) {
+			CaStr = TRUE;
+			passed += 1;
+		} else {
+			CaStr = FALSE;
+		}
+		
+		i = Float.parseFloat(Cb);
+		b = (float) calculatorOB.getCb();
+
+		if (checkIfValid(i, b)) {
+			CbStr = TRUE;
+			passed += 1;
+		} else {
+			CbStr = FALSE;
+		}
+		
+		i = Float.parseFloat(Ki);
+		b = (float) calculatorOB.getKi();
+
+		if (checkIfValid(i, b)) {
+			KiStr = TRUE;
+			passed += 1;
+		} else {
+			KiStr = FALSE;
+		}
+		
+		i = Float.parseFloat(Ku);
+		b = (float) calculatorOB.getKu();
+
+		if (checkIfValid(i, b)) {
+			KuStr = TRUE;
+			passed += 1;
+		} else {
+			KuStr = FALSE;
+		}
+		
+		i = Float.parseFloat(fn1);
+		b = (float) calculatorOB.getFn1();
+
+		if (checkIfValid(i, b)) {
+			fn1Str = TRUE;
+			passed += 1;
+		} else {
+			fn1Str = FALSE;
+		}
+		
+		i = Float.parseFloat(fn2);
+		b = (float) calculatorOB.getFn2();
+
+		if (checkIfValid(i, b)) {
+			fn2Str = TRUE;
+			passed += 1;
+		} else {
+			fn2Str = FALSE;
+		}
+		
+		i = Float.parseFloat(fn3);
+		b = (float) calculatorOB.getFn3();
+
+		if (checkIfValid(i, b)) {
+			fn3Str = TRUE;
+			passed += 1;
+		} else {
+			fn3Str = FALSE;
+		}
+		
+		i = Float.parseFloat(fv1);
+		b = (float) calculatorOB.getFv1();
+
+		if (checkIfValid(i, b)) {
+			fv1Str = TRUE;
+			passed += 1;
+		} else {
+			fv1Str = FALSE;
+		}
+		
+		i = Float.parseFloat(fv2);
+		b = (float) calculatorOB.getFv2();
+
+		if (checkIfValid(i, b)) {
+			fv2Str = TRUE;
+			passed += 1;
+		} else {
+			fv2Str = FALSE;
+		}
+		
+		i = Float.parseFloat(fv3);
+		b = (float) calculatorOB.getFv3();
+
+		if (checkIfValid(i, b)) {
+			fv3Str = TRUE;
+			passed += 1;
+		} else {
+			fv3Str = FALSE;
+		}
+		
+		i = Float.parseFloat(MvN);
+		b = (float) calculatorOB.getMvN();
+
+		if (checkIfValid(i, b)) {
+			MvNStr = TRUE;
+			passed += 1;
+		} else {
+			MvNStr = FALSE;
+		}
+		
+		i = Float.parseFloat(MnN);
+		b = (float) calculatorOB.getMnN();
+
+		if (checkIfValid(i, b)) {
+			MnNStr = TRUE;
+			passed += 1;
+		} else {
+			MnNStr = FALSE;
 		}
 
 		double x = passed / total * 10;
@@ -594,13 +413,12 @@ public class OBManager {
 
 	private void setToDefault() {
 		Ua = "";// show
-
 		Uip = "";// show
 		Rk = "";// show
 		Ra = "";// show
 		Ib = "";// show
 		Ub = "";// show
-		// Id;// show
+		Id = "";// show
 		R1 = "";// show
 		R2 = "";// show
 
@@ -624,7 +442,6 @@ public class OBManager {
 
 		MvN = "";// show
 		MnN = "";// show
-
 	}
 
 	public GivenOB getGiven() {
@@ -691,11 +508,14 @@ public class OBManager {
 		UbStr = ubStr;
 	}
 
-	/*
-	 * public String getIdStr() { return IdStr; }
-	 * 
-	 * public void setIdStr(String idStr) { IdStr = idStr; }
-	 */
+	
+	public String getIdStr() { 
+		return IdStr; 
+	}
+	
+	public void setIdStr(String idStr) { 
+		IdStr = idStr; 
+	}
 
 	public String getR1Str() {
 		return R1Str;
@@ -721,12 +541,12 @@ public class OBManager {
 		RvhStr = rvhStr;
 	}
 
-	public String getRbStrStr() {
-		return RbStrStr;
+	public String getRbStr() {
+		return RbStr;
 	}
 
-	public void setRbStrStr(String rbStrStr) {
-		RbStrStr = rbStrStr;
+	public void setRbStr(String rbStr) {
+		RbStr = rbStr;
 	}
 
 	public String getRvihStr() {
@@ -897,11 +717,13 @@ public class OBManager {
 		Ub = ub;
 	}
 
-	/*
-	 * public String getId() { return Id; }
-	 * 
-	 * public void setId(String id) { Id = id; }
-	 */
+	public String getId() { 
+		return Id; 
+	}
+	
+	public void setId(String id) { 
+		Id = id; 
+	}
 
 	public String getR1() {
 		return R1;
