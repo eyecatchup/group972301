@@ -10,6 +10,8 @@ import javax.faces.validator.ValidatorException;
 
 import org.hibernate.classic.Session;
 
+import com.service.AddDiodiandStab;
+
 import dao.DiodDao;
 import ep.HibernateUtil;
 import ep.diodiAndStabilitroni.Diod;
@@ -19,6 +21,10 @@ public class DiodAddValidator implements Validator {
 	@Override
 	public void validate(FacesContext arg0, UIComponent arg1, Object arg2)
 			throws ValidatorException {
+		if(AddDiodiandStab.update == true) {
+			return;
+		}
+		
 		String type = (String) arg2;
 
 		DiodDao dao = new DiodDao();

@@ -8,6 +8,8 @@ import javax.faces.validator.ValidatorException;
 
 import org.hibernate.classic.Session;
 
+import com.service.AddDiodiandStab;
+
 import dao.GivenDAOImpl;
 import entity.Given;
 import ep.HibernateUtil;
@@ -17,6 +19,10 @@ public class StabilizAddVariantValid implements Validator{
 	@Override
 	public void validate(FacesContext arg0, UIComponent arg1, Object arg2)
 			throws ValidatorException {
+		if(AddDiodiandStab.update == true) {
+			return;
+		}
+		
 		String number = (String) arg2;
 		
 		Session session = HibernateUtil.openSession();
