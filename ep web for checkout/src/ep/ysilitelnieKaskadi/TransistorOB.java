@@ -59,14 +59,4 @@ public class TransistorOB {
     public double getCk(){
         return Ck;
     }
-    
-    public Object[] getData(){
-    	Object[] data = new Object[5];
-    	data[0] = getH21min();
-        data[1] = getH21max();
-        data[2] = getH21a();
-        data[3] = getCa();
-        data[4] = getCk();
-    	return data;
-    }
 }

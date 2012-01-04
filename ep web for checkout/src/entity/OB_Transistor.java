@@ -77,6 +77,10 @@ public class OB_Transistor implements Serializable {
 	public void setH21max(Float h21max) {
 		this.h21max = h21max;
 	}
+	
+	public Float getH21A() {
+		return (float) Math.sqrt(h21min * h21max);
+	}
 
 	public Float getH11a() {
 		return h11a;
