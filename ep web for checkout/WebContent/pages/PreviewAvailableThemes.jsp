@@ -73,15 +73,31 @@
 				</div>
 			</h:form>
 		</div>
-		
+
 		<div>
 			<h:form>
-				<h:commandButton value="Редактирование и просмотр темы"></h:commandButton>
-				<h:commandButton value="Редактирование и просмотр групп"></h:commandButton>
-				<h:commandButton value="Редактирование и просмотр групп"></h:commandButton>
+				<h:commandButton value="Редактирование и просмотр темы"
+					action="#{mainService.DIODI_ADD }"
+					rendered="#{loginService.IS_ROOT }"></h:commandButton>
 			</h:form>
 		</div>
-		
+
+		<div>
+			<h:form>
+				<h:commandButton value="Редактирование и просмотр темы"
+					action="#{mainService.DIODI_ADD }"
+					rendered="#{loginService.IS_ROOT }"></h:commandButton>
+			</h:form>
+		</div>
+
+		<div>
+			<h:form>
+				<h:commandButton value="Редактирование и просмотр групп"
+					action="#{mainService.STUDENTS_PREVIEW }"
+					rendered="#{loginService.IS_ROOT }"></h:commandButton>
+			</h:form>
+		</div>
+
 	</f:view>
 </body>
 </html>

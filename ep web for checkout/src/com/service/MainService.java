@@ -132,6 +132,14 @@ public class MainService {
 
 		return true;
 	}
+	
+	public String STUDENTS_PREVIEW() {
+		return AppLogic.STUDENTS_PREVIEW;
+	}
+	
+	public String DIODI_ADD() {
+		return AppLogic.DIODI_ADD;
+	}
 
 	public String showStabData() {
 		return AppLogic.DIODI_STABILITRONI;
