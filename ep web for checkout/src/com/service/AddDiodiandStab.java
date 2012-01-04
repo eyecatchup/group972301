@@ -261,11 +261,11 @@ public class AddDiodiandStab {
 		Given given = (Given) ((UIParameter) iterator.next()).getValue();
 
 		Session session = HibernateUtil.openSession();
-		StabilitronDAOImpl daoImpl = new StabilitronDAOImpl();
+		GivenDAOImpl daoImpl = new GivenDAOImpl();
 		daoImpl.setSession(session);
 		Transaction transaction = session.beginTransaction();
 		transaction.begin();
-		daoImpl.makeTransient(given.getStabilitron());
+		daoImpl.makeTransient(given);
 		transaction.commit();
 		session.close();
 	}
