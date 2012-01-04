@@ -10,12 +10,12 @@
 
 <LINK href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet"
 	type="text/css">
-<LINK href="<%=request.getContextPath()%>/css/print.css" rel="stylesheet"
-	type="text/css">
-<LINK href="<%=request.getContextPath()%>/css/reset.css" rel="stylesheet"
-	type="text/css">
-<LINK href="<%=request.getContextPath()%>/css/typography.css" rel="stylesheet"
-	type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/print.css"
+	rel="stylesheet" type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/reset.css"
+	rel="stylesheet" type="text/css">
+<LINK href="<%=request.getContextPath()%>/css/typography.css"
+	rel="stylesheet" type="text/css">
 <LINK href="<%=request.getContextPath()%>/css/ie.css" rel="stylesheet"
 	type="text/css">
 </head>

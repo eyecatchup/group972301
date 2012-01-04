@@ -10,6 +10,7 @@ import entity.Given;
 import entity.GivenOB;
 import entity.Lab;
 import entity.OB_Transistor;
+import entity.RootEntity;
 import entity.StGroup;
 import entity.Stabilitron;
 import entity.Student;
@@ -30,7 +31,8 @@ public class HibernateUtil {
 				.addAnnotatedClass(OB_Transistor.class)
 				.addAnnotatedClass(Student.class)
 				.addAnnotatedClass(StudentLabs.class)
-				.addAnnotatedClass(Diod.class);
+				.addAnnotatedClass(Diod.class)
+				.addAnnotatedClass(RootEntity.class);
 
 		config = aconf.configure();
 		sessionFactory = config.configure().buildSessionFactory();

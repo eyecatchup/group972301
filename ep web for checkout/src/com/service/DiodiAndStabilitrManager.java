@@ -54,9 +54,23 @@ public class DiodiAndStabilitrManager {
 	private String resKst;
 	private String resRn;
 	private String resRgen;
-	
+
+	private String mainUvxst;
+	private String mainUvix;
+	private String maindeltaUvxSt;
+	private String maindeltaUvix;
+	private String maindeltaUtemper;
+	private String mainIr;
+	private String mainIst;
+	private String mainInagr;
+	private String mainC;
+	private String mainKst;
+	private String mainRn;
+	private String mainRgen;
+	private String mainDiod;
+
 	private String diodType;
-	private String resDiod; 
+	private String resDiod;
 
 	private String ERROR_MESSAGE = "";
 
@@ -72,6 +86,10 @@ public class DiodiAndStabilitrManager {
 
 		vipremitel = new Vipremitel(calculatorStabilitron.getStabilitron(),
 				state);
+		
+		if (LoginService.IS_ROOT) {
+			setMainData();
+		}
 
 		if (MainService.checkIfStudentHasMakr(1) == false) {
 			ERROR_MESSAGE = MainService.HAS_MARK;
@@ -182,8 +200,8 @@ public class DiodiAndStabilitrManager {
 		} else {
 			resRgen = FALSE;
 		}
-		
-		if(diodType.equalsIgnoreCase(given.getDiod().getName())) {
+
+		if (diodType.equalsIgnoreCase(given.getDiod().getName())) {
 			setResDiod(TRUE);
 			passed += 1;
 		} else {
@@ -198,6 +216,10 @@ public class DiodiAndStabilitrManager {
 		if ((x - z) > 0.5) {
 			z += 1;
 		}
+
+		setMainData();
+		if (LoginService.IS_ROOT)
+			return;
 
 		resultMark = new String(new Double(z).toString());
 
@@ -233,6 +255,29 @@ public class DiodiAndStabilitrManager {
 		ses.close();
 
 		passed = 0;
+
+	}
+
+	private void setMainData() {
+		mainUvxst = ((Float) calculatorStabilitron.getStabilitron()
+				.getPostNagrNaWhodeStabilizatora()).toString();
+		maindeltaUvxSt = ((Float) calculatorStabilitron.getStabilitron()
+				.getAmplitudePuls()).toString();
+		maindeltaUtemper = ((Float) calculatorStabilitron.getStabilitron()
+				.getTemperUhod()).toString();
+		mainIr = ((Float) calculatorStabilitron.getStabilitron()
+				.getTokGosResistora()).toString();
+		;
+		mainIst = ((Float) calculatorStabilitron.getStabilitron()
+				.getRabTokStabilitrona()).toString();
+		mainC = ((Float) vipremitel.getEmkost()).toString();
+		mainKst = ((Integer) calculatorStabilitron.getStabilitron()
+				.getCoefStabiliz()).toString();
+		mainRn = ((Float) calculatorStabilitron.getStabilitron()
+				.getSoprNagruzki()).toString();
+		mainRgen = ((Float) calculatorStabilitron.getStabilitron()
+				.getSoprotGosResis()).toString();
+		mainDiod = given.getDiod().getName();
 
 	}
 
@@ -495,6 +540,110 @@ public class DiodiAndStabilitrManager {
 
 	public void setResDiod(String resDiod) {
 		this.resDiod = resDiod;
+	}
+
+	public String getMainUvxst() {
+		return mainUvxst;
+	}
+
+	public void setMainUvxst(String mainUvxst) {
+		this.mainUvxst = mainUvxst;
+	}
+
+	public String getMainUvix() {
+		return mainUvix;
+	}
+
+	public void setMainUvix(String mainUvix) {
+		this.mainUvix = mainUvix;
+	}
+
+	public String getMaindeltaUvxSt() {
+		return maindeltaUvxSt;
+	}
+
+	public void setMaindeltaUvxSt(String maindeltaUvxSt) {
+		this.maindeltaUvxSt = maindeltaUvxSt;
+	}
+
+	public String getMaindeltaUvix() {
+		return maindeltaUvix;
+	}
+
+	public void setMaindeltaUvix(String maindeltaUvix) {
+		this.maindeltaUvix = maindeltaUvix;
+	}
+
+	public String getMaindeltaUtemper() {
+		return maindeltaUtemper;
+	}
+
+	public void setMaindeltaUtemper(String maindeltaUtemper) {
+		this.maindeltaUtemper = maindeltaUtemper;
+	}
+
+	public String getMainIr() {
+		return mainIr;
+	}
+
+	public void setMainIr(String mainIr) {
+		this.mainIr = mainIr;
+	}
+
+	public String getMainIst() {
+		return mainIst;
+	}
+
+	public void setMainIst(String mainIst) {
+		this.mainIst = mainIst;
+	}
+
+	public String getMainInagr() {
+		return mainInagr;
+	}
+
+	public void setMainInagr(String mainInagr) {
+		this.mainInagr = mainInagr;
+	}
+
+	public String getMainC() {
+		return mainC;
+	}
+
+	public void setMainC(String mainC) {
+		this.mainC = mainC;
+	}
+
+	public String getMainKst() {
+		return mainKst;
+	}
+
+	public void setMainKst(String mainKst) {
+		this.mainKst = mainKst;
+	}
+
+	public String getMainRn() {
+		return mainRn;
+	}
+
+	public void setMainRn(String mainRn) {
+		this.mainRn = mainRn;
+	}
+
+	public String getMainRgen() {
+		return mainRgen;
+	}
+
+	public void setMainRgen(String mainRgen) {
+		this.mainRgen = mainRgen;
+	}
+
+	public String getMainDiod() {
+		return mainDiod;
+	}
+
+	public void setMainDiod(String mainDiod) {
+		this.mainDiod = mainDiod;
 	}
 
 }

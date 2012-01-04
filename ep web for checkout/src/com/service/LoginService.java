@@ -6,11 +6,14 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import org.hibernate.Transaction;
+import org.hibernate.classic.Session;
 
 import com.logic.AppLogic;
 
 import dao.GroupDAOImpl;
+import dao.RootDao;
 import dao.StudentDAOImpl;
+import entity.RootEntity;
 import entity.StGroup;
 import entity.Student;
 import ep.HibernateUtil;
@@ -25,8 +28,29 @@ public class LoginService {
 
 	private UIForm addForm;
 	private boolean show = false;
+	public static boolean IS_ROOT = false;
+	private static final String ROOT_NAME = "Владимир";
+	private static final String ROOT_SURNAME = "Николаевич";
 
 	public String LogIn() {
+		if (studName.equalsIgnoreCase(ROOT_NAME)
+				&& studSurName.equalsIgnoreCase(ROOT_SURNAME)) {
+			RootDao rootDao = new RootDao();
+			Session session = HibernateUtil.openSession();
+			rootDao.setSession(session);
+			RootEntity root = rootDao.getRoot();
+			if (root != null) {
+				if (password.equalsIgnoreCase(root.getPassword())) {
+					IS_ROOT = true;
+					return AppLogic.LOGIN_SUCCESSFULL;
+				}
+			}
+
+			showErrorMessage("Incorrect login or password");
+			return AppLogic.LOGIN_FAILED;
+
+		}
+
 		StudentDAOImpl studentDao = new StudentDAOImpl();
 		studentDao.setSession(HibernateUtil.getSessionFactory().openSession());
 		Transaction transaction = studentDao.getSession().beginTransaction();
@@ -59,20 +83,22 @@ public class LoginService {
 		StGroup group = daoImpl.getGroutByNumber(this.group);
 		daoImpl.getSession().close();
 		student.setGroup(group);
-		
-		if(group == null) {
+
+		if (group == null) {
 			showErrorMessage("Недопустимое значение группы");
 			return;
 		}
-		
+
 		StudentDAOImpl studentDAOImpl = new StudentDAOImpl();
-		studentDAOImpl.setSession(HibernateUtil.getSessionFactory().openSession());
-		Transaction transaction = studentDAOImpl.getSession().beginTransaction();
+		studentDAOImpl.setSession(HibernateUtil.getSessionFactory()
+				.openSession());
+		Transaction transaction = studentDAOImpl.getSession()
+				.beginTransaction();
 		transaction.begin();
 		studentDAOImpl.makePersistent(student);
 		transaction.commit();
 		studentDAOImpl.getSession().close();
-		
+
 		clearFields();
 
 	}
@@ -164,6 +190,14 @@ public class LoginService {
 
 	public void setShow(boolean show) {
 		this.show = show;
+	}
+
+	public boolean isIS_ROOT() {
+		return IS_ROOT;
+	}
+
+	public void setIS_ROOT(boolean iS_ROOT) {
+		IS_ROOT = iS_ROOT;
 	}
 
 }

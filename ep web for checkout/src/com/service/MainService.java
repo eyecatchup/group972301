@@ -17,9 +17,15 @@ import entity.Lab;
 import ep.HibernateUtil;
 
 public class MainService {
-	public static String HAS_MARK = "Студент "
-			+ LoginService.student.getName() + " "
-			+ LoginService.student.getSurname() + " у вас уже имеется оценка";
+	public static String HAS_MARK = "";
+	static {
+		if (LoginService.IS_ROOT == false) {
+			HAS_MARK = "Студент " + LoginService.student.getName() + " "
+					+ LoginService.student.getSurname()
+					+ " у вас уже имеется оценка";
+		}
+	}
+
 
 	public static String theme0 = "Тема - Диоды и стабилитрны";
 	public static String theme1 = "Тема - Усилительные каскады на БТ";
@@ -37,7 +43,6 @@ public class MainService {
 	// LinkedHashMap<Integer, Integer>();
 
 	private String choosenTheme;
-
 
 	private static void getObVariants() {
 		OB_GivenDAOImpl daoImpl = new OB_GivenDAOImpl();
@@ -107,12 +112,16 @@ public class MainService {
 		}
 
 	}
-	
+
 	public String backToAvailableThemes() {
 		return AppLogic.BACK_TO_PREVIEW;
 	}
 
 	public static boolean checkIfStudentHasMakr(long theme) {
+		if(LoginService.IS_ROOT) {
+			return true;
+		}
+		
 		List<Lab> doneLabs = LoginService.student.getDoneLabs();
 
 		for (Lab i : doneLabs) {
