@@ -44,7 +44,7 @@
 					</tr>
 
 					<tr class="even">
-						<td><h:outputLabel value="Ua"></h:outputLabel>
+						<td><h:outputLabel value="Uэ, В"></h:outputLabel>
 						<td><h:inputText id="ua" value="#{oBManager.ua}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -54,7 +54,7 @@
 					</tr>
 
 					<tr>
-						<td><h:outputLabel value="Uip"></h:outputLabel>
+						<td><h:outputLabel value="Uип, В"></h:outputLabel>
 						<td><h:inputText id="uip" value="#{oBManager.uip}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -64,7 +64,7 @@
 					</tr>
 					
 					<tr class="even">
-						<td><h:outputLabel value="Rk"></h:outputLabel>
+						<td><h:outputLabel value="Rк, Ом"></h:outputLabel>
 						<td><h:inputText id="rk" value="#{oBManager.rk}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -74,7 +74,7 @@
 					</tr>
 					
 					<tr>
-						<td><h:outputLabel value="Ra"></h:outputLabel>
+						<td><h:outputLabel value="Rэ, Ом"></h:outputLabel>
 						<td><h:inputText id="ra" value="#{oBManager.ra}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -84,7 +84,7 @@
 					</tr>
 
 					<tr class="even">
-						<td><h:outputLabel value="Ib"></h:outputLabel>
+						<td><h:outputLabel value="Iб, А"></h:outputLabel>
 						<td><h:inputText id="ib" value="#{oBManager.ib}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -94,7 +94,7 @@
 					</tr>
 					
 					<tr>
-						<td><h:outputLabel value="Ub"></h:outputLabel>
+						<td><h:outputLabel value="Uб, А"></h:outputLabel>
 						<td><h:inputText id="ub" value="#{oBManager.ub}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -104,7 +104,7 @@
 					</tr>
 					
 					<tr class="even">
-						<td><h:outputLabel value="Id"></h:outputLabel>
+						<td><h:outputLabel value="Iд, А"></h:outputLabel>
 						<td><h:inputText id="i_d" value="#{oBManager.id}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -114,7 +114,7 @@
 					</tr>
 					
 					<tr>
-						<td><h:outputLabel value="R1"></h:outputLabel>
+						<td><h:outputLabel value="R1, Ом"></h:outputLabel>
 						<td><h:inputText id="r_1" value="#{oBManager.r1}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -124,7 +124,7 @@
 					</tr>
 
 					<tr class="even">
-						<td><h:outputLabel value="R2"></h:outputLabel>
+						<td><h:outputLabel value="R2, Ом"></h:outputLabel>
 						<td><h:inputText id="r_2" value="#{oBManager.r2}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -132,9 +132,19 @@
 						<td><h:message for="r_2"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.r2Str}"></h:outputLabel></td>
 					</tr>
-					
+
 					<tr>
-						<td><h:outputLabel value="Rb"></h:outputLabel>
+						<td><h:outputLabel value="Rвх, Ом"></h:outputLabel>
+						<td><h:inputText id="rvh" value="#{oBManager.rvh}"
+								required="true">
+								<f:validator validatorId="com.validators.StringDataValidator" />
+							</h:inputText></td>
+						<td><h:message for="rvh"></h:message></td>
+						<td><h:outputLabel value="#{oBManager.rvhStr}"></h:outputLabel></td>
+					</tr>
+					
+					<tr class="even">
+						<td><h:outputLabel value="Rб, Ом"></h:outputLabel>
 						<td><h:inputText id="rb" value="#{oBManager.rb}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -143,18 +153,8 @@
 						<td><h:outputLabel value="#{oBManager.rbStr}"></h:outputLabel></td>
 					</tr>
 
-					<tr class="even">
-						<td><h:outputLabel value="Rvh"></h:outputLabel>
-						<td><h:inputText id="rvh" value="#{oBManager.rvh}"
-								required="true">
-								<f:validator validatorId="com.validators.StringDataValidator" />
-							</h:inputText></td>
-						<td><h:message for="rvh"></h:message></td>
-						<td><h:outputLabel value="#{oBManager.rvhStr}"></h:outputLabel></td>
-					</tr>
-
 					<tr>
-						<td><h:outputLabel value="Rvih"></h:outputLabel>
+						<td><h:outputLabel value="Rвых, Ом"></h:outputLabel>
 						<td><h:inputText id="rvih" value="#{oBManager.rvih}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -164,7 +164,7 @@
 					</tr>
 					
 					<tr class="even">
-						<td><h:outputLabel value="C1"></h:outputLabel>
+						<td><h:outputLabel value="C1, Ф"></h:outputLabel>
 						<td><h:inputText id="c_1" value="#{oBManager.c1}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -174,7 +174,7 @@
 					</tr>
 
 					<tr>
-						<td><h:outputLabel value="C2"></h:outputLabel>
+						<td><h:outputLabel value="C2, Ф"></h:outputLabel>
 						<td><h:inputText id="c_2" value="#{oBManager.c2}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -184,7 +184,7 @@
 					</tr>
 
 					<tr class="even">
-						<td><h:outputLabel value="Ca"></h:outputLabel>
+						<td><h:outputLabel value="Cэ, Ф"></h:outputLabel>
 						<td><h:inputText id="ca" value="#{oBManager.ca}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -194,7 +194,7 @@
 					</tr>
 
 					<tr>
-						<td><h:outputLabel value="Cb"></h:outputLabel>
+						<td><h:outputLabel value="Cб, Ф"></h:outputLabel>
 						<td><h:inputText id="cb" value="#{oBManager.cb}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -224,7 +224,7 @@
 					</tr>
 					
 					<tr class="even">
-						<td><h:outputLabel value="Fn1"></h:outputLabel>
+						<td><h:outputLabel value="fн1, Гц"></h:outputLabel>
 						<td><h:inputText id="fn_1" value="#{oBManager.fn1}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -234,7 +234,7 @@
 					</tr>
 
 					<tr>
-						<td><h:outputLabel value="Fn2"></h:outputLabel>
+						<td><h:outputLabel value="fн2, Гц"></h:outputLabel>
 						<td><h:inputText id="fn_2" value="#{oBManager.fn2}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -244,7 +244,7 @@
 					</tr>
 
 					<tr class="even">
-						<td><h:outputLabel value="Fn3"></h:outputLabel>
+						<td><h:outputLabel value="fн3, Гц"></h:outputLabel>
 						<td><h:inputText id="fn_3" value="#{oBManager.fn3}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -254,7 +254,7 @@
 					</tr>
 
 					<tr>
-						<td><h:outputLabel value="Fv1"></h:outputLabel>
+						<td><h:outputLabel value="fв1, Гц"></h:outputLabel>
 						<td><h:inputText id="fv_1" value="#{oBManager.fv1}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -264,7 +264,7 @@
 					</tr>
 
 					<tr class="even">
-						<td><h:outputLabel value="Fv2"></h:outputLabel>
+						<td><h:outputLabel value="fв2, Гц"></h:outputLabel>
 						<td><h:inputText id="fv_2" value="#{oBManager.fv2}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -274,7 +274,7 @@
 					</tr>
 
 					<tr>
-						<td><h:outputLabel value="Fv3"></h:outputLabel>
+						<td><h:outputLabel value="fв3, Гц"></h:outputLabel>
 						<td><h:inputText id="fv_3" value="#{oBManager.fv3}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -284,7 +284,7 @@
 					</tr>
 
 					<tr class="even">
-						<td><h:outputLabel value="MnN"></h:outputLabel>
+						<td><h:outputLabel value="MнN"></h:outputLabel>
 						<td><h:inputText id="mnn" value="#{oBManager.mnN}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -294,7 +294,7 @@
 					</tr>
 
 					<tr>
-						<td><h:outputLabel value="MvN"></h:outputLabel>
+						<td><h:outputLabel value="MвN"></h:outputLabel>
 						<td><h:inputText id="mvn" value="#{oBManager.mvN}"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -307,7 +307,7 @@
 
 
 				<h:outputLabel
-					value="Студент #{loginService.student.surname} #{loginService.student.name } ваша оценка:"></h:outputLabel>
+					value="Студент #{loginService.student.name} #{loginService.student.surname} ваша оценка:"></h:outputLabel>
 				<h:outputLabel value="#{oBManager.result }"></h:outputLabel>
 				<br>
 

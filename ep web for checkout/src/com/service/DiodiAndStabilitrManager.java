@@ -237,7 +237,7 @@ public class DiodiAndStabilitrManager {
 	}
 
 	private boolean checkIfValid(Float i, Float b) {
-		return (b * 1.1) > i && (b * 0.9) < b;
+		return (b * 1.1) > i && (b * 0.9) < i;
 	}
 
 	public Given getGiven() {

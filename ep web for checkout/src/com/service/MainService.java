@@ -19,7 +19,7 @@ import ep.HibernateUtil;
 public class MainService {
 	public static String HAS_MARK = "Студент "
 			+ LoginService.student.getName() + " "
-			+ LoginService.student.getSurname() + " у вас уже имеется оценка.";
+			+ LoginService.student.getSurname() + " у вас уже имеется оценка";
 
 	public static String theme0 = "Тема - Диоды и стабилитрны";
 	public static String theme1 = "Тема - Усилительные каскады на БТ";
