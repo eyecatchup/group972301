@@ -26,9 +26,16 @@
 		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
 	</listener>
 
-	<!-- <error-page>
-		<error-code>500</error-code>
-		<location>/pages/MainLogin.jsp</location>
-	</error-page> -->
+	<!-- <error-page> <error-code>500</error-code> <location>/pages/MainLogin.jsp</location> 
+		</error-page> -->
+
+	<filter>
+		<filter-name>CustomCharacterEncodingFilter</filter-name>
+		<filter-class>com.filter.CustomCharacterEncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CustomCharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 </web-app>
