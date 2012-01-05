@@ -21,104 +21,105 @@
 </head>
 <body>
 	<f:view>
+		<div class="loginContent">
 
-		<div id="header">
-			<h:form styleClass="loginForm">
-				<p>
-					<h:messages styleClass="errorMessage" layout="table"
-						showSummary="true" showDetail="false"></h:messages>
-				</p>
-			</h:form>
+			<div id="header">
+				<h:form styleClass="loginForm">
+					<p>
+						<h:messages styleClass="errorMessage" layout="table"
+							showSummary="true" showDetail="false"></h:messages>
+					</p>
+				</h:form>
+			</div>
+
+			<div id="login" align="center">
+
+				<h:form id="login_form">
+					<table>
+						<tr>
+							<th colspan="2"><h:outputText value="Форма входа"></h:outputText></th>
+						</tr>
+						<tr class="even">
+							<td width="100px"><h:outputText value="Имя"></h:outputText></td>
+							<td><h:inputText value="#{loginService.studName }"></h:inputText></td>
+						</tr>
+
+						<tr>
+							<td><h:outputText value="Фамилия"></h:outputText></td>
+							<td><h:inputText value="#{loginService.studSurName }"></h:inputText></td>
+						</tr>
+
+						<tr class="even">
+							<td><h:outputText value="Номер группы"></h:outputText></td>
+							<td><h:inputText value="#{loginService.group }"></h:inputText></td>
+						</tr>
+
+						<tr>
+							<td><h:outputText value="Пароль"></h:outputText></td>
+							<td><h:inputSecret id="pswd"
+									value="#{loginService.password}" required="true"></h:inputSecret></td>
+						</tr>
+
+					</table>
+					<h:commandButton id="loginBtn" value="Войти" styleClass="submit"
+						action="#{loginService.LogIn }"></h:commandButton>
+				</h:form>
+
+				<h:form>
+
+					<h:commandButton value="Зарегистрироваться" id="show_hide"
+						actionListener="#{loginService.displayAddForm }"></h:commandButton>
+				</h:form>
+
+				<h:form binding="#{loginService.addForm }"
+					rendered="#{loginService.show }">
+					<table>
+						<tr>
+							<th colspan="2">Форма регистрации</th>
+						</tr>
+						<tr class="even">
+							<td width="100px"><h:outputText value="Имя"></h:outputText></td>
+							<td><h:inputText value="#{loginService.studName }">
+
+								</h:inputText></td>
+						</tr>
+
+						<tr>
+							<td><h:outputText value="Фамилия"></h:outputText></td>
+							<td><h:inputText value="#{loginService.studSurName }">
+
+								</h:inputText></td>
+						</tr>
+
+						<tr class="even">
+							<td><h:outputText value="Отчество"></h:outputText></td>
+							<td><h:inputText value="#{loginService.fathersName }">
+
+								</h:inputText></td>
+						</tr>
+
+						<tr>
+							<td><h:outputText value="Номер группы"></h:outputText></td>
+							<td><h:inputText value="#{loginService.group }">
+									<f:validator validatorId="com.validators.StringDataValidator" />
+								</h:inputText></td>
+						</tr>
+
+						<tr class="even">
+							<td><h:outputText value="Пароль"></h:outputText></td>
+							<td><h:inputSecret id="pswd"
+									value="#{loginService.password}" required="true">
+								</h:inputSecret></td>
+						</tr>
+					</table>
+
+					<h:commandButton id="loginBtn" value="Добавить" styleClass="submit"
+						actionListener="#{loginService.addStudent }"></h:commandButton>
+				</h:form>
+			</div>
+
+
 		</div>
-
-		<div id="login" align="center">
-
-			<h:form id="login_form">
-				<table>
-					<tr>
-						<th colspan="2"><h:outputText value="Форма входа"></h:outputText></th>
-					</tr>
-					<tr class="even">
-						<td width="100px"><h:outputText value="Имя"></h:outputText></td>
-						<td><h:inputText value="#{loginService.studName }"></h:inputText></td>
-					</tr>
-
-					<tr>
-						<td><h:outputText value="Фамилия"></h:outputText></td>
-						<td><h:inputText value="#{loginService.studSurName }"></h:inputText></td>
-					</tr>
-
-					<tr class="even">
-						<td><h:outputText value="Номер группы"></h:outputText></td>
-						<td><h:inputText value="#{loginService.group }"></h:inputText></td>
-					</tr>
-
-					<tr>
-						<td><h:outputText value="Пароль"></h:outputText></td>
-						<td><h:inputSecret id="pswd" value="#{loginService.password}"
-								required="true"></h:inputSecret></td>
-					</tr>
-
-				</table>
-				<h:commandButton id="loginBtn" value="Войти" styleClass="submit"
-					action="#{loginService.LogIn }"></h:commandButton>
-			</h:form>
-
-			<h:form>
-
-				<h:commandButton value="Зарегистрироваться" id="show_hide"
-					actionListener="#{loginService.displayAddForm }"></h:commandButton>
-			</h:form>
-
-			<h:form binding="#{loginService.addForm }"
-				rendered="#{loginService.show }">
-				<table>
-					<tr>
-						<th colspan="2">Форма регистрации</th>
-					</tr>
-					<tr class="even">
-						<td width="100px"><h:outputText value="Имя"></h:outputText></td>
-						<td><h:inputText value="#{loginService.studName }">
-
-							</h:inputText></td>
-					</tr>
-
-					<tr>
-						<td><h:outputText value="Фамилия"></h:outputText></td>
-						<td><h:inputText value="#{loginService.studSurName }">
-
-							</h:inputText></td>
-					</tr>
-
-					<tr class="even">
-						<td><h:outputText value="Отчество"></h:outputText></td>
-						<td><h:inputText value="#{loginService.fathersName }">
-
-							</h:inputText></td>
-					</tr>
-
-					<tr>
-						<td><h:outputText value="Номер группы"></h:outputText></td>
-						<td><h:inputText value="#{loginService.group }">
-								<f:validator validatorId="com.validators.StringDataValidator" />
-							</h:inputText></td>
-					</tr>
-
-					<tr class="even">
-						<td><h:outputText value="Пароль"></h:outputText></td>
-						<td><h:inputSecret id="pswd" value="#{loginService.password}"
-								required="true">
-							</h:inputSecret></td>
-					</tr>
-				</table>
-
-				<h:commandButton id="loginBtn" value="Добавить" styleClass="submit"
-					actionListener="#{loginService.addStudent }"></h:commandButton>
-			</h:form>
-		</div>
-
-
-
 	</f:view>
 </body>
 </html>
