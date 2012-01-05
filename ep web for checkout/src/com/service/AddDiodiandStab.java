@@ -126,7 +126,7 @@ public class AddDiodiandStab {
 
 		Stabilitron newStab = checkIfExistStabilitron(stabilitron);
 		if (newStab != null) {
-			stabilitron = newStab;
+			stId = newStab.getId();
 		}
 
 		Diod diod = new Diod();
@@ -138,7 +138,7 @@ public class AddDiodiandStab {
 
 		Diod newDiod = checkIfExistDiod(diod);
 		if (newDiod != null) {
-			diod = newDiod;
+			diodId = newDiod.getId();
 		}
 
 		Given given = new Given();
@@ -160,7 +160,7 @@ public class AddDiodiandStab {
 		}
 
 		if (stId != null) {
-			//stabilitron.setId(stId);
+			stabilitron.setId(stId);
 		}
 
 		Session session = HibernateUtil.openSession();
