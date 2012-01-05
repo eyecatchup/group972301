@@ -59,7 +59,7 @@
 					<h:commandButton value="Проверить результат"
 						action="#{mainService.checkResult_1 }"></h:commandButton>
 					<h:commandButton value="Редактирование и просмотр темы"
-						action="#{mainService.DIODI_ADD }"
+						action="#{mainService.OB_ADD}"
 						rendered="#{loginService.IS_ROOT }"></h:commandButton>
 
 				</div>

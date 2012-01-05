@@ -135,7 +135,7 @@
 					</table>
 				</div>
 
-				<h:panelGrid columns="3">
+				<h:panelGrid columns="3" rowClasses="even, simple">
 
 					<f:facet name="header">
 						<h:outputText value="Параметры Диода"></h:outputText>
@@ -184,7 +184,7 @@
 		</div>
 		<div class="dataAll border">
 			<h:form>
-				<h:dataTable value="#{addDiodiandStab.list }" var="given">
+				<h:dataTable value="#{addDiodiandStab.list }" var="given" rowClasses="even, simple">
 
 					<h:column>
 						<f:facet name="header">

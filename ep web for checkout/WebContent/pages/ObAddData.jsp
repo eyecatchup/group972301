@@ -20,14 +20,14 @@
 </head>
 <body>
 	<f:view>
-		<div class="dataReceive">
+		<div class="dataReceive border">
 			<h:form>
 				<table>
 					<tr>
 						<th colspan="3"><h:outputText value="Исходные данные" /></th>
 					</tr>
 
-					<tr>
+					<tr class="even">
 						<td><h:outputText value="Номер варианта" /></td>
 						<td><h:inputText id="var" value="#{addObService.var }"
 								required="true">
@@ -37,16 +37,8 @@
 						<td><h:message for="var"></h:message></td>
 					</tr>
 
-					<%-- <tr>
-						<td><h:outputText value="Тип транзистора" /></td>
-						<td><h:inputText id="type" value="#{addObService.type }"
-								required="true">
-							</h:inputText></td>
-						<td><h:message for="type"></h:message></td>
-					</tr> --%>
-
 					<tr>
-						<td><h:outputText value="Ukэ0, В" /></td>
+						<td><h:outputText value="Uкэ0, В" /></td>
 						<td><h:inputText id="uka0" value="#{addObService.uka0 }"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
@@ -54,13 +46,13 @@
 						<td><h:message for="uka0"></h:message></td>
 					</tr>
 
-					<tr>
-						<td><h:outputText value="Сн, Ф" /></td>
-						<td><h:inputText id="cn" value="#{addObService.cn }"
+					<tr class="even">
+						<td><h:outputText value="Ik, А" /></td>
+						<td><h:inputText id="ik" value="#{addObService.ik }"
 								required="true">
 								<f:validator validatorId="com.validators.StringDataValidator" />
 							</h:inputText></td>
-						<td><h:message for="cn"></h:message></td>
+						<td><h:message for="ik"></h:message></td>
 					</tr>
 
 					<tr>
@@ -72,16 +64,7 @@
 						<td><h:message for="eg"></h:message></td>
 					</tr>
 
-					<tr>
-						<td><h:outputText value="Ik, А" /></td>
-						<td><h:inputText id="ik" value="#{addObService.ik }"
-								required="true">
-								<f:validator validatorId="com.validators.StringDataValidator" />
-							</h:inputText></td>
-						<td><h:message for="ik"></h:message></td>
-					</tr>
-
-					<tr>
+					<tr class="even">
 						<td><h:outputText value="Rг, Ом" /></td>
 						<td><h:inputText id="rg" value="#{addObService.rg }"
 								required="true">
@@ -100,6 +83,15 @@
 						<td><h:message for="rn"></h:message></td>
 					</tr>
 
+					<tr class="even">
+						<td><h:outputText value="Сн, Ф" /></td>
+						<td><h:inputText id="cn" value="#{addObService.cn }"
+								required="true">
+								<f:validator validatorId="com.validators.StringDataValidator" />
+							</h:inputText></td>
+						<td><h:message for="cn"></h:message></td>
+					</tr>
+
 				</table>
 
 				<table>
@@ -107,7 +99,7 @@
 						<th colspan="3"><h:outputText value="Параметры транзистора" /></th>
 					</tr>
 
-					<tr>
+					<tr class="even">
 						<td><h:outputText value="Тип" /></td>
 						<td><h:inputText id="tran_type"
 								value="#{addObService.tran_type }" required="true">
@@ -124,7 +116,7 @@
 						<td><h:message for="h21min"></h:message></td>
 					</tr>
 
-					<tr>
+					<tr class="even">
 						<td><h:outputText value="h21макс" /></td>
 						<td><h:inputText id="h21max" value="#{addObService.h21max }"
 								required="true">
@@ -142,7 +134,7 @@
 						<td><h:message for="h11a"></h:message></td>
 					</tr>
 
-					<tr>
+					<tr class="even">
 						<td><h:outputText value="h21э" /></td>
 						<td><h:inputText id="h21a" value="#{addObService.h21a }"
 								required="true">
@@ -160,7 +152,7 @@
 						<td><h:message for="fn"></h:message></td>
 					</tr>
 
-					<tr>
+					<tr class="even">
 						<td><h:outputText value="fв, Гц" /></td>
 						<td><h:inputText id="fv" value="#{addObService.fv }"
 								required="true">
@@ -179,7 +171,7 @@
 						<td><h:message for="ck"></h:message></td>
 					</tr>
 
-					<tr>
+					<tr class="even">
 						<td><h:outputText value="Cэ, Ф" /></td>
 						<td><h:inputText id="ca" value="#{addObService.ca }"
 								required="true">
@@ -193,9 +185,10 @@
 				<h:commandButton value="Добавить"
 					actionListener="#{addObService.add }"></h:commandButton>
 			</h:form>
-
+		</div>
+		<div class="dataAll border">
 			<h:form>
-				<h:dataTable value="#{addObService.list }" var="var">
+				<h:dataTable value="#{addObService.list }" var="var" rowClasses="even, simple">
 					<h:column>
 
 						<f:facet name="header">

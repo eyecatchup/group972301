@@ -135,6 +135,14 @@
 			<to-view-id>/pages/Add_Diodi_Stab.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/PreviewAvailableThemes</display-name>
+		<from-view-id>/pages/PreviewAvailableThemes.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>ob_add</from-outcome>
+			<to-view-id>/pages/ObAddData.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 	<validator>
 		<display-name>com.validators.StringDataValidator</display-name>
 		<validator-id>com.validators.StringDataValidator</validator-id>
