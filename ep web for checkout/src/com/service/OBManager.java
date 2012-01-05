@@ -17,13 +17,13 @@ import ep.ysilitelnieKaskadi.CalculatorOB;
 public class OBManager {
 	private static final String TRUE = "Верно";
 	private static final String FALSE = "Неверно";
+	private String resultMark = "введите данные для проверки и нажмите кнопку проверить";
 
 	private Lab studentLab = new Lab();
 	private GivenOB given;
 	private CalculatorOB calculatorOB;
 	private double passed = 0.0;
 	private double total = 26.0;
-	private String result = "";
 
 	private String Ua;// show
 	private String Uip;// show
@@ -442,9 +442,11 @@ public class OBManager {
 			z += 1;
 		}
 		
-		setMainData();
-		if (LoginService.IS_ROOT)
+		resultMark = new String(new Double(z).toString());
+		if (LoginService.IS_ROOT){
+			setMainData();
 			return;
+		}
 		passed = 0;
 
 		studentLab.setMark(new Long(z));
@@ -477,8 +479,6 @@ public class OBManager {
 
 		transaction2.commit();
 		ses.close();
-
-		setResult(new String(new Double(z).toString()));
 
 	}
 
@@ -948,14 +948,6 @@ public class OBManager {
 		MnN = mnN;
 	}
 
-	public String getResult() {
-		return result;
-	}
-
-	public void setResult(String result) {
-		this.result = result;
-	}
-
 	public String getERROR_MESSAGE() {
 		return ERROR_MESSAGE;
 	}
@@ -1170,6 +1162,14 @@ public class OBManager {
 
 	public void setMnNMain(String mnNMain) {
 		MnNMain = mnNMain;
+	}
+	
+	public String getResultMark() {
+		return resultMark;
+	}
+
+	public void setResultMark(String resultMark) {
+		this.resultMark = resultMark;
 	}
 
 }
