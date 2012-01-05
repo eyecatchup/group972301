@@ -65,7 +65,7 @@ table.tmpTab table TD, table.tmpTab table TH
 	margin: 10px;
 	background: #EEF;
 	padding: 10px;
-	height: 200px;
+	height: 160px;
 	vertical-align: middle;
 }
 #group_form select
@@ -78,7 +78,7 @@ div.theme label {
 	font-weight: bold;
 	font-size: 16px;
 	display: block;
-	margin-top:40px;
+	margin-top:20px;
 }
 div.dataGiven
 {
