@@ -30,6 +30,7 @@ table.todo {
 	vertical-align: top;
 	background-color: #FFFFFF;
 	border: 1px solid #000;
+	border-radius: 8px;
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 }

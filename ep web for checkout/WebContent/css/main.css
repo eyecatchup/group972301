@@ -11,7 +11,10 @@ div.loginContent{
 	background: #FFF;
 	padding: 10px;
 	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
 	box-shadow: 0px 0px 10px #999;
+	behavior: url(/path/to/PIE.htc); 
 }
 
 #login table {
@@ -67,6 +70,8 @@ table.tmpTab table TD, table.tmpTab table TH
 	height: 200px;
 	vertical-align: middle;
 	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
 	box-shadow: 0px 0px 10px #999;
 }
 #group_form select
@@ -85,7 +90,9 @@ div.dataGiven
 {
 	width: 400px;
 	margin: 0 auto;
-		border-radius: 20px;
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
 	box-shadow: 0px 0px 10px #999;
 	padding:25px;
 }
@@ -93,7 +100,9 @@ div.dataReceive
 {
 	width: 600px;
 	margin: 0 auto;
-		border-radius: 20px;
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
 	box-shadow: 0px 0px 10px #999;
 	padding:25px;
 }
@@ -120,6 +129,7 @@ div.dataGiven table { text-align:left; }
 	text-align: center;
 	padding: 20px;
 	border: 1px solid #000;
+	border-radius: 8px;
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 }
