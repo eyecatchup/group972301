@@ -58,14 +58,15 @@ public class MainService {
 	}
 
 	public String checkResult_0() {
+		if (variants0.size() == 0)
+			return "";
 		stabilizatorNaprManager.caltulate(theme0);
-
 		return AppLogic.DIODO_STABILITRONI_CHECK;
 	}
 
 	public String checkResult_1() {
-		// stabilizatorNaprManager.caltulate(theme0);
-		// obManager = new OBManager();
+		if (variants1.size() == 0)
+			return "";
 		obManager.calculate();
 		return AppLogic.OB_CHECK;
 	}
@@ -142,10 +143,14 @@ public class MainService {
 	}
 
 	public String showStabData() {
+		if (variants0.size() == 0)
+			return "";
 		return AppLogic.DIODI_STABILITRONI;
 	}
 
 	public String showOBdata() {
+		if (variants1.size() == 0)
+			return "";
 		return AppLogic.OB;
 	}
 
