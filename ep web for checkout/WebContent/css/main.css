@@ -5,25 +5,23 @@ body {
 	background-color: #33CCCC;
 }
 
-div.loginContent{
-	width: 320px;
-	margin: 0 auto;
-	background: #FFF;
-	padding: 10px;
+.border{
 	border-radius: 20px;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	box-shadow: 0px 0px 10px #999;
-	behavior: url(/path/to/PIE.htc); 
+}
+
+div.loginContent{
+	width: 320px;
+	margin: 0 auto;
+	background: #FFF;
+	padding: 25px; 
 }
 
 #login table {
 	margin: 20px auto;
 	width: 320px;
-}
-
-#login input {
-	width: 200px;
 }
 
 #login table input {
@@ -69,10 +67,6 @@ table.tmpTab table TD, table.tmpTab table TH
 	padding: 10px;
 	height: 200px;
 	vertical-align: middle;
-	border-radius: 20px;
-	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
-	box-shadow: 0px 0px 10px #999;
 }
 #group_form select
 {
@@ -90,26 +84,25 @@ div.dataGiven
 {
 	width: 400px;
 	margin: 0 auto;
-	border-radius: 20px;
-	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
-	box-shadow: 0px 0px 10px #999;
-	padding:25px;
+	padding: 25px;
+}
+div.students
+{
+	width: 600px;
+	margin: 0 auto;
+	padding: 25px;
 }
 div.dataReceive
 {
 	width: 600px;
-	margin: 0 auto;
-	border-radius: 20px;
-	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
-	box-shadow: 0px 0px 10px #999;
-	padding:25px;
+	margin: 20px auto;
+	padding: 25px;
 }
-div.dataReceive.tp
+div.dataAll
 {
-	margin-top:20px;
-	width:700px;
+	margin: 10px auto;
+	width: 1200px;
+	padding: 15px;
 }
 div.dataGiven.lft
 {
@@ -123,7 +116,7 @@ div.dataGiven.lft
 }
 div.dataGiven table { text-align:left; }
 .addForm {
-	background: #ffffff;
+	background: #fff;
 	width: 300px;
 	margin: 0 auto;
 	text-align: center;

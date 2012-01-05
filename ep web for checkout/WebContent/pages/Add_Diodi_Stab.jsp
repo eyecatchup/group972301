@@ -21,7 +21,7 @@
 </head>
 <body>
 	<f:view>
-		<div class="dataReceive">
+		<div class="dataReceive border">
 			<h:form>
 
 				<h:messages layout="table"
@@ -182,7 +182,7 @@
 					value="Добавить"></h:commandButton>
 			</h:form>
 		</div>
-		<div class="dataReceive tp">
+		<div class="dataAll border">
 			<h:form>
 				<h:dataTable value="#{addDiodiandStab.list }" var="given">
 

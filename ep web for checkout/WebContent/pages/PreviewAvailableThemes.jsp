@@ -25,7 +25,7 @@
 		<div id="main_view">
 			<h:form>
 
-				<div id="theme0" class="theme">
+				<div id="theme0" class="theme border">
 					<h:outputLabel value="#{mainService.theme0 }"></h:outputLabel>
 					<h:outputText value="Вариант: "></h:outputText>
 					<!-- Drop down List with variants -->
@@ -42,7 +42,7 @@
 
 				</div>
 
-				<div id="theme1" class="theme">
+				<div id="theme1" class="theme border">
 					<h:outputLabel value="#{mainService.theme1 }"></h:outputLabel>
 					<!-- Drop down List with variants -->
 					<h:outputText value="Вариант: "></h:outputText>
@@ -58,7 +58,7 @@
 
 				</div>
 
-				<div id="theme2" class="theme">
+				<div id="theme2" class="theme border">
 					<h:outputLabel value="#{mainService.theme2 }"></h:outputLabel>
 					<!-- Drop down List with variants -->
 					<h:outputText value="Вариант: "></h:outputText>
