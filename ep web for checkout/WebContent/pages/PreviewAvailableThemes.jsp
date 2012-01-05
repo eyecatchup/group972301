@@ -39,6 +39,9 @@
 						action="#{mainService.showStabData }"></h:commandButton>
 					<h:commandButton value="Проверить результат"
 						action="#{mainService.checkResult_0 }"></h:commandButton>
+					<h:commandButton value="Редактирование и просмотр темы"
+						action="#{mainService.DIODI_ADD }"
+						rendered="#{loginService.IS_ROOT }"></h:commandButton>
 
 				</div>
 
@@ -55,6 +58,9 @@
 						action="#{mainService.showOBdata }"></h:commandButton>
 					<h:commandButton value="Проверить результат"
 						action="#{mainService.checkResult_1 }"></h:commandButton>
+					<h:commandButton value="Редактирование и просмотр темы"
+						action="#{mainService.DIODI_ADD }"
+						rendered="#{loginService.IS_ROOT }"></h:commandButton>
 
 				</div>
 
@@ -69,24 +75,10 @@
 					<br>
 					<h:commandButton value="Просмотреть исходные данные"></h:commandButton>
 					<h:commandButton value="Проверить результат"></h:commandButton>
-
+					<h:commandButton value="Редактирование и просмотр темы"
+						action="#{mainService.DIODI_ADD }"
+						rendered="#{loginService.IS_ROOT }"></h:commandButton>
 				</div>
-			</h:form>
-		</div>
-
-		<div>
-			<h:form>
-				<h:commandButton value="Редактирование и просмотр темы"
-					action="#{mainService.DIODI_ADD }"
-					rendered="#{loginService.IS_ROOT }"></h:commandButton>
-			</h:form>
-		</div>
-
-		<div>
-			<h:form>
-				<h:commandButton value="Редактирование и просмотр темы"
-					action="#{mainService.DIODI_ADD }"
-					rendered="#{loginService.IS_ROOT }"></h:commandButton>
 			</h:form>
 		</div>
 
