@@ -160,6 +160,7 @@ public class AddDiodiandStab {
 		}
 
 		if (stId != null) {
+			//stabilitron.setId(stId);
 		}
 
 		Session session = HibernateUtil.openSession();
