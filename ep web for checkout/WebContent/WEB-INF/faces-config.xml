@@ -50,6 +50,11 @@
 		<managed-bean-class>com.service.KBTService</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>addObService</managed-bean-name>
+		<managed-bean-class>com.service.AddObService</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 		<display-name>pages/MainLogin</display-name>
 		<from-view-id>/pages/MainLogin.jsp</from-view-id>
@@ -154,6 +159,11 @@
 		<display-name>com.validators.KbtVariantValidator</display-name>
 		<validator-id>com.validators.KbtVariantValidator</validator-id>
 		<validator-class>com.validators.KbtVariantValidator</validator-class>
+	</validator>
+	<validator>
+		<display-name>com.validators.ObVariantValidator</display-name>
+		<validator-id>com.validators.ObVariantValidator</validator-id>
+		<validator-class>com.validators.ObVariantValidator</validator-class>
 	</validator>
 
 </faces-config>
