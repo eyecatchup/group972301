@@ -29,8 +29,8 @@ public class LoginService {
 	private UIForm addForm;
 	private boolean show = false;
 	public static boolean IS_ROOT = false;
-	private static final String ROOT_NAME = "Владимир";
-	private static final String ROOT_SURNAME = "Николаевич";
+	private static final String ROOT_NAME = "Владимир Николаевич";
+	private static final String ROOT_SURNAME = "Русакович";
 
 	public String LogIn() {
 		if (studName.equalsIgnoreCase(ROOT_NAME)
