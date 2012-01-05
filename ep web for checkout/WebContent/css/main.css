@@ -4,7 +4,7 @@ body {
 	margin-top: 3%;
 	background-color: #33CCCC;
 }
-
+table { border: 0px 0px 3px #CCC; }
 .border{
 	border-radius: 20px;
 	-webkit-border-radius: 20px;
