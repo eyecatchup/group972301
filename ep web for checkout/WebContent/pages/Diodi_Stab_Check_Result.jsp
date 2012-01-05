@@ -51,7 +51,7 @@
 				</h1>
 
 				<h3>
-				<h:outputLabel value="Проверка вычислений"></h:outputLabel>
+					<h:outputLabel value="Проверка вычислений"></h:outputLabel>
 				</h3>
 				<b><h:outputLabel
 						value="Вариант:  #{diodiAndStabilitrManager.given.var }"></h:outputLabel></b>
@@ -69,6 +69,21 @@
 						<th width="400px"><h:outputLabel value="Эталонный результат"></h:outputLabel></th>
 					</tr>
 
+					<tr>
+						<td><h:outputLabel value="U вх m"></h:outputLabel>
+						<td><h:inputText id="uvxm"
+								value="#{diodiAndStabilitrManager.uvxm}" required="true">
+							</h:inputText></td>
+						<td><h:message for="uvxm"></h:message></td>
+						<td><h:outputLabel
+								value="#{diodiAndStabilitrManager.resUvxm }"></h:outputLabel></td>
+						<td><h:outputText
+								value="#{diodiAndStabilitrManager.viprymitel.naprVxod}"
+								rendered="#{loginService.IS_ROOT }"></h:outputText></td>
+					</tr>
+
+
+
 					<tr class="even">
 						<td><h:outputLabel value="U вх ст, В"></h:outputLabel>
 						<td><h:inputText id="u"
@@ -78,7 +93,8 @@
 						<td><h:message for="u"></h:message></td>
 						<td><h:outputLabel
 								value="#{diodiAndStabilitrManager.resdeltaUvxSt}"></h:outputLabel></td>
-						<td><h:outputText value="#{diodiAndStabilitrManager.mainUvxst }"></h:outputText></td>
+						<td><h:outputText
+								value="#{diodiAndStabilitrManager.mainUvxst }"></h:outputText></td>
 					</tr>
 
 					<tr>
@@ -90,7 +106,35 @@
 						<td><h:message for="delta"></h:message></td>
 						<td><h:outputLabel
 								value="#{diodiAndStabilitrManager.resdeltaUvxSt }"></h:outputLabel></td>
-						<td><h:outputText value="#{diodiAndStabilitrManager.maindeltaUvxSt}"></h:outputText></td>
+						<td><h:outputText
+								value="#{diodiAndStabilitrManager.maindeltaUvxSt}"></h:outputText></td>
+					</tr>
+					
+					<tr class="even">
+						<td><h:outputLabel value="U вых, В мод"></h:outputLabel>
+						<td><h:inputText id="modUvix"
+								value="#{diodiAndStabilitrManager.modUvix}" required="true">
+							</h:inputText></td>
+						<td><h:message for="modUvix"></h:message></td>
+						<td><h:outputLabel
+								value="#{diodiAndStabilitrManager.modResUvix }"></h:outputLabel></td>
+						<td><h:outputText
+								value="#{diodiAndStabilitrManager.given.naprWihodnoe }"
+								rendered="#{loginService.IS_ROOT }"></h:outputText></td>
+					</tr>
+
+					<tr>
+						<td><h:outputLabel value="ΔU вых, В мод"></h:outputLabel>
+						<td><h:inputText id="deltamodUvix"
+								value="#{diodiAndStabilitrManager.modDelataUvix}"
+								required="true">
+							</h:inputText></td>
+						<td><h:message for="deltamodUvix"></h:message></td>
+						<td><h:outputLabel
+								value="#{diodiAndStabilitrManager.modeResDeltaUvix }"></h:outputLabel></td>
+						<td><h:outputText
+								value="#{diodiAndStabilitrManager.given.deltaNaprWihodnoe }"
+								rendered="#{loginService.IS_ROOT }"></h:outputText></td>
 					</tr>
 
 					<tr class="even">
@@ -102,7 +146,8 @@
 						<td><h:message for="delta_u"></h:message></td>
 						<td><h:outputLabel
 								value="#{diodiAndStabilitrManager.resdeltaUtemper}"></h:outputLabel></td>
-						<td><h:outputText value="#{diodiAndStabilitrManager.maindeltaUtemper}"></h:outputText></td>
+						<td><h:outputText
+								value="#{diodiAndStabilitrManager.maindeltaUtemper}"></h:outputText></td>
 					</tr>
 
 					<tr>
@@ -169,20 +214,36 @@
 						<td><h:message for="r"></h:message></td>
 						<td><h:outputLabel
 								value="#{diodiAndStabilitrManager.resRgen }"></h:outputLabel></td>
-						<td><h:outputText value="#{diodiAndStabilitrManager.mainRgen}"></h:outputText></td>
+						<td><h:outputText
+								value="#{diodiAndStabilitrManager.mainRgen}"></h:outputText></td>
 					</tr>
 
 					<tr>
 						<td><h:outputLabel value="Тип Диода"></h:outputLabel>
 						<td><h:inputText id="diod"
 								value="#{diodiAndStabilitrManager.diodType}" required="true">
-								<f:validator validatorId="com.validators.StringDataValidator" />
+
 							</h:inputText></td>
 						<td><h:message for="diod"></h:message></td>
 						<td><h:outputLabel
 								value="#{diodiAndStabilitrManager.resDiod }"></h:outputLabel></td>
-						<td><h:outputText value="#{diodiAndStabilitrManager.mainDiod }"></h:outputText></td>
+						<td><h:outputText
+								value="#{diodiAndStabilitrManager.mainDiod }"></h:outputText></td>
 					</tr>
+
+					<tr class="even">
+						<td><h:outputLabel value="Тип Стабилитрона"></h:outputLabel>
+						<td><h:inputText id="stab_"
+								value="#{diodiAndStabilitrManager.stabType}" required="true">
+							</h:inputText></td>
+						<td><h:message for="stab_"></h:message></td>
+						<td><h:outputLabel
+								value="#{diodiAndStabilitrManager.resStabType }"></h:outputLabel></td>
+						<td><h:outputText
+								value="#{diodiAndStabilitrManager.given.stabilitron.type }"
+								rendered="#{loginService.IS_ROOT }"></h:outputText></td>
+					</tr>
+
 
 
 				</table>

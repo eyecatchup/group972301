@@ -72,6 +72,17 @@ public class DiodiAndStabilitrManager {
 	private String diodType;
 	private String resDiod;
 
+	private String modResUvix;
+	private String modeResDeltaUvix;
+	private String resStabType;
+
+	private String modUvix;
+	private String modDelataUvix;
+	private String stabType;
+
+	private String Uvxm;
+	private String resUvxm;
+
 	private String ERROR_MESSAGE = "";
 
 	public void caltulate(String theme) {
@@ -86,7 +97,7 @@ public class DiodiAndStabilitrManager {
 
 		vipremitel = new Vipremitel(calculatorStabilitron.getStabilitron(),
 				state);
-		
+
 		if (LoginService.IS_ROOT) {
 			setMainData();
 		}
@@ -208,7 +219,44 @@ public class DiodiAndStabilitrManager {
 			setResDiod(FALSE);
 		}
 
-		double x = passed / total * 10;
+		if (stabType.equalsIgnoreCase(given.getStabilitron().getType())) {
+			resStabType = TRUE;
+			passed += 1;
+		} else {
+			resStabType = FALSE;
+		}
+		
+		i = Float.parseFloat(Uvxm);
+		b = (Float) vipremitel.getNaprVxod();
+
+		if (checkIfValid(i, b)) {
+			resUvxm = TRUE;
+			passed += 1;
+		} else {
+			resUvxm = FALSE;
+		}
+		
+		i = Float.parseFloat(modUvix);
+		b = given.getNaprWihodnoe();
+
+		if (checkIfValid(i, b)) {
+			modResUvix = TRUE;
+			passed += 1;
+		} else {
+			modResUvix = FALSE;
+		}
+		
+		i = Float.parseFloat(modDelataUvix);
+		b = given.getDeltaNaprWihodnoe();
+
+		if (checkIfValid(i, b)) {
+			modeResDeltaUvix = TRUE;
+			passed += 1;
+		} else {
+			modeResDeltaUvix = FALSE;
+		}
+
+		double x = passed / total * 14;
 		int z = new Double(x).intValue();
 		System.out.println("Passed: " + passed);
 		System.out.println("Result" + x);
@@ -217,7 +265,7 @@ public class DiodiAndStabilitrManager {
 			z += 1;
 		}
 
-		if (LoginService.IS_ROOT){
+		if (LoginService.IS_ROOT) {
 			setMainData();
 			return;
 		}
@@ -645,6 +693,70 @@ public class DiodiAndStabilitrManager {
 
 	public void setMainDiod(String mainDiod) {
 		this.mainDiod = mainDiod;
+	}
+
+	public String getModUvix() {
+		return modUvix;
+	}
+
+	public void setModUvix(String modUvix) {
+		this.modUvix = modUvix;
+	}
+
+	public String getModDelataUvix() {
+		return modDelataUvix;
+	}
+
+	public void setModDelataUvix(String modDelataUvix) {
+		this.modDelataUvix = modDelataUvix;
+	}
+
+	public String getModResUvix() {
+		return modResUvix;
+	}
+
+	public void setModResUvix(String modResUvix) {
+		this.modResUvix = modResUvix;
+	}
+
+	public String getModeResDeltaUvix() {
+		return modeResDeltaUvix;
+	}
+
+	public void setModeResDeltaUvix(String modeResDeltaUvix) {
+		this.modeResDeltaUvix = modeResDeltaUvix;
+	}
+
+	public String getResStabType() {
+		return resStabType;
+	}
+
+	public void setResStabType(String resStabType) {
+		this.resStabType = resStabType;
+	}
+
+	public String getStabType() {
+		return stabType;
+	}
+
+	public void setStabType(String stabType) {
+		this.stabType = stabType;
+	}
+
+	public String getUvxm() {
+		return Uvxm;
+	}
+
+	public void setUvxm(String uvxm) {
+		Uvxm = uvxm;
+	}
+
+	public String getResUvxm() {
+		return resUvxm;
+	}
+
+	public void setResUvxm(String resUvxm) {
+		this.resUvxm = resUvxm;
 	}
 
 }
