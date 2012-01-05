@@ -335,7 +335,7 @@
 
 				<h:outputLabel
 					value="Студент #{loginService.student.name} #{loginService.student.surname} ваша оценка:"></h:outputLabel>
-				<h:outputLabel value="#{oBManager.result }"></h:outputLabel>
+				<h:outputLabel value="#{oBManager.resultMark }"></h:outputLabel>
 				<br>
 
 				<h:commandButton value="Проверить вычисления"

@@ -24,7 +24,7 @@ public class DiodiAndStabilitrManager {
 	private Lab studentLab = new Lab();
 	private double passed = 0.0;
 	private double total = 10.0;
-	private String resultMark = "введите данные для проверки и нажмите кнопку проверить.";
+	private String resultMark = "введите данные для проверки и нажмите кнопку проверить";
 
 	private static final String TRUE = "Верно";
 	private static final String FALSE = "Неверно";
@@ -217,9 +217,10 @@ public class DiodiAndStabilitrManager {
 			z += 1;
 		}
 
-		setMainData();
-		if (LoginService.IS_ROOT)
+		if (LoginService.IS_ROOT){
+			setMainData();
 			return;
+		}
 
 		resultMark = new String(new Double(z).toString());
 
