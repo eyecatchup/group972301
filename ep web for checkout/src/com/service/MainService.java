@@ -141,6 +141,10 @@ public class MainService {
 	public String DIODI_ADD() {
 		return AppLogic.DIODI_ADD;
 	}
+	
+	public String OB_ADD(){
+		return AppLogic.OB_ADD;
+	}
 
 	public String showStabData() {
 		if (variants0.size() == 0)
