@@ -45,6 +45,11 @@
 		<managed-bean-class>com.service.AddDiodiandStab</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>kBTService</managed-bean-name>
+		<managed-bean-class>com.service.KBTService</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 		<display-name>pages/MainLogin</display-name>
 		<from-view-id>/pages/MainLogin.jsp</from-view-id>
@@ -144,6 +149,11 @@
 		<display-name>com.validators.DiodAddValidator</display-name>
 		<validator-id>com.validators.DiodAddValidator</validator-id>
 		<validator-class>com.validators.DiodAddValidator</validator-class>
+	</validator>
+	<validator>
+		<display-name>com.validators.KbtVariantValidator</display-name>
+		<validator-id>com.validators.KbtVariantValidator</validator-id>
+		<validator-class>com.validators.KbtVariantValidator</validator-class>
 	</validator>
 
 </faces-config>

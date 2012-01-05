@@ -8,6 +8,7 @@ import org.hibernate.classic.Session;
 
 import entity.Given;
 import entity.GivenOB;
+import entity.KBTSource;
 import entity.Lab;
 import entity.OB_Transistor;
 import entity.RootEntity;
@@ -32,7 +33,8 @@ public class HibernateUtil {
 				.addAnnotatedClass(Student.class)
 				.addAnnotatedClass(StudentLabs.class)
 				.addAnnotatedClass(Diod.class)
-				.addAnnotatedClass(RootEntity.class);
+				.addAnnotatedClass(RootEntity.class)
+				.addAnnotatedClass(KBTSource.class);
 
 		config = aconf.configure();
 		sessionFactory = config.configure().buildSessionFactory();
