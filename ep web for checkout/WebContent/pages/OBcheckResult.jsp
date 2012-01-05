@@ -22,14 +22,14 @@
 <body>
 	<f:view>
 
-		<div class="dataReceive">
+		<div class="dataReceive border">
 			<h:form>
 				<h1>
 					<h:outputText value="#{oBManager.ERROR_MESSAGE }"></h:outputText>
 				</h1>
-
+				<h3>
 				<h:outputLabel value="Проверка вычислений"></h:outputLabel>
-				<br></br>
+				</h3>
 				<b><h:outputLabel value="Вариант:  #{oBManager.given.var }"></h:outputLabel></b>
 				<br></br>
 			</h:form>

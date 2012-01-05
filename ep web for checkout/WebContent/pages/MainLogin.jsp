@@ -21,7 +21,7 @@
 </head>
 <body>
 	<f:view>
-		<div class="loginContent">
+		<div class="loginContent border">
 
 			<div id="header">
 				<h:form styleClass="loginForm">

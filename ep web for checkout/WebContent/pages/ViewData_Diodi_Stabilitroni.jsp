@@ -22,7 +22,7 @@
 <body>
 	<f:view>
 
-		<div class="dataGiven">
+		<div class="dataGiven border">
 			<h:outputLabel value="#{mainService.theme0 }" styleClass="header"></h:outputLabel>
 			<br></br>
 

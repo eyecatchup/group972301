@@ -21,7 +21,7 @@
 
 <body>
 	<f:view>
-		<div class="dataGiven">
+		<div class="students border">
 			<h:form id="group_form">
 
 				<div>
