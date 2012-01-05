@@ -12,6 +12,10 @@ public class CalculatorOB extends OB{
         transistor = _transistor;
     }
     
+    private double getH21A(){
+  		return Math.sqrt(transistor.getH21min() * transistor.getH21max());
+    }
+    
     private double ll(double a, double b){
         return (a * b) / (a + b);
     }
@@ -33,7 +37,7 @@ public class CalculatorOB extends OB{
     }
     
     private void calcIb(){
-        Ib = given.getIk()/transistor.getH21a();
+        Ib = given.getIk()/getH21A();
     }
     
     private void calcUb(){
@@ -55,7 +59,7 @@ public class CalculatorOB extends OB{
     private void calcC(){
         double h11b = transistor.getH11a() / (1 + transistor.getH21a());
         h21b = - transistor.getH21a() / (1 + transistor.getH21a());
-        h21B = - transistor.getH21a() / (1 + transistor.getH21a());
+        h21B = - getH21A() / (1 + getH21A());
         rvh = h11b;
         Rvh = (Ra * rvh)/(Ra + rvh);
         Rb = (R1 * R2)/(R1 + R2);        
@@ -78,7 +82,7 @@ public class CalculatorOB extends OB{
         fn1 = 1 / (2 * Math.PI * C1* (given.getRg() + Rvh));
         fn2 = 1 / (2 * Math.PI * C2* (given.getRn() + Rvih));
         fn3 = 1 / (Cb * Rb);
-        fv1 = 1 / (2 * Math.PI * ll(given.getRg(), Rvh) * (transistor.getCa() + (Ku + 1) * transistor.getCk()));
+        fv1 = 1 / (2 * Math.PI * ll(given.getRg(), Rvh) * (transistor.getCa() + (Math.abs(Ku) + 1) * transistor.getCk()));
         fv2 = 1 / (2 * Math.PI * ll(given.getRn(), Rvih) * given.getCn());
         fv3 = 100000000 / Math.sqrt(Math.pow(h21B / h21b, 2) - 1);
         
