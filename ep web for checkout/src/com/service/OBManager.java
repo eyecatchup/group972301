@@ -26,61 +26,93 @@ public class OBManager {
 	private String result = "";
 
 	private String Ua;// show
-	private String UaStr;
 	private String Uip;// show
-	private String UipStr;
 	private String Rk;// show
-	private String RkStr;
 	private String Ra;// show
-	private String RaStr;
 	private String Ib;// show
-	private String IbStr;
 	private String Ub;// show
-	private String UbStr;
 	private String Id;// show
-	private String IdStr;
 	private String R1;// show
-	private String R1Str;
 	private String R2;// show
-	private String R2Str;
 
 	private String Rvh;// show
-	private String RvhStr;
 	private String Rb;// show
-	private String RbStr;
 	private String Rvih;// show
-	private String RvihStr;
 	private String C1;// show
-	private String C1Str;
 	private String C2;// show
-	private String C2Str;
 	private String Ca;// show
-	private String CaStr;
 	private String Cb;// show
-	private String CbStr;
-
 	private String Ki;// show
-	private String KiStr;
 	private String Ku;// show
-	private String KuStr;
 
 	private String fn1;// show
-	private String fn1Str;
 	private String fn2;// show
-	private String fn2Str;
 	private String fn3;// show
-	private String fn3Str;
 	private String fv1;// show
-	private String fv1Str;
 	private String fv2;// show
-	private String fv2Str;
 	private String fv3;// show
-	private String fv3Str;
-
 	private String MvN;// show
-	private String MvNStr;
 	private String MnN;// show
+	
+	//Str
+	private String UaStr;
+	private String UipStr;
+	private String RkStr;
+	private String RaStr;
+	private String IbStr;
+	private String UbStr;
+	private String IdStr;
+	private String R1Str;
+	private String R2Str;
+	
+	private String RvhStr;
+	private String RbStr;
+	private String RvihStr;
+	private String C1Str;
+	private String C2Str;
+	private String CaStr;
+	private String CbStr;
+	private String KiStr;
+	private String KuStr;
+	
+	private String fn1Str;
+	private String fn2Str;
+	private String fn3Str;
+	private String fv1Str;
+	private String fv2Str;
+	private String fv3Str;
+	private String MvNStr;
 	private String MnNStr;
+	
+	//Main
+	private String UaMain;
+	private String UipMain;
+	private String RkMain;
+	private String RaMain;
+	private String IbMain;
+	private String UbMain;
+	private String IdMain;
+	private String R1Main;
+	private String R2Main;
+	
+	private String RvhMain;
+	private String RbMain;
+	private String RvihMain;
+	private String C1Main;
+	private String C2Main;
+	private String CaMain;
+	private String CbMain;
+	private String KiMain;
+	private String KuMain;
+	
+	private String fn1Main;
+	private String fn2Main;
+	private String fn3Main;
+	private String fv1Main;
+	private String fv2Main;
+	private String fv3Main;
+	private String MvNMain;
+	private String MnNMain;
 
 	private String ERROR_MESSAGE = "";
 
@@ -94,10 +126,45 @@ public class OBManager {
 			setERROR_MESSAGE("");
 		}
 		setToDefault();
+		if (LoginService.IS_ROOT)
+			setMainData();
 	}
 	
 	private boolean checkIfValid(Float i, Float b) {
-		return (b * 1.1) > i && (b * 0.9) < i;
+		i = Math.abs(i);
+		b = Math.abs(b);
+		return (i > b * 0.9) && (i < b * 1.1);
+	}
+	
+	private void setMainData() {
+		UaMain = String.valueOf(calculatorOB.getUa());
+		UipMain = String.valueOf(calculatorOB.getUip());
+		RkMain = String.valueOf(calculatorOB.getRk());
+		RaMain = String.valueOf(calculatorOB.getRa());
+		IbMain = String.valueOf(calculatorOB.getIb());
+		UbMain = String.valueOf(calculatorOB.getUb());
+		IdMain = String.valueOf(calculatorOB.getId());
+		R1Main = String.valueOf(calculatorOB.getR1());
+		R2Main = String.valueOf(calculatorOB.getR2());
+		
+		RvhMain = String.valueOf(calculatorOB.getRvh());
+		RbMain = String.valueOf(calculatorOB.getRb());
+		RvihMain = String.valueOf(calculatorOB.getRvih());
+		C1Main = String.valueOf(calculatorOB.getC1());
+		C2Main = String.valueOf(calculatorOB.getC2());
+		CaMain = String.valueOf(calculatorOB.getCa());
+		CbMain = String.valueOf(calculatorOB.getCb());
+		KiMain = String.valueOf(calculatorOB.getKi());
+		KuMain = String.valueOf(calculatorOB.getKu());
+		
+		fn1Main = String.valueOf(calculatorOB.getFn1());
+		fn2Main = String.valueOf(calculatorOB.getFn2());
+		fn3Main = String.valueOf(calculatorOB.getFn3());
+		fv1Main = String.valueOf(calculatorOB.getFv1());
+		fv2Main = String.valueOf(calculatorOB.getFv2());
+		fv3Main = String.valueOf(calculatorOB.getFv3());
+		MvNMain = String.valueOf(calculatorOB.getMvN());
+		MnNMain = String.valueOf(calculatorOB.getMnN());
 	}
 
 	public void checkResult(ActionEvent e) {
@@ -374,6 +441,10 @@ public class OBManager {
 		if ((x - z) > 0.5) {
 			z += 1;
 		}
+		
+		setMainData();
+		if (LoginService.IS_ROOT)
+			return;
 		passed = 0;
 
 		studentLab.setMark(new Long(z));
@@ -891,6 +962,214 @@ public class OBManager {
 
 	public void setERROR_MESSAGE(String eRROR_MESSAGE) {
 		ERROR_MESSAGE = eRROR_MESSAGE;
+	}
+	
+	public String getUaMain() {
+		return UaMain;
+	}
+
+	public void setUaMain(String uaMain) {
+		UaMain = uaMain;
+	}
+
+	public String getUipMain() {
+		return UipMain;
+	}
+
+	public void setUipMain(String uipMain) {
+		UipMain = uipMain;
+	}
+
+	public String getRkMain() {
+		return RkMain;
+	}
+
+	public void setRkMain(String rkMain) {
+		RkMain = rkMain;
+	}
+
+	public String getRaMain() {
+		return RaMain;
+	}
+
+	public void setRaMain(String raMain) {
+		RaMain = raMain;
+	}
+
+	public String getIbMain() {
+		return IbMain;
+	}
+
+	public void setIbMain(String ibMain) {
+		IbMain = ibMain;
+	}
+
+	public String getUbMain() {
+		return UbMain;
+	}
+
+	public void setUbMain(String ubMain) {
+		UbMain = ubMain;
+	}
+
+	public String getIdMain() {
+		return IdMain;
+	}
+
+	public void setIdMain(String idMain) {
+		IdMain = idMain;
+	}
+
+	public String getR1Main() {
+		return R1Main;
+	}
+
+	public void setR1Main(String r1Main) {
+		R1Main = r1Main;
+	}
+
+	public String getR2Main() {
+		return R2Main;
+	}
+
+	public void setR2Main(String r2Main) {
+		R2Main = r2Main;
+	}
+
+	public String getRvhMain() {
+		return RvhMain;
+	}
+
+	public void setRvhMain(String rvhMain) {
+		RvhMain = rvhMain;
+	}
+
+	public String getRbMain() {
+		return RbMain;
+	}
+
+	public void setRbMain(String rbMain) {
+		RbMain = rbMain;
+	}
+
+	public String getRvihMain() {
+		return RvihMain;
+	}
+
+	public void setRvihMain(String rvihMain) {
+		RvihMain = rvihMain;
+	}
+
+	public String getC1Main() {
+		return C1Main;
+	}
+
+	public void setC1Main(String c1Main) {
+		C1Main = c1Main;
+	}
+
+	public String getC2Main() {
+		return C2Main;
+	}
+
+	public void setC2Main(String c2Main) {
+		C2Main = c2Main;
+	}
+
+	public String getCaMain() {
+		return CaMain;
+	}
+
+	public void setCaMain(String caMain) {
+		CaMain = caMain;
+	}
+
+	public String getCbMain() {
+		return CbMain;
+	}
+
+	public void setCbMain(String cbMain) {
+		CbMain = cbMain;
+	}
+
+	public String getKiMain() {
+		return KiMain;
+	}
+
+	public void setKiMain(String kiMain) {
+		KiMain = kiMain;
+	}
+
+	public String getKuMain() {
+		return KuMain;
+	}
+
+	public void setKuMain(String kuMain) {
+		KuMain = kuMain;
+	}
+
+	public String getFn1Main() {
+		return fn1Main;
+	}
+
+	public void setFn1Main(String fn1Main) {
+		this.fn1Main = fn1Main;
+	}
+
+	public String getFn2Main() {
+		return fn2Main;
+	}
+
+	public void setFn2Main(String fn2Main) {
+		this.fn2Main = fn2Main;
+	}
+
+	public String getFn3Main() {
+		return fn3Main;
+	}
+
+	public void setFn3Main(String fn3Main) {
+		this.fn3Main = fn3Main;
+	}
+
+	public String getFv1Main() {
+		return fv1Main;
+	}
+
+	public void setFv1Main(String fv1Main) {
+		this.fv1Main = fv1Main;
+	}
+
+	public String getFv2Main() {
+		return fv2Main;
+	}
+
+	public void setFv2Main(String fv2Main) {
+		this.fv2Main = fv2Main;
+	}
+
+	public String getFv3Main() {
+		return fv3Main;
+	}
+
+	public void setFv3Main(String fv3Main) {
+		this.fv3Main = fv3Main;
+	}
+
+	public String getMvNMain() {
+		return MvNMain;
+	}
+
+	public void setMvNMain(String mvNMain) {
+		MvNMain = mvNMain;
+	}
+
+	public String getMnNMain() {
+		return MnNMain;
+	}
+
+	public void setMnNMain(String mnNMain) {
+		MnNMain = mnNMain;
 	}
 
 }

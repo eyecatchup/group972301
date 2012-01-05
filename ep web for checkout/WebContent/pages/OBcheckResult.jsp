@@ -41,6 +41,7 @@
 						<th width="200px"><h:outputLabel value="Значение" /></th>
 						<th></th>
 						<th width="400px"><h:outputLabel value="Результат" /></th>
+						<th width="400px"><h:outputLabel value="Эталонный результат" /></th>
 					</tr>
 
 					<tr class="even">
@@ -51,6 +52,7 @@
 							</h:inputText></td>
 						<td><h:message for="ua"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.uaStr}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.uaMain }"></h:outputText></td>
 					</tr>
 
 					<tr>
@@ -61,6 +63,7 @@
 							</h:inputText></td>
 						<td><h:message for="uip"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.uipStr}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.uipMain }"></h:outputText></td>
 					</tr>
 					
 					<tr class="even">
@@ -71,6 +74,7 @@
 							</h:inputText></td>
 						<td><h:message for="rk"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.rkStr}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.rkMain }"></h:outputText></td>
 					</tr>
 					
 					<tr>
@@ -81,6 +85,7 @@
 							</h:inputText></td>
 						<td><h:message for="ra"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.raStr}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.raMain }"></h:outputText></td>
 					</tr>
 
 					<tr class="even">
@@ -91,6 +96,7 @@
 							</h:inputText></td>
 						<td><h:message for="ib"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.ibStr}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.ibMain }"></h:outputText></td>
 					</tr>
 					
 					<tr>
@@ -101,6 +107,7 @@
 							</h:inputText></td>
 						<td><h:message for="ub"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.ubStr}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.ubMain }"></h:outputText></td>
 					</tr>
 					
 					<tr class="even">
@@ -111,6 +118,7 @@
 							</h:inputText></td>
 						<td><h:message for="i_d"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.idStr}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.idMain }"></h:outputText></td>
 					</tr>
 					
 					<tr>
@@ -121,6 +129,7 @@
 							</h:inputText></td>
 						<td><h:message for="r_1"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.r1Str}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.r1Main }"></h:outputText></td>
 					</tr>
 
 					<tr class="even">
@@ -131,6 +140,7 @@
 							</h:inputText></td>
 						<td><h:message for="r_2"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.r2Str}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.r2Main }"></h:outputText></td>
 					</tr>
 
 					<tr>
@@ -141,6 +151,7 @@
 							</h:inputText></td>
 						<td><h:message for="rvh"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.rvhStr}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.rvhMain }"></h:outputText></td>
 					</tr>
 					
 					<tr class="even">
@@ -151,6 +162,7 @@
 							</h:inputText></td>
 						<td><h:message for="rb"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.rbStr}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.rbMain }"></h:outputText></td>
 					</tr>
 
 					<tr>
@@ -161,6 +173,7 @@
 							</h:inputText></td>
 						<td><h:message for="rvih"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.rvihStr}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.rvihMain }"></h:outputText></td>
 					</tr>
 					
 					<tr class="even">
@@ -171,6 +184,7 @@
 							</h:inputText></td>
 						<td><h:message for="c_1"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.c1Str}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.c1Main }"></h:outputText></td>
 					</tr>
 
 					<tr>
@@ -181,6 +195,7 @@
 							</h:inputText></td>
 						<td><h:message for="c_2"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.c2Str}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.c2Main }"></h:outputText></td>
 					</tr>
 
 					<tr class="even">
@@ -191,6 +206,7 @@
 							</h:inputText></td>
 						<td><h:message for="ca"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.caStr}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.caMain }"></h:outputText></td>
 					</tr>
 
 					<tr>
@@ -201,6 +217,7 @@
 							</h:inputText></td>
 						<td><h:message for="cb"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.cbStr}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.cbMain }"></h:outputText></td>
 					</tr>
 					
 					<tr class="even">
@@ -211,6 +228,7 @@
 							</h:inputText></td>
 						<td><h:message for="ki"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.kiStr}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.kiMain }"></h:outputText></td>
 					</tr>
 
 					<tr>
@@ -221,6 +239,7 @@
 							</h:inputText></td>
 						<td><h:message for="ku"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.kuStr}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.kuMain }"></h:outputText></td>
 					</tr>
 					
 					<tr class="even">
@@ -231,6 +250,7 @@
 							</h:inputText></td>
 						<td><h:message for="fn_1"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.fn1Str}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.fn1Main }"></h:outputText></td>
 					</tr>
 
 					<tr>
@@ -241,6 +261,7 @@
 							</h:inputText></td>
 						<td><h:message for="fn_2"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.fn2Str}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.fn2Main }"></h:outputText></td>
 					</tr>
 
 					<tr class="even">
@@ -251,6 +272,7 @@
 							</h:inputText></td>
 						<td><h:message for="fn_3"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.fn3Str}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.fn3Main }"></h:outputText></td>
 					</tr>
 
 					<tr>
@@ -261,6 +283,7 @@
 							</h:inputText></td>
 						<td><h:message for="fv_1"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.fv1Str}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.fv1Main }"></h:outputText></td>
 					</tr>
 
 					<tr class="even">
@@ -271,6 +294,7 @@
 							</h:inputText></td>
 						<td><h:message for="fv_2"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.fv2Str}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.fv2Main }"></h:outputText></td>
 					</tr>
 
 					<tr>
@@ -281,6 +305,7 @@
 							</h:inputText></td>
 						<td><h:message for="fv_3"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.fv3Str}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.fv3Main }"></h:outputText></td>
 					</tr>
 
 					<tr class="even">
@@ -291,6 +316,7 @@
 							</h:inputText></td>
 						<td><h:message for="mnn"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.mnNStr}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.mnNMain }"></h:outputText></td>
 					</tr>
 
 					<tr>
@@ -301,6 +327,7 @@
 							</h:inputText></td>
 						<td><h:message for="mvn"></h:message></td>
 						<td><h:outputLabel value="#{oBManager.mvNStr}"></h:outputLabel></td>
+						<td><h:outputText value="#{oBManager.mvNMain }"></h:outputText></td>
 					</tr>
 					
 				</table>
