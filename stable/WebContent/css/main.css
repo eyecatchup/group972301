@@ -1,0 +1,136 @@
+@CHARSET "UTF-8";
+
+body {
+	margin-top: 3%;
+	background-color: #33CCCC;
+}
+
+.border{
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	box-shadow: 0px 0px 10px #999;
+}
+
+div.loginContent{
+	width: 320px;
+	margin: 0 auto;
+	background: #FFF;
+	padding: 25px; 
+}
+
+#login table {
+	margin: 20px auto;
+	width: 320px;
+}
+
+#login table input {
+	width: 100%;
+}
+
+#header table{
+	width: 320px;
+}
+
+table TR TH {
+	text-align: center;
+	background: #AAE;
+}
+label.header
+{
+	font-size:14px;
+	font-weight:bold;
+}
+#main_view
+{
+	width:1020px;
+	margin: 0 auto;
+}
+table.tmpTab TD
+{
+	background:#E5ECF9;
+	padding: 4px;
+}
+table.tmpTab table
+{
+	border-collapse: collapse;
+}
+table.tmpTab table TD, table.tmpTab table TH
+{
+	border: 2px solid #FFF;
+}
+.theme {
+	float: left;
+	width: 300px;
+	margin: 10px;
+	background: #EEF;
+	padding: 10px;
+	vertical-align: middle;
+}
+#group_form select
+{
+	width:100px;
+	margin:3px;
+	vertical-align: middle;
+}
+div.theme label {
+	font-weight: bold;
+	font-size: 16px;
+	display: block;
+	margin-top:20px;
+}
+div.dataGiven
+{
+	width: 400px;
+	margin: 0 auto;
+	padding: 25px;
+}
+div.students
+{
+	width: 600px;
+	margin: 0 auto;
+	padding: 25px;
+}
+div.dataReceive
+{
+	width: 600px;
+	margin: 20px auto;
+	padding: 25px;
+}
+div.dataAll
+{
+	margin: 10px auto;
+	width: 1200px;
+	padding: 15px;
+}
+div.dataGiven.lft
+{
+	float:left;
+	margin:10px;
+}
+#dataViewOB
+{
+	width:1020px;
+	margin:0 auto;
+}
+div.dataGiven table { text-align:left; }
+.addForm {
+	background: #fff;
+	width: 300px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 20px;
+	border: 1px solid #000;
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+
+.errorMessage {
+	background: #FAA;
+	width: 460px;
+	margin: 20px auto;
+	border: 1px #A66 solid;
+	padding: 10px;
+	color: #333;
+}
